@@ -1,3 +1,4 @@
+//递归写法
 class Solution1 {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
@@ -7,18 +8,15 @@ public:
 			return false;
 		else
 		{
-			if (p->val==q->val)
+			if (p->val!=q->val)
 			{
-				return true;
+				return false;
 			}
 
 			else
 			{
-				return isSameTree(p->LeftNode,q->LeftNode)&&isSameTree(p->RightNode,q->RightNode);
+				return isSameTree(p->left,q->left)&&isSameTree(p->right,q->right);
 			}
 		}
     }
 };
-
-
-
