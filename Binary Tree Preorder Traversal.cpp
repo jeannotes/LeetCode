@@ -19,3 +19,31 @@ public:
 		preorderHelper(root->right,result);
 	}
 };
+
+
+//迭代版本，可能我这个是最简单的吧
+//一大早写了一个，非常方便，直接AC，非常开心
+class Solution
+{
+public:
+	vector<int> preorderTraversal(TreeNode *p){
+		stack<TreeNode* > s;
+		s.push(p);
+		
+		vector<int> result;
+
+		while (!s.empty())//true--空  false--不空
+		{
+			p=s.top();s.pop();
+			
+			if(p==NULL)
+				continue;
+			result.push_back(p->val);
+			
+			s.push(p->right);			
+			s.push(p->left);
+			
+		}
+		return result;
+	}
+};
