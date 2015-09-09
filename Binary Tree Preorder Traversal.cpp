@@ -23,27 +23,25 @@ public:
 
 //迭代版本，可能我这个是最简单的吧
 //一大早写了一个，非常方便，直接AC，非常开心
-class Solution
-{
+//BTW，这是第二个修改版本
+class Solution {
 public:
-	vector<int> preorderTraversal(TreeNode *p){
-		stack<TreeNode* > s;
-		s.push(p);
-		
+	vector<int> preorderTraversal(TreeNode *root){
+		stack<TreeNode*> s;
 		vector<int> result;
+		s.push(root);
 
-		while (!s.empty())//true--空  false--不空
+		while (!s.empty())
 		{
-			p=s.top();s.pop();
-			
-			if(p==NULL)
+			root=s.top();s.pop();
+			if (root==NULL)
 				continue;
-			result.push_back(p->val);
-			
-			s.push(p->right);			
-			s.push(p->left);
-			
+			//虽然检测栈是不是空的，但不能确定结点是否为空
+			result.push_back(root->val);
+			s.push(root->right);
+			s.push(root->left);
 		}
 		return result;
 	}
+	
 };
