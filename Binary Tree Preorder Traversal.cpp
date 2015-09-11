@@ -2,7 +2,8 @@
 //写递归程序一定注意终止条件
 //一开四 preoderHelper 中 我写的
 //  if(root!=NULL)  result.push_back(root->val)
-
+//144--Binary Tree Preorder Traversal 
+//https://leetcode.com/problems/binary-tree-preorder-traversal/
 class Solution {
 public:
 	vector<int> preorderTraversal(TreeNode *root){
