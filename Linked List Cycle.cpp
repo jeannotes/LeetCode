@@ -1,6 +1,8 @@
 class Solution {
 public:
     //https://leetcode.com/problems/linked-list-cycle/
+    //待会说明下，刚刚那题还有一种n平方解法
+    //http://blog.sina.com.cn/s/blog_6f611c300101fs1l.html
     bool hasCycle(ListNode *head) {
         ListNode *slow=head,*fast=head;
 		if (head==NULL||head->next==NULL){
