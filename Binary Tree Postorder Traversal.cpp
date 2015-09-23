@@ -7,11 +7,11 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution1 {
 public:
 //http://blog.csdn.net/jsrgfjz/article/details/48696527
 //https://leetcode.com/problems/binary-tree-postorder-traversal/
-    vector<int> postorderTraversal(TreeNode *root) {
+    vector<int> postorderTraversal1(TreeNode *root) {
     vector<int> result;
     vector<TreeNode*> stack;
     TreeNode *node=root;
@@ -37,4 +37,20 @@ public:
     }
     return result;
 }
+};
+
+class Solution2 {
+public:
+    vector<int> postorderTraversal2(TreeNode *root) {
+        vector<int> result;
+        postorderHelper(root, result);
+        return result;
+    }
+    
+    void postorderHelper(TreeNode *root, vector<int> &result) {
+        if (root == NULL) return;
+        postorderHelper(root->left, result);
+        postorderHelper(root->right, result);
+        result.push_back(root->val);
+    }
 };
