@@ -1,4 +1,33 @@
-class Solution {
+class Solution1 {
+public:
+//https://leetcode.com/problems/combinations/
+    void combineHelper(int n,int k,int start,vector<int> &answer,vector<vector<int> >&result){
+        if(answer.size()==k){
+            result.push_back(answer);
+            return;
+        }   //answer暂时保存k位数字
+        if(answer.size()>k){
+            return;
+        }
+        
+        for(int i=start;i<=n;i++){
+            answer.push_back(i);
+            combineHelper(n,k,i+1,answer,result);
+            answer.pop_back();
+        }
+    }
+    
+    vector<vector<int> > combine(int n, int k) {
+        vector<vector<int> >result;
+        vector<int>answer;
+        combineHelper(n,k,1,answer,result);
+        return result;
+    }
+};
+
+
+
+class Solution2 {
 public:
     void combineHelper(int n,int k,int start,vector<int> &answer,vector<vector<int> >&result){
         if(answer.size()==k){
