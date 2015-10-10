@@ -1,4 +1,6 @@
-class Solution {
+//切记，本题目还有一种位比较法，可以很快输出有多少个。
+
+class Solution1 {
 private:
     //https://leetcode.com/problems/n-queens-ii/
     int colFlag;//代表列
