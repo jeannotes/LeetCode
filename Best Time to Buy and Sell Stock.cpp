@@ -43,3 +43,20 @@ public:
  
  //dp[i] 表示[0...i]内最大值，则dp[i+1]=max(dp[i],prices[i+1]-min)
  //min是[0...i]内的最小值
+
+//3比2更加简洁。
+class Solution3 {
+public:
+    int maxProfit(vector<int>& prices) {
+        if(prices.empty()){
+            return 0;
+        }
+        int minPrice=prices[0],maxProfit=0;
+        for(int i=1;i<prices.size();i++){
+            minPrice=min(minPrice,prices[i]);
+            maxProfit=max(maxProfit,prices[i]-minPrice);
+        }
+        
+        return maxProfit;
+    }
+};
