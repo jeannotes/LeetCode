@@ -1,4 +1,5 @@
 class Solution1 {
+    //https://leetcode.com/problems/candy/
 public:
 //第一种解法
     int candy(vector<int>& ratings) {
@@ -37,7 +38,7 @@ public:
                 cur=table[i+1]+1;
             }
             res+=max(cur,table[i]);
-            table[i]=cur;
+            table[i]=max(cur,table[i])
             //table[i]=cur 或者  table[i]=max(cur,table[i]) 均可
             // 没有“table[i]=cur;”  对 [1,3,1] 无影响
         }
