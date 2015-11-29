@@ -18,13 +18,11 @@ public:
 
 class Solution2 {
 public:
-//位操作法
     int singleNumber(vector<int>& nums) {
         int res=0;
-        
         for(int i=0;i<nums.size();i++){
             res^=nums[i];
-        }
+        }//0与任何数字异或还为他本身，再次异或又是0.
         return res;
     }
 };
