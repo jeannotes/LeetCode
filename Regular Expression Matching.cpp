@@ -22,7 +22,7 @@ public:
         }
     }
     
-    
+//动态规划，切记所谓的之前字符就是* 之前的那个字符    
     bool isMatch2(string s, string p){
         /*
         f[i][j]==ifs[0...i-1] p[0...j-1]
