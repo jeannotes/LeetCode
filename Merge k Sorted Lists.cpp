@@ -1,11 +1,5 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+//https://leetcode.com/problems/merge-k-sorted-lists/
+//最小堆 最大堆
 class Solution {
 private:
     class Comp{
