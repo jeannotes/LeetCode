@@ -1,4 +1,5 @@
 class Solution {
+//https://leetcode.com/problems/first-missing-positive/
 public:
     int firstMissingPositive(vector<int>& nums) {
         // 1-a[0] 2-a[1] 3-a[2]   桶排序
