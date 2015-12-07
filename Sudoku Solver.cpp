@@ -38,9 +38,9 @@ public:
                 fill( row, col,i );
                 if(solver( board, index+1))     return true;
                 clear( row, col,i );
+                board[row][col]='.';//标准的回溯格式
             }    
         }
-        board[row][col]='.';
         return false;
     }
 
