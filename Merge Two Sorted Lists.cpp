@@ -1,17 +1,7 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode *dummy=new ListNode(0),*tail=dummy;
-        
-        int left=0,right=0;
         
         while(l1!=NULL&&l2!=NULL){
             if(l1->val<l2->val){
@@ -24,7 +14,6 @@ public:
             tail=tail->next;
         }
         //检测还有没有剩余
-        
         if(l1){
             tail->next=l1;
         }
