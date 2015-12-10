@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
 //https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
     bool search(vector<int>& nums, int target) {
@@ -51,5 +51,34 @@ public:
             }
         }
         return 0;
+    }
+};
+
+
+class Solution2 {
+public:
+    bool search(vector<int>& nums, int target) {
+        if(nums.empty())
+            return -1;
+            sort(nums.begin(),nums.end());
+        int left=0,right=nums.size()-1;
+        while(left<=right){
+            int mid=(left+right)/2;
+            if(nums[mid]==target)   
+                return true;
+            if(nums[mid]>=nums[left]){
+                //在左边
+                if( target<nums[mid] && nums[left]<=target ){
+                    right=mid-1;
+                }else 
+                    left=mid+1;
+            }else{
+                if(target <=nums[right] && nums[mid]<target ){
+                    left=mid+1;
+                }else 
+                    right=mid-1;
+            }
+        }
+        return false;
     }
 };
