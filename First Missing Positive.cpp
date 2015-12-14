@@ -3,6 +3,7 @@ class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
         // 1-a[0] 2-a[1] 3-a[2]   桶排序
+        // 注意下面变换顺序
         if(nums.size()<1)   return 1;
         int num;
         for(int i=0;i<nums.size();i++){
