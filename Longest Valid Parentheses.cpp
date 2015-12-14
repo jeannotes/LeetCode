@@ -16,10 +16,10 @@ public:
 					int j=stk.top();
 					stk.pop();
 					if(stk.empty()){
-						accu+=i-j+1;
+						accu+=i-j+1;//()()()--6  "()(()"--2  "()(())--6"
 						result=max(result,accu);
 					}
-					else
+					else//(()() 如果还用上面的accu+=i-j+1，对于-- "()(())"  结果为8
 						result=max(result,i-stk.top());
 				}
 			}
