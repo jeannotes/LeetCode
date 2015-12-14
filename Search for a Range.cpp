@@ -2,9 +2,6 @@ class Solution1 {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
         vector<int> result(2,-1);
-        if(nums.empty()){
-            return result;
-        }
         
         int low=binarySearchLow(nums,target,0,nums.size()-1);
         int high=binarySearchHigh(nums,target,0,nums.size()-1);
@@ -18,7 +15,7 @@ public:
     }
     
     int binarySearchLow(vector<int> &nums,int target,int left,int right){
-        if(left>right){
+        if(left>right){//关键的判断
             return left;
         }
         int mid=(left+right)/2;
