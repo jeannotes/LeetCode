@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     int searchInsert(vector<int>& nums, int target) {
         int length=nums.size();
@@ -27,5 +27,37 @@ public:
         if(i>j){
             return i;
         }
+    }
+};
+
+class Solution2 {
+public:
+    int pos=0;
+    int searchInsert(vector<int>& nums, int target) {
+        if(nums.empty())
+            return 0;
+        int find=binarySearch(0,nums.size()-1,nums,target);
+        
+        if(find!=-1)
+            return find;
+        else
+            return  pos; //1 2 4
+    }
+    
+    int binarySearch(int left,int right,vector<int>&nums,int target){
+        if (left>right){
+            pos=(right+left+2)/2;
+            //pos= left ;
+            return -1;
+        }
+            
+        int mid=(left+right)/2;
+        
+        if(nums[mid]==target)
+            return mid;
+        if(nums[mid]>target)
+            return binarySearch(left,mid-1,nums,target);
+        if(nums[mid]<target)
+            return binarySearch(mid+1,right,nums,target);
     }
 };
