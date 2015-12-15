@@ -1,32 +1,33 @@
 class Solution {
-//https://leetcode.com/problems/valid-sudoku/
+    //题目的意思是判断当前的数字是否有效
 public:
-//虽说题目要用hash，尽管我程序里面没有定义hash,反而定义的是数组，所以，本质上也是hash。   
-    bool isValidSudoku(vector<vector<char>>& board) {
-        bool rowValid[9][10] ={false};
-        bool colValid[9][10] ={false};
-        bool subBoard[9][10] ={false};
+    int rowValid[9][10]={{0}};
+    int colValid[9][10]={{0}};
+    int subValid[9][10]={{0}};//0代表有效
     
-        for(int i=0;i<9;i++){
-            for(int j=0;j<9;j++){
-                if(board[i][j]=='.')    continue;
-                /**/
-                int index=board[i][j]-'0';
-                /*
-                if(rowValid[i][index])  return false;
-                   
-                if(colValid[j][index])   return false;
-                   
-                if(subBoard[(i/3)*3+j/3][index])    return false;*/
-                if((rowValid[i][index])||(colValid[j][index])||(subBoard[i/3*3+j/3][index]) )   
-                    return false;   
-                rowValid[i][index]=true;
-                colValid[j][index]=true;
-                subBoard[i/3*3+j/3][index]=true;
+    bool isValidSudoku(vector<vector<char>>& board) {
+        for(int i=0;i<=8;i++){
+            for(int j=0;j<=8;j++){
+                if(board[i][j]=='.')
+                    continue;
+                int index=(int)(board[i][j]-'0');
+                if( !isValid(i,j,index) )
+                    return false;
+                 fill(i,j,index);   
             }
         }
-        
         return true;
     }
-
+    
+    bool isValid(int row,int col,int val){
+        if(  rowValid[row][val]==0  && colValid[col][val]==0 && subValid[row/3*3+col/3][val]==0  )
+            return true;
+        return false;
+    }
+    
+    void fill(int row,int col,int val){
+        rowValid[row][val]=1;  
+        colValid[col][val]=1;
+        subValid[row/3*3+col/3][val]=1; 
+    }
 };
