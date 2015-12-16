@@ -21,7 +21,7 @@ string solution1(int n){
             c = s[i];
             count = 1;
         }
-    }
+    }//考虑最后一个字符
     if(i == s.length()){
         ns += char('0'+count);
         ns += c;
