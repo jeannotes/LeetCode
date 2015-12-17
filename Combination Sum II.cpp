@@ -29,7 +29,6 @@ public:
             return;
         }  It seems it is also ok   
         */
-        
         for(int i=index;i<=length-1;i++){
             temp.push_back(candidates[i]);
             sumHelper(candidates,target-candidates[i],i+1,length);
