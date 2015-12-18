@@ -1,4 +1,5 @@
 class Solution1 {
+    //和regular expression matching的区别在于他不需要判断在这个之前的一个字符与前面的相同，他是任意的。
 public:
     bool isMatch(string s, string p) {
         char *ss=&s[0];char *pp=&p[0];
