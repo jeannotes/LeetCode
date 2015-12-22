@@ -2,7 +2,7 @@ class Solution {
 //https://leetcode.com/problems/powx-n/
 public:
     double myPow(double x, int n) {
-        if(n==0) return 1;
+        if(n==0) return 1;//注意很多细节
         if(n==1) return x;
         if(x==0||x==1) return x;
         
