@@ -1,15 +1,55 @@
+
 class Solution {
 public:
-//还有一种分治法，第二次刷的时候补上
 //https://leetcode.com/problems/maximum-subarray/
     int maxSubArray(vector<int>& nums) {
-        int sum[nums.size()];
-        int res=INT_MIN;
-        for(int i=0;i<nums.size();i++){
+        if(nums.empty())
+            return 0;
+            
+        int sum[nums.size()],res=nums[0];
+        sum[0]=nums[0];
+        for(int i=1;i<nums.size();i++){
             sum[i]=max(sum[i-1]+nums[i],nums[i]);
-            res=max(res,sum[i]);
+            res=max(sum[i],res);
         }
-        //sum[i]--代表以nums[i]为结尾的最大和
         return res;
+    }
+};
+
+class Solution {
+public:
+    int recursiveMaxSubArray(vector<int>&A, int left, int right)
+    {
+    	if(left == right)return A[left];
+    	if(left == right-1)return max(max(A[left], A[right]), A[left]+A[right]);
+    
+    	//divide
+    	int mid = (left + right)/2;
+    	int lmax = recursiveMaxSubArray(A, left, mid-1);
+    	int rmax = recursiveMaxSubArray(A, mid+1, right);
+    
+    	//the max is [i..mid..j]
+    	int mmax = A[mid];
+    
+    	for(int j = mid + 1, sum = mmax; j <= right; ++j)
+    	{
+    		sum += A[j];
+    		if(sum > mmax)
+    			mmax = sum;	
+    	}
+    	
+    	for(int j = mid - 1, sum = mmax; j >= left; --j)
+    	{
+    		sum += A[j];
+    		if(sum > mmax)
+    			mmax = sum;
+    	}
+    
+    	return max(max(lmax, rmax), mmax);
+    }
+    
+    int maxSubArray(vector<int>& nums) 
+    {
+    	return recursiveMaxSubArray(nums, 0, nums.size()-1);
     }
 };
