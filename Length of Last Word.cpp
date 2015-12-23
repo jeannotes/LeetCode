@@ -9,12 +9,10 @@ public:
         while(j>=0&&s[j]==' ')   j--;
         if(j<0) return 0;
         for(int i=j;i>=0;i--){
-            if(s[i]==' '){
+            if(s[i]==' ')
                 return j-i;
-            }
-            if( s[i]!=' '&&i==0 ){
+            if( s[i]!=' '&&i==0 )
                 return j-i+1;
-            }
         }
         return 0;
     }
