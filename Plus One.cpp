@@ -1,31 +1,21 @@
 class Solution {
 public:
-//https://leetcode.com/problems/plus-one/
     vector<int> plusOne(vector<int>& digits) {
-        vector<int> result;
+        if(digits.empty())
+            return digits;
         int flag=0;
         
-        if(digits[digits.size()-1]+1+flag>=10){
-                
-                result.push_back((digits[digits.size()-1]+1+flag)%10);flag=1;
-            }else{
-                result.push_back(digits[digits.size()-1]+1+flag);
-                flag=0;
-            }
+        flag=(digits[digits.size()-1]+1)/10;
+        digits[digits.size()-1]=(digits[digits.size()-1]+1)%10;
         
         for(int i=digits.size()-2;i>=0;i--){
-            if(digits[i]+flag>=10){
-                
-                result.push_back((digits[i]+flag)%10);flag=1;
-            }else{
-                result.push_back(digits[i]+flag);
-                flag=0;
-            }
+            int tem=digits[i]+flag;//注意体会为什么设立 tem变量，如果没有，那么会导致后面的两个语句tem值不一样。
+            flag=(tem)/10;
+            digits[i]=(tem)%10;
         }
-        if(flag){
-            result.push_back(flag);
-        }
-        reverse(result.begin(),result.end());
-        return result;
+        if(flag)
+            digits.insert(digits.begin() ,flag);
+        return digits;
+        
     }
 };
