@@ -1,33 +1,18 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
-        int lenA=a.length(),lenB=b.length();
-        
-        if(lenA<lenB){
+        if(a.length()<b.length())
             return addBinary(b,a);
-        }
-        int pa=lenA-1,pb=lenB-1;
+        b.insert(b.begin(),a.length()-b.length(),'0');//此函数在p0处插入n个字符c
         int flag=0;
-        string res="";
-        string tem="";
-        while(pb>=0){
-            int sum=(int)(a[pa]-'0')+(int)(b[pb]-'0')+flag;
-            tem+=(sum%2==1)?'1':'0';// sum总和 的三种情况 0,1,2。只有当和为1，返回1，其余都为0
-            flag=sum/2;
-            pa--;
-            pb--;
+        for(int i=a.length()-1;i>=0;i--){
+            int tem=int(a[i]-'0')+int(b[i]-'0')+flag;
+            flag=tem/2;
+            tem%=2;
+            a[i]=char('0'+tem);
         }
-        while(pa>=0){
-            int sum=(int)(a[pa]-'0')+flag;
-            tem+=(sum%2==1)?'1':'0';// sum总和 的三种情况 0,1,2。只有当和为1，返回1，其余都为0
-            flag=sum/2;
-            pa--;
-        }
-        
-        if(flag){
-            tem=tem+'1';
-        }
-        reverse(tem.begin(),tem.end());
-        return tem;
+        if(flag)
+            a.insert(a.begin(),char('0'+flag));
+        return a;
     }
 };
