@@ -1,6 +1,7 @@
 class Solution {
 public:
 //https://leetcode.com/problems/set-matrix-zeroes/
+//每一行每一列投射到最左边最右边，以此作为标志
     void setZeroes(vector<vector<int>>& matrix) {
         if(matrix.empty())  return;
         bool firRow=false,firCol=false;
