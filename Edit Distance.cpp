@@ -1,34 +1,26 @@
 class Solution {
+    //http://www.tuicool.com/articles/iAzEbm
+    //逆序理解
 public:
-//https://leetcode.com/problems/edit-distance/
-//http://blog.163.com/gjx_12358@126/blog/static/895363452014232191498/
-//讲解非常详细。
     int minDistance(string word1, string word2) {
-        int row=word1.length()+1;
-        int col=word2.length()+1;
-        //为了初始化，从0到某个值一直就为某个值，见下面的初始化
-        vector<vector <int> > f(row,vector<int>(col));
-        //vector<vector <int> > f(row,vector<int>(col));
+        int m=word1.length(),n=word2.length();
+        vector<vector<int>>res(m+1,vector<int>(n+1,0));
+        res[0][0]=0;
         
-        for(int i=0;i<row;i++)
-            f[i][0]=i;
-        for(int i=0;i<col;i++)
-            f[0][i]=i;
-        //初始化完毕
+        //res[i][j] --- s1[0....i]->s2[0....j]
+        for(int i=1;i<=m;i++) 
+            res[i][0]=i;
+        for(int i=1;i<=n;i++)
+            res[0][i]=i;
         
-        for(int i=1;i<row;i++){
-            for(int j=1;j<col;j++){
-                //如果相等
-                if(word1[i-1]==word2[j-1])
-                    f[i][j]=f[i-1][j-1];
-                else{
-                    f[i][j]=f[i-1][j-1]+1;//替换的情况
-                }
-                //真正开始比较的时候
-                f[i][j]=min(f[i][j],min(f[i][j-1]+1,f[i-1][j]+1));
-                           //删除          插入       刚刚的替换    
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<=n;j++){
+                res[i][j]=res[i-1][j-1]+(word1[i-1]==word2[j-1]?0:1);
+                
+                int tem=min(res[i][j-1]+1,res[i-1][j]+1);
+                res[i][j]=min(tem,res[i][j]);
             }
         }
-        return f[row-1][col-1];
+        return res[m][n];
     }
 };
