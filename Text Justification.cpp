@@ -19,7 +19,7 @@ public:
             int charaLen=rowlen-(j-i);//当前有多少个字符
             int meanSpace=j<len?  (maxWidth-charaLen)/(j-i-1) : 1;//只要是最后一行，无论有多少个字符串，间隙都是1
             int leftSpace=j<len?  (maxWidth-charaLen)%(j-i-1) : (maxWidth-(rowlen-1)); 
-            //如果是最后一行，括号里面减去1是因为在最开始多加了1，反正最后一个字符距离倒数第二个就一个字符。
+            //这里指的是所有的单词都是最后一行
             
             string tmp;
             for(int k=i;k<j-1;k++){//j不符合要求
@@ -34,7 +34,6 @@ public:
             if(leftSpace>0)     addSpace(tmp,leftSpace);
             res.push_back(tmp);
             i=j;
-            
         }
         return res;
     }
