@@ -26,7 +26,7 @@ public:
                         if(number_in_t[s[start]]!=0)    number_found_in_t[s[start]]--;//如果不剪掉，那么不能准确判断出现多少次
                         start++;
                     }
-                    if(winEnd-winStart>i-start){
+                    if(winEnd-winStart>i-start){//考虑一下这边+1 还是 -1 的情况
                         winEnd=i;winStart=start;
                     }
                     //这个时候以start开头的字符仅仅出现1次，减掉就可以满足下一个条件
