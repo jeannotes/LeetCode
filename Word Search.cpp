@@ -19,7 +19,7 @@ public:
         if(i<0||i>=board.size()||j<0||j>=board[0].size())   return false;
         if(board[i][j]!=word[k])    return false;
         
-        board[i][j]='#';
+        board[i][j]='#';//防止以后再次返回到当前节点。直接设置一个非字符
         
         bool result=(existHelper(board,word,i-1,j,k+1) || existHelper(board,word,i+1,j,k+1)
                     ||existHelper(board,word,i,j-1,k+1) || existHelper(board,word,i,j+1,k+1));
