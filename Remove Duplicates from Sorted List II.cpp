@@ -1,14 +1,10 @@
-class Solution
-{
+class Solution{
 public:
 	ListNode *deleteDuplicates(ListNode *head){
 	//https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
-		if (head==NULL||head->next==NULL){
+		if (head==NULL||head->next==NULL)
 			return head;
-		}
-
 		ListNode *dummy=new ListNode(0);
-
 		dummy->next=head;
 		ListNode *p=dummy;//避免我的前面程序在一开头判断是否有连续相同数字
 
