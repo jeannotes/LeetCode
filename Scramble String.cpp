@@ -1,4 +1,4 @@
-class Solution {
+class Solution {//http://www.cnblogs.com/easonliu/p/3696135.html
 public:
     /*
     bool isScramble(string s1, string s2) {
