@@ -40,7 +40,6 @@ public:
             
             tmp->next= slow->next;
             slow->next=tmp;
-            //fast=slow->next;
         }
         return dummy->next;
     }
