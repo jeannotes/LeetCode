@@ -2,7 +2,8 @@ class Solution {
 public:
     int numDecodings(string s) {
         //dp[i]  --  s[0..i-1]
-        if(s.empty())   return 0;
+        if(s.empty())   
+            return 0;
         int len=s.length();
         int sum[len+1];
         
