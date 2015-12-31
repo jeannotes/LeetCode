@@ -9,7 +9,6 @@ public:
         res.push_back(1);
         if(n==1)    return res;
         
-        // 0,1--0,1,2,3--0,1,2,3,4,,5,6,7
         for(int i=2;i<=n;i++){
             int high=pow(2,i-1);
             vector<int> tmp;
@@ -19,7 +18,6 @@ public:
             for(int j=0;j<tmp.size();j++){
                 res.push_back(tmp[j]);
             }
-            //res.push_back(tmp);
         }
         
         return res;
