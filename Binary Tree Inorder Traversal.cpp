@@ -36,13 +36,11 @@ public:
             if(root!=NULL){
                 st.push(root);
                 root=root->left;
-            }
-            else{
+            }else{
                 root=st.top();st.pop();
                 result.push_back(root->val);
                 root=root->right;
-            }
-            //这个时候while循环是不对的，如果只有左子树，就不能出结果。因为有堆栈，可以判断是否为空。
+            }//这个时候while循环是不对的，如果只有左子树，就不能出结果。因为有堆栈，可以判断是否为空。
         }
         return result;
     }
