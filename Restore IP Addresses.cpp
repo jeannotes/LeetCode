@@ -31,9 +31,6 @@ private:
 
 public:
     vector<string> restoreIpAddresses(string s) {
-        /* https://oj.leetcode.com/problems/restore-ip-addresses/
-        */
-        
         vector<string> result;
         vector<string> addr;
         restoreHelper(s, 0, addr, result);
