@@ -1,11 +1,10 @@
 class Solution {
 public:
     int numDecodings(string s) {
-        //dp[i]  --  s[0..i-1]
         if(s.empty())   
             return 0;
         int len=s.length();
-        int sum[len+1];
+        int sum[len+1];//sum[i]--s[0...i-1]
         
         sum[0]=1;
         sum[1]=s[0]=='0'?0:1;
