@@ -1,14 +1,4 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
- 
- //https://leetcode.com/problems/binary-tree-inorder-traversal/
+//https://leetcode.com/problems/binary-tree-inorder-traversal/
 class Solution1 {
 public:
     vector<int> inorderTraversal1(TreeNode* root){
