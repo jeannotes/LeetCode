@@ -1,6 +1,5 @@
 class Solution {
-public:
-//https://leetcode.com/problems/merge-sorted-array/
+public://https://leetcode.com/problems/merge-sorted-array/
     void merge(vector<int>& nums1 , int m , vector<int>& nums2 , int n) {
         //假设是升序排列的了。
         int i=m-1,j=n-1;
