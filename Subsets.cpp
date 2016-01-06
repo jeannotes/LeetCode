@@ -11,14 +11,13 @@ public:
     }
     
     void subsetsHelper(int start,vector<int>&nums){
-        if(start==nums.size()){
+        if(start==nums.size())
             return;
-        }
         
         for(int i=start;i<nums.size();i++){
             tem.push_back(nums[i]);
             res.push_back(tem);
-            subsetsHelper(i+1,nums);
+            subsetsHelper(i+1,nums);//不是start，每次都会出错
             tem.pop_back();
         }
     }
