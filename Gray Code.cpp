@@ -2,12 +2,14 @@ class Solution {
 public:
     vector<int> grayCode(int n) {
         vector<int> res;
-        if(n==0)    {
-            res.push_back(0);return res;
+        if(n==0){
+            res.push_back(0);
+            return res;
         }
         res.push_back(0);
         res.push_back(1);
-        if(n==1)    return res;
+        if(n==1)    
+            return res;
         
         for(int i=2;i<=n;i++){
             int high=pow(2,i-1);
