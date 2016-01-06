@@ -10,9 +10,8 @@ public:
     }
     
     void subsetsHelper(int start,vector<int>&nums){
-        if(start==nums.size()){
+        if(start==nums.size())
             return;
-        }
         
         for(int i=start;i<nums.size();i++){
             if(i>start&&nums[i]==nums[i-1])
