@@ -26,7 +26,7 @@ public:
             head=head->next;
         }
         leftTail->next=right->next;
-        rightTail->next=NULL;
+        rightTail->next=NULL;//这句话不能丢
         return left->next;
     }
 };
