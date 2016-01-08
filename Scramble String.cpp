@@ -19,7 +19,6 @@ public:
         //s2[0..j]  s2[j+1...n]
         //s2刚刚是从前面分成两半前面是j个，现在从后面往前分，后面是j个
         //isScramble(s1[0..j],s2[0..j])&&isScramble(s1[j+1...n],s2[j+1...n])
-        
         //isScramble(s1[0..j],s2[j+1...n])&&isScramble(s1[j+1...n],s2[0..j])
         for(int i=1;i<s1.size();i++){
             if( isScramble(s1.substr(0,i),s2.substr(0,i))  && 
