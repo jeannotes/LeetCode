@@ -67,18 +67,19 @@ public:
             int mid=(left+right)/2;
             if(nums[mid]==target)   
                 return true;
-            if(nums[mid]>=nums[left]){
+            if(nums[mid]>nums[left]){
                 //在左边
                 if( target<nums[mid] && nums[left]<=target ){
                     right=mid-1;
                 }else 
                     left=mid+1;
-            }else{
+            }else if(nums[mid]<nums[left]){
                 if(target <=nums[right] && nums[mid]<target ){
                     left=mid+1;
                 }else 
                     right=mid-1;
-            }
+            }else
+                left++;//非常重要的地方
         }
         return false;
     }
