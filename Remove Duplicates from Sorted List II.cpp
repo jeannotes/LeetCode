@@ -1,5 +1,5 @@
 class Solution{
-public:
+public://不是连续出现两次，而是全部相同的删除
 	ListNode *deleteDuplicates(ListNode *head){
 	//https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
 		if (head==NULL||head->next==NULL)
@@ -17,7 +17,6 @@ public:
 					p->next=tmp->next;
 					delete tmp;
 				}//既然有相等值，那就记录第一个，后面一直判断
-
 			}
 			else{
 				p=p->next;
