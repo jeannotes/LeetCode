@@ -5,8 +5,7 @@ public:
             return 0;
         int m=matrix.size(),n=matrix[0].size();
         int area=0;
-        vector<int>height(n,0);
-        
+        vector<int>height(n,0);//初始化
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(matrix[i][j]=='0')
