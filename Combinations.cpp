@@ -8,6 +8,10 @@ public:
     }
     
     void combineHelper(int start,int n,int k){
+        /*
+        if(start>n-k+1){//这一段不能要，因为会使得后面的 13 14 15全部消失。n=4，k=2的情况
+            return;
+        }*/
         if(tem.size()==k){
             res.push_back(tem);
             return;
