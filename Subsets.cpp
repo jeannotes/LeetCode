@@ -1,4 +1,4 @@
-class Solution {
+class Solution {//https://leetcode.com/problems/subsets/
 	//第三遍的时候注意一下位操作法
 public:
     vector<vector<int>>res;
