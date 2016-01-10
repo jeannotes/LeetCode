@@ -6,13 +6,11 @@ public:
         int len=0,count=1;
         for(int i=1;i<nums.size();i++){
             if(nums[i]!=nums[len]){
-                count=0;
-                nums[len++]=nums[i];
-                count++;
+                nums[++len]=nums[i];
+                count=1;
             }else{
                 if(count==1){
-                    len++;
-                    nums[len]=nums[i];
+                    nums[++len]=nums[i];
                     count++;
                 }
             }
