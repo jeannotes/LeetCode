@@ -5,16 +5,16 @@ public:
         int len=path.length(),i=0;
         
         while(i<len){
-            while(i<len&&path[i]=='/'){
+            while(i<len&&path[i]=='/')
                 i++;
-            }
+            
             if(i==len)
                 break;
             
             string tmp;
-            while(i<len&&path[i]!='/'){
+            while(i<len&&path[i]!='/')
                 tmp+=path[i++];
-            }
+            
             if(tmp==".")
                 continue;
             else if(tmp==".."){
