@@ -39,6 +39,10 @@ public:
                 right=mid-1;
             else{
                 if((mid+1)>x/(mid+1))
+                /*The key is that midmid will overflow the integer if mid is large enough. 
+                Therefore it is better to do mid> x/mid, 
+                as that will definitely NOT overflow as long as mid is a valid positive int.
+                */
                     return mid;
                 else
                     left=mid+1;
