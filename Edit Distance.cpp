@@ -1,5 +1,5 @@
 class Solution {
-    //http://www.tuicool.com/articles/iAzEbm
+    //https://leetcode.com/discuss/43398/20ms-detailed-explained-c-solutions-o-n-space
 public:
     int minDistance(string word1, string word2) {
         int m=word1.length(),n=word2.length();
