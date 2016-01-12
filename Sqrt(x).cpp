@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     int mySqrt(int x) {
         if(x<=0)
@@ -23,5 +23,26 @@ public:
             return binaryInt(x,mid+1,right);
         else
             return binaryInt(x,left,mid-1);
+    }
+};
+
+class Solution2 {
+    //https://leetcode.com/discuss/24942/a-binary-search-solution
+public:
+    int mySqrt(int x) {
+        if(x<=1)
+            return x;
+        int left=1,right=x;
+        while(true){
+            int mid=(left+right)/2;
+            if(mid>x/mid)
+                right=mid-1;
+            else{
+                if((mid+1)>x/(mid+1))
+                    return mid;
+                else
+                    left=mid+1;
+            }
+        }
     }
 };
