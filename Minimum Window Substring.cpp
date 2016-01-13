@@ -2,34 +2,37 @@ class Solution {
     //http://www.cnblogs.com/TenosDoIt/p/3461301.html
     //https://leetcode.com/discuss/72701/here-10-line-template-that-can-solve-most-substring-problems
 public:
-    string minWindow(string S, string T) {
+    string minWindow(string s, string t) {
         string result;
-        if(S.empty() || T.empty()){
+        if(s.empty()||t.empty())
             return result;
-        }
-        unordered_map<char, int> map;
-        unordered_map<char, int> window;
-        for(int i = 0; i < T.length(); i++){
-            map[T[i]]++;
-        }
-        int minLength = INT_MAX;
-        int letterCounter = 0;
-        for(int slow = 0, fast = 0; fast < S.length(); fast++){
-            char c = S[fast];
-            if(map.find(c) != map.end()){
-                window[c]++;
-                if(window[c] <= map[c]){
-                    letterCounter++;
-                }
-            }
-            if(letterCounter >= T.length()){
-                while(map.find(S[slow]) == map.end() || window[S[slow]] > map[S[slow]]){
-                    window[S[slow]]--;
-                    slow++;
-                }
-                if(fast - slow + 1 < minLength){
-                    minLength = fast - slow + 1;
-                    result = S.substr(slow, minLength);
+        unordered_map<char,int>number_in_t;
+        unordered_map<char,int>number_found_in_t;
+        int hasFound=0,minLength=INT_MAX;
+        
+        for(int i=0;i<t.length();i++)
+            number_in_t[t[i]]++;
+        
+        for(int i=0,start=0;i<s.length();i++){
+            char c=s[i];
+            if(number_in_t.find(c)!=number_in_t.end()){
+                number_found_in_t[c]++;
+                if(number_found_in_t[c]<=number_in_t[c])
+                    hasFound++;
+                
+                if(hasFound==t.length()){
+                    //重新确定范围
+                    while(number_in_t.find(s[start])==number_in_t.end()
+                            ||number_in_t[s[start]]<number_found_in_t[s[start]]){
+                        
+                        number_found_in_t[s[start]]--;
+                        start++;
+                    }
+                    
+                    if(i-start+1<minLength){
+                        minLength=i-start+1;
+                        result=s.substr(start,minLength);
+                    }
                 }
             }
         }
