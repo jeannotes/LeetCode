@@ -4,7 +4,6 @@ public:
         vector<vector<int>>matrix(n,vector<int>(n,0));
         if(n==0)
             return matrix;
-            
         int left=0,right=n-1,up=0,down=n-1;
         int count=1;
         while(up<=down&&left<=right){
