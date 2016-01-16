@@ -5,8 +5,7 @@ public:
         if(n==0)
             return matrix;
             
-        int left=0,right=n-1;
-        int up=0,down=n-1;
+        int left=0,right=n-1,up=0,down=n-1;
         int count=1;
         while(up<=down&&left<=right){
             for(int i=left;i<right;i++)
