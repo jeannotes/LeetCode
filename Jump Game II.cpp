@@ -15,7 +15,7 @@ public:
             }
             curBegin=curEnd+1;
             curEnd=last;
-            count++;
+            count++;//didn't that kind understand
         }
         return count;
     }
