@@ -13,7 +13,7 @@ public:
             return head;
         int len=getLength(head);
         ListNode *last=head;
-        while(last->next!=NULL)
+        while(last->next!=NULL)//it should be last->next
             last=last->next;
         
         k=k%len;
