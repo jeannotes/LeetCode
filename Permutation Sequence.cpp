@@ -20,15 +20,9 @@ public:
             ret+=char('0'+nums[tmp]);
             //把从tmp开始的数，从后面往前面移动
             for(int j=tmp+1;j<n;j++)
-                nums[j-1]=nums[j];//至此 nums数组重新生成
+                nums[j-1]=nums[j];//至此 nums数组重新生成,I understand it now thoroughly!
             k=k%s[i-2];
         }
         return ret;
     }
-        /*
-        s[0] 1 
-        s[1] 2!
-        s[2] 3!
-        s[i] (i+1)!
-        */
 };
