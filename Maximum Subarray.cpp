@@ -1,16 +1,14 @@
-
 class Solution {
 public:
-//https://leetcode.com/problems/maximum-subarray/
     int maxSubArray(vector<int>& nums) {
         if(nums.empty())
             return 0;
-            
         int sum[nums.size()],res=nums[0];
         sum[0]=nums[0];
+        // k--i 
         for(int i=1;i<nums.size();i++){
-            sum[i]=max(sum[i-1]+nums[i],nums[i]);
-            res=max(sum[i],res);
+            sum[i]=max(nums[i],nums[i]+sum[i-1]);
+            res=max(res,sum[i]);
         }
         return res;
     }
