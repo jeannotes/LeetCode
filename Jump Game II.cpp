@@ -11,7 +11,7 @@ public:
             for(int i=curBegin;i<=curEnd;i++){
                 last=max(last,i+nums[i]);
                 if(last>=nums.size()-1)
-                    return count+1;
+                    return count+1;//相当于是每次都在判断当前这个区间内最远距离
             }
             curBegin=curEnd+1;
             curEnd=last;
