@@ -4,7 +4,7 @@ public:
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>>res;
         vector<string>tem;
-        vector<int>saveCol;
+        vector<int>saveCol;// 存储每一行中的列数字
         solveHelper(n,0,saveCol,tem,res);
         return res;
     }
