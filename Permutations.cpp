@@ -1,14 +1,13 @@
 class Solution {
 public:
 //https://leetcode.com/problems/permutations/
-    // 1 2 3 -- 1 3 2 -- 2 1 3 ....
+    // 1 2 3 -- 2 1 3 -- 3 2 1 ....
     //本质上是一个DFS，深度优先
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int> >result;
         permuteHelper(0,nums,result);
         return result;
     }
-    
     void permuteHelper(int start,vector<int>& nums,vector<vector<int> >&result){
         if(start==nums.size()){
             result.push_back(nums);
