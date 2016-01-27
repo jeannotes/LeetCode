@@ -1,9 +1,9 @@
-class Solution {
+class Solution {//与前面的方法一致
 public:
     int count=0;
     int totalNQueens(int n) {
         vector<int>saveCol;
-        solveHelper( n,0,saveCol );
+        solveHelper(n,0,saveCol);
         return count;
     }
     
