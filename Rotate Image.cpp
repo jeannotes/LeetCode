@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     void rotate(vector<vector<int>>& matrix) {
         //      四个位置  i,j....j,n-1-i....,n-1-i,n-j-1....n-j-1,i
@@ -15,5 +15,26 @@ public:
             swap(matrix[a][b],matrix[b][c]);
             swap(matrix[a][b],matrix[c][d]);
             swap(matrix[a][b],matrix[d][a]);
+    }
+};
+
+class Solution2 {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int m=matrix.size();
+        int count=m/2;
+        for(int i=0;i<=count;i++){
+            
+            for(int j=i;j<=m-2-i;j++){
+                swap(matrix[i][j],matrix[j][m-1-i]);
+            }
+            for(int j=i;j<=m-2-i;j++){
+                swap(matrix[m-1-i][m-1-j],matrix[i][j]);
+            }
+            for(int j=i;j<=m-2-i;j++){
+                swap(matrix[m-1-j][i],matrix[i][j]);
+            }
+        }
+        
     }
 };
