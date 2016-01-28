@@ -2,8 +2,8 @@ class Solution1 {
     //和regular expression matching的区别在于他不需要判断在这个之前的一个字符与前面的相同，他是任意的。
 public:
     bool isMatch(string s, string p) {
+        //这个方法就是向后看的，接下来的一段都可以与*匹配
         char *ss=&s[0];char *pp=&p[0];
-        
         char *start=NULL,*rs=NULL;
         
         while(*ss!='\0'){
