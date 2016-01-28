@@ -1,6 +1,6 @@
 class Solution {
 public:
-//http://www.cnblogs.com/felixfang/p/3676193.html
+//http://www.cnblogs.com/lichen782/p/leetcode_Largest_Rectangle_in_Histogram.html
     int largestRectangleArea(vector<int>& height) {
         stack<int>s;
         int sum=0;
