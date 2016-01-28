@@ -5,8 +5,7 @@ public:
             return 0;
         int len=height.size();
         int leftHeight[len],rightHeight[len];
-        int leftTemp=0,rightTemp=0;
-        int res=0;
+        int leftTemp=0,rightTemp=0,res=0;
         
         //从左往右扫描，距离每一点最大点
         for(int i=0;i<len;i++){
