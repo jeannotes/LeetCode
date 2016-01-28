@@ -37,41 +37,36 @@ public:
     }
 };
 
-
-
 class Solution2 {
-//https://leetcode.com/problems/wildcard-matching/
-//动态规划
 public:
     bool isMatch(string s, string p) {
-        int m = s.size();
-        int n = p.size();
-        vector<vector<bool> >dp(m+1,vector<bool>(n+1,false));
-        
-        dp[0][0]=true;
-        //  dp[i][j] 代表s[0..i-1]与p[0...j-1]是否匹配
-        for(int i=1;i<=n;i++){
-            dp[0][i] = p[i-1]=='*' && dp[0][i-1];
-        }//这个时候i=0，还没有进入s，只有 p[j-1]=='*' 且dp[0][j-1] 才行
-        
-        for(int i=1;i<=m;i++){
-            for(int j=1;j<=n;j++){
-                if(p[j-1]=='*'){
-                    dp[i][j] = dp[i-1][j]||dp[i][j-1] ;
-                    //按照道理，应该是
-                    //dp[i][j]  = dp[i][j-1]||dp[i-1][j-1]||dp[i-2][j-1]||dp[i-3][j-1] ||....||dp[0][j-1]
-                    //             匹配0个      匹配1个       匹配2个       匹配3个
-                    //dp[i-1][j]= dp[i-1][j-1]||dp[i-2][j-1]||dp[i-3][j-1] ||....||dp[0][j-1]
-                    //             匹配0个      匹配1个       匹配2个       
-                    //所以dp[i][j] = dp[i-1][j]||dp[i][j-1] 
-                    //只是每次迭代其实dp[i-1][j-1]已经把后面那部分算过了。
-                } 
-                else if(p[j-1]=='?'||s[i-1]==p[j-1]){
-                    dp[i][j]=dp[i-1][j-1];
-                }
+        int m=s.size(),n=p.size();
+        vector<vector<bool>>dp(m+1,vector<bool>(n+1,false));
+        dp[m][n]=true;
+        //dp[i][j]--s[i..m-1]--p[j..n-1]
+        for(int i=n-1;i>=0;i--){
+            if(p[i]!='*')
+                break;//从后往前，这时候必须每个字符都是*，如果不是的话，那么就必然是false
+                //所以这样子下去，p之前的字符没有必要比较，因为只要后面一个字符不是*，不可能匹配的
+            else
+                dp[m][i]=true;
+        }
+        //dp[i][j]--s[i..m-1]--p[j..n-1]
+        for(int i=m-1;i>=0;i--){
+            for(int j=n-1;j>=0;j--){
+                if(p[j]==s[i]||p[j]=='?')
+                    dp[i][j]=dp[i+1][j+1];
+                else if(p[j]=='*')
+                    dp[i][j]=dp[i+1][j]||dp[i][j+1];
+                    //dp[i][j]  =dp[i][j+1]  ||dp[i+1][j+1]||dp[i+2][j+1]||dp[i+3][j+1]||..
+                    //dp[i+1][j]=dp[i+1][j+1]||dp[i+2][j+1]||dp[i+3][j+1]||..
+                    // so -> dp[i][j]=dp[i+1][j]||dp[i][j+1];
+                else
+                    dp[i][j]=false;
             }
         }
-        
-        return dp[m][n];
+        return dp[0][0];
     }
 };
+
+
