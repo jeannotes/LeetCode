@@ -33,27 +33,27 @@ public:
         return num;
     }
     
-        string addString(string num1,string num2){
-        if(num1.length()<num2.length()){
-            return addString( num2, num1);
-        }
-        
-        int m=num1.length(),n=num2.length();
-        int i=m-1,j=n-1;
+    string addString(string num1,string num2){
+        if(num1.length()<num2.length())
+            return addString(num2,num1);
+        int len1=num1.length(),len2=num2.length();
+        //len1>len2
+        len1--;len2--;
         int flag=0;
-        
-        while(i>=0){
-            int tem=num1[i]-'0'+flag;
-            if(j>=0){
-                tem+=num2[j]-'0';
-                j--;
-            }
-            num1[i]=tem%10+'0';//加号表示字符
-            i--;
-            flag=tem/10;
+        while(len1>=0&&len2>=0){
+            int tem=int(num1[len1]-'0')+int(num2[len2]-'0')+flag;
+            flag=tem/10;tem=tem%10;
+            num1[len1]=char('0'+tem%10);
+            len1--;len2--;
         }
-        if(flag>0)
-            num1.insert(num1.begin(),'0'+flag);
+        while(len1>=0){
+            int tem=int(num1[len1]-'0')+flag;
+            flag=tem/10;
+            num1[len1]=char('0'+tem%10);
+            len1--;
+        }
+        if(flag!=0)
+            num1.insert(num1.begin(),char('0'+flag));
         return num1;
     }
 };
