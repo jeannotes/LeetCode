@@ -1,6 +1,6 @@
 class Solution {
 public:
-
+//本题是在board上编辑，所以不需要进行使用void
     int rowValid[9][10];//判断第i行数字j是否合格
     int colValid[9][10];//判断第i列数字j是否合格
     int subBoard[9][10];//判断第i个小个子（3*3）数字j是否合格
