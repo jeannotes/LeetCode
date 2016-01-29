@@ -1,32 +1,23 @@
 class Solution {
 public:
-//
-        vector<int>temp;
-        vector<vector<int> >result;
-        
+    vector<int>tem;
+    vector<vector<int>>res;
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         sort(candidates.begin(),candidates.end());
-        
-        sumHelper(candidates,target,0,candidates.size());
-        return result;
+        combinationHelper(0,candidates,target);
+        return res;
     }
-    
-    void sumHelper(vector<int>& candidates,int target,int index,int length){
-        //index代表数组索引值，length代表数组长度
+    void combinationHelper(int start,vector<int>&candidates,int target){
         if(target==0){
-            //这里很巧的是，别人用sum求和，他不用，他是相减，只要等于0了，就会存入数组中。
-            result.push_back(temp);
-            return;//不需要返回
-        }
-        if(index>=length||target<0){//因为是求减法，如果不相等，立即返回||
-                                   //还有一种是索引值大于数组长度
+            res.push_back(tem);
             return;
         }
-        
-        for(int i=index;i<=length-1;i++){
-            temp.push_back(candidates[i]);
-            sumHelper(candidates,target-candidates[i],i,length);
-            temp.pop_back();
+        if(start>=candidates.size()||target<0)//防止到后面出现较大的数值而一直添加到tem里面去
+            return;
+        for(int i=start;i<candidates.size();i++){
+            tem.push_back(candidates[i]);
+            combinationHelper(i,candidates,target-candidates[i]);
+            tem.pop_back();
         }
     }
 };
