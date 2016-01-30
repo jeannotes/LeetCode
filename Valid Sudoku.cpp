@@ -20,9 +20,10 @@ public:
     }
     
     bool isValid(int row,int col,int val){
-        if(  rowValid[row][val]==0  && colValid[col][val]==0 && subValid[row/3*3+col/3][val]==0  )
+        if(colValid[col][val]==0&&rowValid[row][val]==0&&subBoard[row/3*3+col/3][val]==0)
             return true;
-        return false;
+        else
+            return false;
     }
     
     void fill(int row,int col,int val){
