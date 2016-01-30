@@ -6,8 +6,10 @@ public:
     int subBoard[9][10];//判断第i个小个子（3*3）数字j是否合格
 
     bool isValid(int row,int col,int val){
-        if(rowValid[row][val]==0 && colValid[col][val]==0 && subBoard[row/3*3+col/3][val]==0 )     return true;
-        return false;
+        if(colValid[col][val]==0&&rowValid[row][val]==0&&subBoard[row/3*3+col/3][val]==0)
+            return true;
+        else
+            return false;
     }
     
     void fill(int row,int col,int val){//更新状态
