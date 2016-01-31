@@ -61,7 +61,7 @@ public:
         while(left<=right){
             int mid=(left+right)/2;
             if(nums[mid]==target)   return mid;
-            if(nums[mid]>=nums[left]){
+            if(nums[mid]>=nums[left]){//记住，区分好左右两边后，还要分清target在哪一侧
                 //在左边
                 if(target>=nums[left]&&target<nums[mid])   
                     right=mid-1;
