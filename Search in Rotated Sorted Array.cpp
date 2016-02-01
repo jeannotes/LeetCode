@@ -54,25 +54,30 @@ public:
     }
 };
 
-class Solution2 {
+class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int left=0,right=nums.size()-1;
-        while(left<=right){
-            int mid=(left+right)/2;
-            if(nums[mid]==target)   return mid;
-            if(nums[mid]>=nums[left]){//记住，区分好左右两边后，还要分清target在哪一侧
-                //在左边
-                if(target>=nums[left]&&target<nums[mid])   
-                    right=mid-1;
+        if(nums.empty())
+            return -1;
+        int i=0,j=nums.size()-1;
+        while(i<=j){
+            int mid=(i+j)/2;
+            if(nums[mid]==target)
+                return mid;
+            if(nums[mid]>=nums[i]){
+                //leftside
+                //当我确定好左边还是右边之后，假设右边，如果逼近下来nums[mid]<target&&target<=nums[j]
+                //就在这一种情况下，i=mid+1,其余的统统是j=mid-1;
+                //不需要管究竟在左边的上面还是下面
+                if(nums[i]<=target&&target<nums[mid])
+                    j=mid-1;
                 else
-                    left=mid+1;
+                    i=mid+1;
             }else{
-                //在右边
-                if(target<=nums[right]&&nums[mid]<target)
-                    left=mid+1;
+                if(nums[mid]<target&&target<=nums[j])
+                    i=mid+1;
                 else
-                    right=mid-1;
+                    j=mid-1;
             }
         }
         return -1;
