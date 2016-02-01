@@ -1,32 +1,26 @@
-class Solution
-{
+class Solution {
 public:
-	int longestValidParentheses(string s){
-		stack<int> stk;
-		int result=0,accu=0;
-		for (int i=0;i<s.size();i++){
-			if (s[i]=='('){
-				stk.push(i);//存放不能配对的索引。
-			}
-			else{
-				if (stk.empty()){
-					accu=0;//重新确定初始位置
-				}
-				else{
-					int j=stk.top();
-					stk.pop();
-					if(stk.empty()){
-						accu+=i-j+1;//()()()--6  "()(()"--2  "()(())--6"
-						result=max(result,accu);
-					}
-					else//(()() 如果还用上面的accu+=i-j+1，对于-- "()(())"  结果为8
-						result=max(result,i-stk.top());
-				}
-			}
-		}
-		return result;
-	} 
-
-protected:
-private:
-};
+    int longestValidParentheses(string s) {
+        if(s.empty())
+            return 0;
+        stack<int>res;
+        int count=0,start=0;
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='(')
+                res.push(i);
+            else{
+                if(res.empty())
+                    start=0;
+                else{
+                    int tem=res.top();res.pop();
+                    if(res.empty()){
+                        start+=i-tem+1;//他的意思是找最长的一段括号，如果中间有一对间隔的，再隔了一个，自然start=0
+                        count=max(count,start);
+                    }else{
+                        count=max(count,i-res.top());
+                    }
+                }
+            }
+        }
+        return count;
+    }
