@@ -1,28 +1,33 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
+        // 1 4 6 5 2 0
+        if(nums.empty())
+            return;
         int i=nums.size()-2;
-        while(i>=0&&nums[i]>=nums[i+1])   i--;//此时的i代表第一个比下面一个数小的index
-        // 1 2 8 7 4 3  -->  
-        // 1 3 8 7 4 2  -->
-        // 1 3 2 4 7 8
+        for(;i>=0;i--){
+            if(nums[i]<nums[i+1])
+                break;
+        }
         if(i>=0){
-            //说明可以比较
+            //记住一个案例,一开始从后往前，先找到第一个比后面小的，能够保证后面的数字从后往前递增
+            //接下来，比较从下一个位置开始，谁第一个小雨他，看实例即可
+            // 1 3 5 4 2 0 
             int j=i+1;
-            while(j<=nums.size()-1&&nums[j]>nums[i]){
+            while(j<nums.size()&&nums[j]>nums[i]){
                 j++;
             }
             j--;
             swap(nums[i],nums[j]);
         }
-        reverse(nums,i+1);
-        
+        reverse_(nums,i+1);
     }
     
-    void reverse(vector<int>& nums,int index){
+    void reverse_(vector<int>& nums,int index){
         int start=index,end=nums.size()-1;
         while(start<=end){
-            swap(nums[start],nums[end]);start++;end--;
+            swap(nums[start],nums[end]);
+            start++;end--;
         }
     }
 };
