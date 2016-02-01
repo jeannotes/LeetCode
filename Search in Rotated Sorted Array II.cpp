@@ -58,7 +58,7 @@ public:
 class Solution2 {
 //说明：分成两个区间之后，还得考虑下target是不是在左边还是在右边    
 public:
-    bool search(vector<int>& nums, int target) {
+    bool search(vector<int>& nums, int target) {//还是没有能够理解啊
         if(nums.empty())
             return -1;
         int left=0,right=nums.size()-1;
