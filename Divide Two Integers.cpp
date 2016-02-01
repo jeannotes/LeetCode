@@ -16,7 +16,7 @@ public:
                 result=result+(1<<i);
             }
         }
-        if (sign) {
+        if (sign) {//max 函数需要保证后面的数字是同一个类型的
             return max((ll)INT_MIN, -result);
         } else {
             return min((ll)INT_MAX, result);
