@@ -19,9 +19,8 @@ public:
     ListNode* reverseList(ListNode* head,int k){
         if(k<=0)    return head;
         ListNode* pEnd=head; 
-        while(pEnd&&k){
+        while(pEnd&&k--){
             pEnd=pEnd->next;
-            k--;
         }
         if(k>0) return head;
         ListNode *pHead=pEnd,*p=head;
@@ -32,5 +31,7 @@ public:
             p=q;//从后面往前
         }
         return pHead;//连续，后面不断开
+        //比如说1 2 3 4 k=2
+        //1->3  2->1
     }
 };
