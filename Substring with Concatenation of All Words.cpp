@@ -8,18 +8,15 @@ public:
         int totalWords=L.size();
         int wordSize=L[0].size();
         int totalLen=wordSize*totalWords;
-        
         if(S.size()<totalLen)   return res;//s自身字符串没有给出的表里面的总和字符数目多，没有任何输出
-        
         unordered_map<string,int> wordCount;
         for(int i=0;i<L.size();i++){
             wordCount[L[i]]++;
         }
         
         for(int i=0;i<=S.size()-totalLen;i++){
-            if(checkSubstring( S , i , wordCount , wordSize , totalWords)){
+            if(checkSubstring( S , i , wordCount , wordSize , totalWords))
                 res.push_back(i);
-            }
         }
         return res;
     }
@@ -30,8 +27,8 @@ public:
         
         for(int i=0;i<totalWords;i++){
             string tmp=S.substr(start+i*wordSize,wordSize); 
-            if(  !wordCount.count(tmp)    ) return false;//首先一开始我找的wordSize个字符如果不是hash表里面的
-                                                         //直接返回
+            if(  !wordCount.count(tmp)    )
+                return false;//首先一开始我找的wordSize个字符如果不是hash表里面的直接返回
             wordFound[tmp]++;                                             
             if( wordFound[tmp] > wordCount[tmp] )   return false;                                          
         }
