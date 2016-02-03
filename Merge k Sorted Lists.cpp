@@ -27,6 +27,7 @@ public:
             tail=tail->next;
         }
         //pq优先队列里面已经是最大堆，每一个链表的第一个数都是按照最大的顺序排列。
+        //有关最大堆最小堆还需要努力加油，不过本题是解决优先队列的一个方法
         ListNode *head=dummy->next;
         delete dummy;
         return head;
