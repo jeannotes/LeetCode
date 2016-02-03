@@ -2,7 +2,7 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode *dummy=new ListNode(0),*tail=dummy;
-        
+        //还可以使用优先队列方法
         while(l1!=NULL&&l2!=NULL){
             if(l1->val<l2->val){
                 tail->next=l1;
