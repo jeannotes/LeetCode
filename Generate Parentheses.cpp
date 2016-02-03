@@ -7,7 +7,9 @@ public:
             result.push_back(temp);
             return;
         }
-        
+        /*
+        if(left>=n)
+            return;*/  //这里不能加上这一句话，一旦加上，假使left>n，return之后就不会在之后添加）了
         if(left<n){
             //深度优先
             temp+='(';
@@ -22,8 +24,7 @@ public:
         }
     }       //      ( ( ( ) ) ) -- ( ( ( ) ) ) -- 
 
-    vector<string> generateParenthesis(int n) 
-    {
+    vector<string> generateParenthesis(int n){
         string temp;
         vector<string> result;
         parensHelper(0,0,n,result,temp);
