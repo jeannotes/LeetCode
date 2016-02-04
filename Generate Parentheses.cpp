@@ -10,7 +10,7 @@ public:
         /*
         if(left>=n)
             return;*/  //这里不能加上这一句话，一旦加上，假使left>n，return之后就不会在之后添加）了
-        if(left<n){
+        if(left<n){//这里不能给写成left<right，因为一开始right=0
             //深度优先
             temp+='(';
             parensHelper(left+1,right,n,result,temp);
