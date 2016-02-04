@@ -12,5 +12,6 @@ public:
         return len+1;
         //对比remove element，这里可以这样思考
         //如果全部为1，一开始len是0，最后仅仅保留一个自然要+1输出
+        //这一次错误在于里面的语句写成nums[len++]=nums[i]
     }
 };
