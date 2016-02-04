@@ -2,15 +2,13 @@ class Solution {
 //https://leetcode.com/problems/reverse-nodes-in-k-group/
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(k<=0||head==NULL)    return head;
-        
         ListNode *dummy=new ListNode(0);dummy->next=head;
         ListNode *p=dummy;
         
         while(p){
             p->next=reverseList(p->next,k);
             for(int i=1;p&&i<=k;i++){
-                p=p->next;
+                p=p->next;//不能漏掉p这个条件
             }
         }
         return dummy->next;
