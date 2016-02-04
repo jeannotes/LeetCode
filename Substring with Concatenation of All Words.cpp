@@ -36,3 +36,42 @@ public:
     }
     
 };
+
+
+class Solution {
+public:
+    vector<int> findSubstring(string s, vector<string>& words) {
+        int wordSize=words[0].length();
+        int totalWords=words.size();
+        int totalLen=wordSize*totalWords;
+        unordered_map<string,int>wordCount;
+        vector<int>res;
+        if(s.length()<totalLen)
+            return res;
+        for(int i=0;i<words.size();i++){
+            wordCount[words[i]]++;
+        }
+        
+        for(int i=0;i<=s.length()-totalLen;i++){
+            if(check(i,words,s,wordCount,wordSize,totalWords,totalLen))
+                res.push_back(i);
+        }
+        return res;
+    }
+    
+    bool check(int start,vector<string>& words,string &s,unordered_map<string,int>wordCount,
+            int wordSize,int totalWords,int totalLen){
+        if(s.length()-start<totalLen)
+            return false;
+        unordered_map<string,int> wordFound;
+        for(int i=0;i<totalWords;i++){
+            string tem=s.substr(start+i*wordSize,wordSize);
+            if(wordCount[tem]==0)
+                return false;
+            wordFound[tem]++;
+            if(wordFound[tem]>wordCount[tem])
+                return false;
+        }
+        return true;
+    }
+};//代码以我的这个为准，今天待会再写
