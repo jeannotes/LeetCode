@@ -2,7 +2,7 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode *dummy=new ListNode(0),*tail=dummy;
-        //还可以使用优先队列方法
+        //merge k sorted lists
         while(l1!=NULL&&l2!=NULL){
             if(l1->val<l2->val){
                 tail->next=l1;
@@ -14,12 +14,11 @@ public:
             tail=tail->next;
         }
         //检测还有没有剩余
-        if(l1){
+        if(l1)
             tail->next=l1;
-        }
-        if(l2){
+        if(l2)
             tail->next=l2;
-        }
+            
         ListNode *head=dummy->next;
         delete dummy;
         return head;
