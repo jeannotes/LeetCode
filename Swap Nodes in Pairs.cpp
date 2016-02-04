@@ -24,17 +24,9 @@ public:
         }
         return dummy->next;
     }
-};
+};//通过引入一个*p->nexthead.使得能够输出最终指向
 
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+//第二种方法
 class Solution2 {
 public:
     ListNode* swapPairs(ListNode* head) {
