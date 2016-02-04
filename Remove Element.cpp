@@ -11,5 +11,6 @@ public:
         return len;
         //为什么是len而不是len+1，
         //在nums数组中，只要不相同，就会从一开始重新赋值,而之后len会+1，所以不需要最后len+1
+        //bug-exist  return len+1
     }
 };
