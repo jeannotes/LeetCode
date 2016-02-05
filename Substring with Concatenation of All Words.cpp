@@ -37,41 +37,44 @@ public:
     
 };
 
-
 class Solution {
 public:
     vector<int> findSubstring(string s, vector<string>& words) {
+        
+        
         int wordSize=words[0].length();
         int totalWords=words.size();
         int totalLen=wordSize*totalWords;
-        unordered_map<string,int>wordCount;
         vector<int>res;
         if(s.length()<totalLen)
             return res;
-        for(int i=0;i<words.size();i++){
+        if(words.empty())
+            return res;
+        unordered_map<string,int>wordCount;
+        for(int i=0;i<totalWords;i++){
             wordCount[words[i]]++;
         }
-        
-        for(int i=0;i<=s.length()-totalLen;i++){
-            if(check(i,words,s,wordCount,wordSize,totalWords,totalLen))
+        int len1=s.length(),len2=totalLen;
+        for(int i=0;i<=len1-len2;i++){
+            if(check(i,s,words,wordSize,totalWords,totalLen,wordCount))
                 res.push_back(i);
         }
         return res;
     }
     
-    bool check(int start,vector<string>& words,string &s,unordered_map<string,int>wordCount,
-            int wordSize,int totalWords,int totalLen){
-        if(s.length()-start<totalLen)
-            return false;
-        unordered_map<string,int> wordFound;
-        for(int i=0;i<totalWords;i++){
-            string tem=s.substr(start+i*wordSize,wordSize);
-            if(wordCount[tem]==0)
+    bool check(int start,string& s,vector<string>& words,int wordSize,int totalWords,int totalLen
+                ,unordered_map<string,int>wordCount){
+            if(s.length()-start<totalLen)
                 return false;
-            wordFound[tem]++;
-            if(wordFound[tem]>wordCount[tem])
-                return false;
+            unordered_map<string,int>wordFound;
+            for(int i=0;i<totalWords;i++){
+                string tem=s.substr(start+i*wordSize,wordSize);
+                if(wordCount[tem]==0)
+                    return false;
+                wordFound[tem]++;
+                if(wordFound[tem]>wordCount[tem])
+                    return false;
+            }
+            return true;
         }
-        return true;
-    }
-};//代码以我的这个为准，今天待会再写
+};
