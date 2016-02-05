@@ -10,7 +10,7 @@ public:
                 res.push(i);
             else{
                 if(res.empty())
-                    start=0;
+                    start=0;// 这个地方很重要，如果单独出现‘）’，就需要判断
                 else{
                     int tem=res.top();res.pop();
                     if(res.empty()){
