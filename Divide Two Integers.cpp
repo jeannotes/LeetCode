@@ -10,11 +10,12 @@ public:
 
         while(a>=b){
             c=b;
-            for(int i=0;a>=c;i++,c<<=1){//c<<suoy=1,每一次这个操作就会使得除数*2。因为他是迭代的，
-                                        //所以循环内部是+(1<<i)-->代表多少个倍数的除数。
+            for(int i=0;a>=c;i++,c<<=1){
                 a=a-c;
                 result=result+(1<<i);
             }
+            //c<<suoy=1,每一次这个操作就会使得除数*2。因为他是迭代的，
+            //所以循环内部是+(1<<i)-->代表多少个倍数的除数。
         }
         if (sign) {//max 函数需要保证后面的数字是同一个类型的
             return max((ll)INT_MIN, -result);
