@@ -23,3 +23,4 @@ public:
         return nums.size()+1;
     }
 };
+//bug-exist  在while那个循环那边  nums[i]>0&&nums[i]<=len 这两个条件没有看到
