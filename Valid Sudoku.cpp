@@ -32,3 +32,4 @@ public:
         subValid[row/3*3+col/3][val]=1; 
     }
 };
+//bug-exist  还是没有写出最终程序
