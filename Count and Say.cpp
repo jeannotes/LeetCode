@@ -54,3 +54,31 @@ string solution2(int n){
     return pre;
 }
 };
+//write by myself
+class Solution {
+public:
+    string countAndSay(int n) {
+        if(n==1)
+            return "1";
+        if(n==2)
+            return "11";
+        string tem=countAndSay(n-1);
+        int count=1,i=0,len=tem.length(),j=0;
+        char c=tem[0];
+        string res;
+        while(i<=len-1){
+            count=0;
+            c=tem[i];
+            for(j=i;j<len;j++){
+                if(tem[j]==c)
+                    count++;
+                else
+                    break;
+            }
+            res+=char(count+'0');
+            res+=c;
+            i=j;
+        }
+        return res;
+    }
+};
