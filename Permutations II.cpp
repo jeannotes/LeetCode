@@ -27,6 +27,8 @@ public:
         unordered_set<int>map;
         for(int i=start;i<nums.size();i++){
             if( map.find(nums[i])==map.end() ){
+                //实际上，这里的unorder_set只能定义在函数内部，因为如果放在最外面，1 1 1 2 下一次比较的时候1就不能放进去
+                //放在里面，start+1的时候，如果相同的数字就不会放进去，函数内部连贯的
                 map.insert(nums[i]);
                 swap(nums[i],nums[start]);
                 permuteHelper(start+1,nums,result);
