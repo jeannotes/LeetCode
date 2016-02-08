@@ -36,7 +36,7 @@ public:
         return *pp=='\0';
     }
 };
-
+// 还是不会的，下面来做递归的，两个都不会，加油
 class Solution2 {
 public:
     bool isMatch(string s, string p) {
