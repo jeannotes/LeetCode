@@ -1,21 +1,20 @@
-class Solution {
     //https://segmentfault.com/a/1190000002651263
+class Solution {
 public:
     int jump(vector<int>& nums) {
         if(nums.empty()||nums.size()==1)
             return 0;
         int curEnd=0,curBegin=0,count=0;
-        
         while(curEnd<nums.size()){
             int last=curEnd;
             for(int i=curBegin;i<=curEnd;i++){
-                last=max(last,i+nums[i]);
+                last=max(i+nums[i],last);
                 if(last>=nums.size()-1)
-                    return count+1;//相当于是每次都在判断当前这个区间内最远距离
+                    return count+1;
             }
-            curBegin=curEnd+1;
-            curEnd=last;
-            count++;//didn't that kind understand
+            
+            count++;
+            curBegin=curEnd+1;curEnd=last;
         }
         return count;
     }
