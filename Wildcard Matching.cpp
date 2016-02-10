@@ -20,7 +20,7 @@ public:
             }
             
             //上面两种情况都不符合，那就让之前的*来匹配
-            if(start!=nullptr){
+            if(start!=NULL){//暂时不要管什么null与nullptr的区别了，都能够accepted
                 pp=start+1;
                 ss=rs;//从第0位开始匹配
                 rs++;
