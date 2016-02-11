@@ -1,14 +1,11 @@
 class Solution {
 public:
+//http://www.tuicool.com/articles/IbiMjaI
     int maxSubArray(vector<int>& nums) {
-        if(nums.empty())
-            return 0;
-        int sum[nums.size()],res=nums[0];
-        sum[0]=nums[0];
-        // k--i 
+        int sum=nums[0],res=nums[0];
         for(int i=1;i<nums.size();i++){
-            sum[i]=max(nums[i],nums[i]+sum[i-1]);
-            res=max(res,sum[i]);
+            sum=sum<0?(nums[i]):(sum+nums[i]);
+            res=max(res,sum);
         }
         return res;
     }
