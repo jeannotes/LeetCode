@@ -36,3 +36,4 @@ public:
             return 1+getLength(head->next);
     }
 };
+//链表的题目还有很大问题
