@@ -1,15 +1,15 @@
-class Solution{
+class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int len=nums.size();
-        int zero=0,two=len-1;
-        
+        int zero=0,two=nums.size()-1;
         for(int i=0;i<=two;i++){
-            if(nums[i]==0) 
+            if(nums[i]==0){
                 swap(nums[i],nums[zero++]);
+            }
             if(nums[i]==2){
-                swap(nums[i],nums[two]);
-                two--;i--;//i的值已经变换，需-1，继续判断
+                swap(nums[i--],nums[two--]);
+            // i-- 是因为从最远处换了一个未知颜色，需要i再次回到那个位置，进行比较
+            //two--是因为之前的two位置已经是这个颜色，下次不需要判断成这个为位置了
             }
         }
     }
