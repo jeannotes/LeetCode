@@ -24,3 +24,4 @@ public:
         return res;
     }
 };
+//1 4  2 3  这种情况没有考虑到  还有就是operator不会
