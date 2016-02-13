@@ -4,7 +4,7 @@ public:
     int mySqrt(int x) {
         if(x<=1)
             return x;
-        int left=1,right=x;
+        int left=1,right=x/2;
         while(true){
             int mid=(left+right)/2;
             if(mid>x/mid)
@@ -22,3 +22,4 @@ public:
         }
     }
 };
+//不会
