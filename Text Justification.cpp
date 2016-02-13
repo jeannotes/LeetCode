@@ -27,7 +27,8 @@ public:
                 tmp+=words[k];
                 addSpace(tmp,meanSpace);
                 if(j<len&&leftSpace>0){
-                    tmp.push_back(' ');leftSpace--;
+                    tmp.push_back(' ');leftSpace--;//j<len 这个条件不可少，加入是最后一行，而且j-i大于1，
+                    //那么这之间是不需要增加空格,因为全部为1，已经算进去了
                 }
             }//接下来是最后一个单词
             
