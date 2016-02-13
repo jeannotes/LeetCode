@@ -11,3 +11,4 @@ public:
         return sum[n];
     }
 };
+//不会
