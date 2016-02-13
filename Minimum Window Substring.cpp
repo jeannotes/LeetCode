@@ -13,7 +13,7 @@ public:
         for(int i=0;i<t.length();i++)
             number_in_t[t[i]]++;
         
-        for(int i=0,start=0;i<s.length();i++){
+        for(int i=0,start=0;i<s.length();i++){//这里不能写成 i<=s.length()-t.length()，因为start是在变化的，不是纯粹的滑块法
             char c=s[i];
             if(number_in_t.find(c)!=number_in_t.end()){
                 number_found_in_t[c]++;
