@@ -7,7 +7,7 @@ public:
         while(i<len){
             int rowlen=0,j=i;
             //找能够放进去几个
-            while(j<len&&words[j].length()+rowlen<=maxWidth){
+            while(j<len&&words[j].length()+rowlen<=maxWidth){//之所以这么写，是考虑到最后一个没有空格
                 rowlen+=(words[j++].length()+1);
             }//i---j  此时的j是不行的，另外还多一个字符空格  j-1 就是有多少符合的
             
