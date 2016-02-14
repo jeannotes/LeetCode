@@ -14,7 +14,7 @@ public:
     }
     
     bool existHelper(vector<vector<char> >&board,string word,int i,int j,int k){
-        if(k==word.size())  return true;
+        if(k==word.size())  return true;//k代表的是第几位
         
         if(i<0||i>=board.size()||j<0||j>=board[0].size())   return false;
         if(board[i][j]!=word[k])    return false;
@@ -28,3 +28,4 @@ public:
         return result;
     }
 };
+//有很多细节性的地方，需要琢磨
