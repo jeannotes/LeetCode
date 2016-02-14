@@ -17,14 +17,16 @@ public:
             for(int j=1;j<=n;j++){
                 if(word1[i-1]==word2[j-1])
                     res[i][j]=res[i-1][j-1];
-                else
-                    res[i][j]=res[i-1][j-1]+1;//替换
-                
-                int tem=min(res[i][j-1]+1,res[i-1][j]+1);
-                res[i][j]=min(res[i][j],tem);
+                else{
+                    res[i][j]=res[i-1][j-1]+1;
+                    
+                    int tem=min(res[i][j-1]+1,res[i-1][j]+1);
+                    res[i][j]=min(res[i][j],tem);
+                }
             }
         }
         
         return res[m][n];
     }
 };
+//不会，重新更新了一下，主要分成相等以及不相等的情况
