@@ -16,7 +16,8 @@ public:
             res.push_back(tem);
             return;
         }
-        
+        if(start>n)
+            return;//加上这句话是有必要的，但是放在前面还不行
         for(int i=start;i<=n;i++){
             tem.push_back(i);
             combineHelper(i+1,n,k);
@@ -24,3 +25,4 @@ public:
         }
     }
 };
+//不会
