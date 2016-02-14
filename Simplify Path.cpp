@@ -37,3 +37,4 @@ public:
     } 
 };
 //不会，今晚心不在焉
+//记好，string tmp是string，if(tmp==".")  中应该是双引号，不是单引号
