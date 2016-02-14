@@ -9,19 +9,17 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-    //https://leetcode.com/problems/remove-duplicates-from-sorted-list/
-        if(head==NULL||head->next==NULL)
+        if(head==NULL)
             return head;
-        
-        ListNode *t=head;
-        while(head->next!=NULL){
-            if(head->val==head->next->val){
-                ListNode *tmp = head->next->next;
-                delete head->next;
-                head->next = tmp;
+        ListNode* t=head;
+        while(t->next!=NULL){
+            if(t->val==t->next->val){
+                ListNode* tmp=t->next;
+                t->next=tmp->next;
+                delete tmp;
             }else
-                head=head->next;
+                t=t->next;
         }
-        return t;
+        return head;
     }
 };
