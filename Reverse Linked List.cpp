@@ -25,3 +25,4 @@ public:
         return head;
     }
 };
+//ListNode *tail=NULL;  空链表
