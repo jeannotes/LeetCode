@@ -1,21 +1,6 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        /*ListNode *dummy=new ListNode(0);
-        dummy->next = head;
-        ListNode *slow = dummy;
-        n -= m;
-        while (--m)
-            slow = slow->next;
-        ListNode *fast = slow->next, *tmp;
-        while (n--) {
-            tmp = fast->next;
-            fast->next = fast->next->next;
-            tmp->next = slow->next;
-            slow->next = tmp;
-        }
-        return dummy->next;*/
-        
         ListNode *dummy=new ListNode(0);
         dummy->next=head;
         
@@ -35,3 +20,4 @@ public:
         return dummy->next;
     }
 };
+//好题目
