@@ -2,8 +2,7 @@ class Solution {
 public://https://leetcode.com/problems/merge-sorted-array/
     void merge(vector<int>& nums1 , int m , vector<int>& nums2 , int n) {
         //假设是升序排列的了。
-        int i=m-1,j=n-1;
-        int k=m+n-1;//新的长度
+        int i=m-1,j=n-1,k=m+n-1;//新的长度
         while(i>=0&&j>=0){
             if(nums1[i]>=nums2[j]){
                 nums1[k--]=nums1[i--];
@@ -16,3 +15,4 @@ public://https://leetcode.com/problems/merge-sorted-array/
         }
     }
 };
+//基本一次通过
