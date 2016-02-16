@@ -17,3 +17,4 @@ public:
         return sum[n];
     }
 };
+//初始化一定要赋值
