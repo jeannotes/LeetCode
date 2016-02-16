@@ -1,26 +1,18 @@
 //递归写法
-class Solution1 {
+class Solution {
 public:
     bool isSameTree(TreeNode* p, TreeNode* q) {
-		if (p==NULL&&q==NULL)
-			return true;
-		else if( (p==NULL&&q!=NULL)||(p!=NULL&&q==NULL) )
-			return false;
-		else
-		{
-			if (p->val!=q->val)
-			{
-				return false;
-			}
-
-			else
-			{
-				return isSameTree(p->left,q->left)&&isSameTree(p->right,q->right);
-			}
-		}
+        return isSameHelper(p,q);
     }
+    bool isSameHelper(TreeNode* p, TreeNode* q){
+        if((p==NULL||q==NULL))
+            return p==q;
+        
+        if(p->val!=q->val)
+            return false;
+        return isSameHelper(p->left,q->left)&&isSameHelper(p->right,q->right);
+    } 
 };
-
 //迭代写法
 class Solution
 {
