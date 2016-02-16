@@ -35,34 +35,30 @@ public://https://leetcode.com/problems/unique-binary-search-trees-ii/
     }
 };
 
-class Solution2 {
+class Solution {
 public:
     vector<TreeNode*> generateTrees(int n) {
-        vector<TreeNode *>result;
-        helper(1,n,result);
-        return result;
+        vector<TreeNode*> result;
+        if(n==0)  return result;
+        return help(1, n);
     }
-    
-    void helper(int start,int end,vector<TreeNode *> &result){
-        if(start>end){
-            result.push_back(NULL);
-            return;//左子树必须小于根节点，所以压入NULL
-        }
-        
-        for(int i=start;i<=end;i++){
-            vector<TreeNode *> tmpLeft,tmpRight;
-            helper(start,i-1,tmpLeft);
-            helper(i+1,end,tmpRight);
-            //生成左右子树，从节点start到i-1，还有就是i+1到end
-            for(int k=0;k<tmpLeft.size();k++){
-                for(int j=0;j<tmpRight.size();j++){
-                    TreeNode *root=new TreeNode(i);
-                    //本质上是中序遍历
-                    root->left=tmpLeft[k];
-                    root->right=tmpRight[j];//左边选择比自己小的，右边选择比自己大的
+
+    vector<TreeNode*> help(int s, int e){
+        if(s>e)   return vector<TreeNode*>(1, NULL);
+        vector<TreeNode*> result;
+        for(int i=s; i<=e; i++){
+            vector<TreeNode*> left, right;
+            left=help(s, i-1);
+            right=help(i+1, e);
+            for(int m=0; m<left.size(); m++){
+                for(int n=0; n<right.size(); n++){
+                    TreeNode* root=new TreeNode(i);
+                    root->left=left[m];
+                    root->right=right[n];
                     result.push_back(root);
                 }
             }
         }
+        return result;
     }
 };
