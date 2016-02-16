@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
         /*
-        match[i][j]  means  s1[0...i] s2[0...j]  是否匹配 s3[0...i+j]
+        match[i][j]  means  s1[0...i-1] s2[0...j-1]  是否匹配 s3[0...i+j-1]
         
         match[i][j]=(s1[i-1]==s3[i+j-1])&&match[i-1][j]||
                     (s2[j-1]==s3[i+j-1])&&match[i][j-1])
