@@ -1,27 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-        if(root==NULL)  return true;
-        
-        return isSubTreeGreater(root->left,root->val)&&isSubTreeLess(root->right,root->val)
-                &&isValidBST(root->left)&&isValidBST(root->right);
-                //不是左节点小于根节点，右节点大于根节点即可，而是左子树所有节点全部小于当前根节点。对右子树一样。
-                //前面的两个函数是不断检测下面的节点的数值小于当前root顶点值。这能够保证下面的节点全部符合条件
-                //然后通过下面两个函数判断下面左右子树节点
+        if(root==NULL)
+            return true;
+        return isSubTreeGreat(root->left,root->val)&&isSubTreeLess(root->right,root->val)&&
+            isValidBST(root->left)&&isValidBST(root->right);
     }
-    
-    bool isSubTreeGreater(TreeNode* root,int val){
-        if(root==NULL)  return true;
-        
-        return root->val<val&&isSubTreeGreater(root->left,val)&&isSubTreeGreater( root->right,val);
+    //不是左节点小于根节点，右节点大于根节点即可，而是左子树所有节点全部小于当前根节点。对右子树一样。
+    //前面的两个函数是不断检测下面的节点的数值小于当前root顶点值。这能够保证下面的节点全部符合条件
+    //然后通过下面两个函数判断下面左右子树节点
+    bool isSubTreeGreat(TreeNode* root,int val){
+        if(root==NULL)
+            return true;
+        if(root->val<val){
+            return isSubTreeGreat(root->left,val)&&isSubTreeGreat(root->right,val);
+        }
+        return false;
     }
     
     bool isSubTreeLess(TreeNode* root,int val){
-        if(root==NULL)  return true;
-        
-        return root->val>val&&isSubTreeLess(root->left,val)&&isSubTreeLess( root->right,val);
+        if(root==NULL)
+            return true;
+        if(root->val>val){
+            return isSubTreeLess(root->left,val)&&isSubTreeLess(root->right,val);
+        }
+        return false;
     }
-
 };
 /*
     class Solution2 {
