@@ -23,3 +23,32 @@ public:
 private:
     TreeNode *n1=NULL,*n2=NULL,*prev=NULL;
 };
+
+//中序遍历，此时是有序的
+class Solution2 {
+public:
+    TreeNode*n1=NULL,*n2=NULL,*prev=NULL;
+    void recoverTree(TreeNode* root) {
+        TreeNode *n1=NULL,*n2=NULL,*prev=NULL;
+        stack<TreeNode*>stk;
+        while(root!=NULL||!stk.empty()){
+            if(root!=NULL){
+                stk.push(root);
+                root=root->left;
+            }else{
+                root=stk.top();stk.pop();
+                if(prev!=NULL){
+                    if(prev->val>root->val){
+                        if(n1==NULL)
+                            n1=prev;
+                        n2=root;
+                    }
+                }
+                prev=root;
+                root=root->right;
+            }
+        }
+        swap(n1->val,n2->val);
+    }
+    
+};
