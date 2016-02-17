@@ -30,3 +30,4 @@ public:
         return max(left,right);
     }
 };
+//树的类型的题目做的多了，不过，链表、树的题目要多做
