@@ -37,3 +37,4 @@ public:
         return max(maxDepth(root->left)+1,maxDepth(root->right)+1);
     }
 };
+//两题是类似的，都可以使用前面两种类型解决
