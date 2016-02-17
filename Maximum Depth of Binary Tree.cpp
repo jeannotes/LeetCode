@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
  //本质上方法一样，只是通过实践竟然不同
 class Solution1 {
 //https://leetcode.com/problems/maximum-depth-of-binary-tree/
