@@ -22,3 +22,4 @@ public:
         return  isSymmetricHelper(s1->left,s2->right) &&  isSymmetricHelper(s1->right,s2->left);
     }
 };
+//好题目
