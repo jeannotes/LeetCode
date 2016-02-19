@@ -20,32 +20,12 @@ public:
         return ans;
     }
 };
-
- class Solution2 {
- public:
-     int maxProfit(vector<int> &prices) {
-         int length=prices.size();
-         if(length<=1){
-             return 0;
-         }
-         vector<int> dp(length,0);
-         int min=prices[0];
-         for(int i=1;i<length;i++){
-             if(prices[i]<=min){
-                 min=prices[i];
-             }
-             dp[i]=max(  dp[i-1],prices[i]-min   );
-         }
-         sort(dp.begin(),dp.end());
-         return dp.back();
-     }
- };
  
  //dp[i] 表示[0...i]内最大值，则dp[i+1]=max(dp[i],prices[i+1]-min)
  //min是[0...i]内的最小值
 
-//3比2更加简洁。
-class Solution3 {
+//3比1更加简洁。
+class Solution2 {
 public:
     int maxProfit(vector<int>& prices) {
         if(prices.empty()){
