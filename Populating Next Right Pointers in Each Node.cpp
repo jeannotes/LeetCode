@@ -8,19 +8,6 @@
  */
 class Solution {
 public:
-/*
-    void connect(TreeLinkNode *root) {
-        if(root==NULL)  return ;
-        if(root->left&&root->right){
-            root->left->next=root->right;
-        }
-        if(root->next&&root->left){//到了非根节点的时候
-            root->right->next=root->next->left;
-        }
-        
-        connect(root->left);connect(root->right);
-    }
-*/    
     void connect(TreeLinkNode *root){
         if(root==NULL)  return ;
         
@@ -36,4 +23,20 @@ public:
             root=tmp;
         }
     }
+};
+
+class Solution2 {
+public:
+    void connect(TreeLinkNode *root) {
+		if (root==NULL){
+			return;
+		}
+		if (root->left&&root->right){
+			root->left->next=root->right;
+		}
+		if (root->right&&root->next){
+			root->right->next=root->next->left;
+		}
+		connect(root->left);connect(root->right);
+	}
 };
