@@ -18,7 +18,7 @@ public:
                 if(root->next){
                     root->right->next=root->next->left;
                 }
-                root=root->next;
+                root=root->next;//好题目啊，因为这个时候是完美的二叉树，所以可以这样写
             }
             root=tmp;
         }
