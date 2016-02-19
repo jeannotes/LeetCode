@@ -32,3 +32,4 @@ public:
         delete dummy;
     }
 };
+//由于有next，所以可以使得dummy作为每一层的开头，策略类似于刚刚的，从左到右
