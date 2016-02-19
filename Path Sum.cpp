@@ -18,10 +18,8 @@ public:
         if(root->left==NULL&&root->right==NULL){
             return root->val==sum;
         }
-        
         //这边相当于经历了第一层
         //开始经历第二层
-        
         if(root->left){
             root->left->val+=root->val;
             //这个时候递归调用这个函数
@@ -41,3 +39,4 @@ public:
         return false;//无论上面怎么调用，都没用，返回false
     }
 };
+//虽然还不太会，但是比以前熟悉多了
