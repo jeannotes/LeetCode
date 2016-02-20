@@ -10,7 +10,8 @@ public:
         bool dp[len][len];     
             
         for(int i = 0; i <= len; i++){
-            count[i] = len-i;     
+            count[i] = len-i; //这个地方，按照最右边来算，
+                              //假设是“abcd” count[5]=0,count[4]=1,count[3]=2...count[0]=5,其实只需要4次即可    
         }   
                  
         for(int i = 0; i < len; i++){
