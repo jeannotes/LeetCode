@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution1 {
 public:
     int sum=0;
@@ -38,12 +29,10 @@ class Solution2 {
 public:
     int sumNumbers(TreeNode *root) {
         if (root == NULL) return 0;
-        
-        int result = 0;
         return sumHelper(root, 0);
     }
     
-    int sumHelper(TreeNode *root, int sum) {
+    int sumHelper(TreeNode *root, int sum) {//这里sum代表还没有到达之前从顶端到这里的sum值
         if (root == NULL) return 0;
         
         sum = sum * 10 + root->val;
