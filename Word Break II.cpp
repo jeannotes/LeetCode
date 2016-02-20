@@ -28,7 +28,7 @@ public:
 
 	vector<string> wordBreak(string s, unordered_set<string> &dict) {
 		//程序的一个意思就是，在一个大循环i里面,再设置一个小循环j
-		//数组Br每一行存储从数组0到i中的子串能否被分割
+		//数组Br[i][j]代表从j到i可以分开，且在之前的都没有问题
 		//条件就是从j到i能够在提供的所有字符串中找到，且Br[j-1]不为空---意思就是我从0到j也能够被分割，至于存放啥，不管。
 
 		vector<string> result;
