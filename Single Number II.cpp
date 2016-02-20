@@ -34,3 +34,4 @@ public:
         return res;
     }
 };
+/* &是按位与 && 是逻辑运算符，返回为bool值 */
