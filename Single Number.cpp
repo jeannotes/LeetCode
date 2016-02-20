@@ -1,19 +1,15 @@
 class Solution1 {
 public:
-//这是用hash表写的，纪念一下。独立的哦。
     int singleNumber(vector<int>& nums) {
-        unordered_map<int,int> hash;
-        int len=nums.size();
-        
-        for(int i=0;i<len;i++){
-            hash[nums[i]]++;
-        }
-        for(int i=0;i<len;i++){
-            if(hash[nums[i]]!=2){
-                return nums[i];
-            }
-        }
-    }
+		unordered_map<int,int>num;
+		for (int i=0;i<nums.size();i++){
+			if (!num.count(nums[i])){
+				num[nums[i]]=1;
+			}else
+				num.erase(nums[i]);
+		}
+		return num.begin()->first;
+	}
 };
 
 class Solution2 {
