@@ -17,3 +17,5 @@ public:
 		return dp[len];
 	}
 };
+// string tmp=s.substr(j,i-j);  这个地方是不需要i-j+1的，因为i本身就多1的。
+//dp[i]--s[0..i-1] 
