@@ -43,7 +43,7 @@ public:
             }
         }
         
-        return total>=0?start:-1;
+        return total>=0?start:-1;//一定是大于等于
     }
 };
 //这道题首先是用的贪心算法，有几点需要注意：
