@@ -29,7 +29,7 @@ public:
                 t=t->next;
             }
         }
-        
+        t->next=NULL;//这边最好加上这句话，最后指向null
         //开始操作那些random链表
         t=h;
         for(p=head;p!=NULL&&t!=NULL;p=p->next,t=t->next){
