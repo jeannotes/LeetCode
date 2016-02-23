@@ -42,7 +42,7 @@ public:
 			pair<int,int> tem=q.front();
 			q.pop();
 			int k=tem.first,l=tem.second;
-			if (0<=k&&k<m&&0<=l&&l<=n&&board[k][l]=='O'){
+			if (0<=k&&k<m&&0<=l&&l<=n-1&&board[k][l]=='O'){
 				board[k][l]='#';
 				q.push(make_pair(k-1,l));q.push(make_pair(k+1,l));
 				q.push(make_pair(k,l-1));q.push(make_pair(k,l+1));
@@ -51,3 +51,4 @@ public:
 	}
 };
 //深度优先会出错，使用广度优先
+//walk 函数还不会
