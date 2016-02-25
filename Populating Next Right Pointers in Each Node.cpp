@@ -40,3 +40,4 @@ public:
 		connect(root->left);connect(root->right);
 	}
 };
+//值得庆祝的一天，递归写出来了
