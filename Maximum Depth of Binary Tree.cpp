@@ -38,3 +38,22 @@ public:
     }
 };
 //两题是类似的，都可以使用前面两种类型解决
+class Solution3 {
+public:
+   int maxDepth(TreeNode* root) {
+		if (root==NULL){
+			return 0;
+		}
+		int left=getLength(root->left)+1;
+		int right=getLength(root->right)+1;
+		return max(left,right);
+	}
+	int getLength(TreeNode* root){
+		if (root==NULL){
+			return 0;
+		}
+		int left=getLength(root->left)+1;
+		int right=getLength(root->right)+1;
+		return max(left,right);
+	}
+};
