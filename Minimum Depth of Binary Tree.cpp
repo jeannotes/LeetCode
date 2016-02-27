@@ -27,6 +27,7 @@ public:
 };
 //本题要注意的是，不能写成左子树空，就返回0，这时候就要加1，早返回右边的数值，详见代码
 //这里很重要
+// 还是不会啊
 class Solution2 {
 public:
     int minDepth(TreeNode* root) {
