@@ -26,15 +26,12 @@ public://https://leetcode.com/problems/unique-binary-search-trees-ii/
     void traverse_add_copy(TreeNode *&root,TreeNode *&dst,int val){
         if(root==NULL)  return;
         dst=new TreeNode(root->val+val);
-        if(root->left){
-            traverse_add_copy(root->left,dst->left,val);
-        }
-        if(root->right){
-            traverse_add_copy(root->right,dst->right,val);
-        }
+        
+        traverse_add_copy(root->left,dst->left,val);
+        traverse_add_copy(root->right,dst->right,val);
     }
 };
-
+//比之前好多了
 class Solution {
 public:
     vector<TreeNode*> generateTrees(int n) {
