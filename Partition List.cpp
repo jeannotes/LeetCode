@@ -31,3 +31,4 @@ public:
     }
 };
 //丢了这句话  ----  rightTail->next=NULL;//这句话不能丢
+//一次通过
