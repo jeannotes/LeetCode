@@ -74,3 +74,5 @@ public:
 // 在第二个if ---  isScramble(s1.substr(i, s1.size()-i), s2.substr(0, s2.size()-i))    )
 //非常容易出错
 //动态规划的不会啊
+// 为什么动态规划定义的时候不是定义 (len+1,vector<vector<bool>>(len+1,vector<bool>(len+1,false)));
+//  因为 //dp[k][i][j] s1[0..i+k-1]-s2[0..j+k-1] k已经等于1，不会有问题的
