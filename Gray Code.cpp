@@ -1,17 +1,16 @@
 class Solution {
 public:
     vector<int> grayCode(int n) {
-        vector<int> res(1,0);
-        for(int i=0;i<n;i++){
-            int curCount=res.size();
-            while(curCount){
-                curCount--;
-                int curNum=res[curCount];//0 1 3 2
-                curNum+=(1<<i);
-                res.push_back(curNum);
-            }
-        }
-        return res;
-    }
+		vector<int> res;
+		res.push_back(0);
+		for (int i=1;i<=n;i++){
+			int j=1<<(i-1);
+			for (int k=res.size()-1;k>=0;k--){
+				res.push_back(res[k]+j);
+			}
+		}
+		return res;
+	}
 };
 //大神还是很多的，代码就是好看
+//  int j=1<<(i-1);  这个才是乘以2啊，加油
