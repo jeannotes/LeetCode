@@ -71,3 +71,6 @@ public:
         return dp[len][0][0];
     }
 };
+// 在第二个if ---  isScramble(s1.substr(i, s1.size()-i), s2.substr(0, s2.size()-i))    )
+//非常容易出错
+//动态规划的不会啊
