@@ -28,3 +28,4 @@ public:
     }
 };
 // bug-exist .. if(nums[mid]>=nums[i]) 等于号不能没有
+//一次通过
