@@ -17,3 +17,4 @@ public:
     }
 };
 //  int row=(mid/n),col=mid%n;  在这个地方出错
+//没有问题
