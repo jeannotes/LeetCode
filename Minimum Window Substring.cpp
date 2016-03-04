@@ -40,3 +40,5 @@ public:
     }
 };
 //就是不会啊
+//记住，中间 -- if(hasFound==t.length()) 这一句话是不能放在上面一个if从句里面的，因为hasFound并没有变化，
+//如果放在那个里面，每次都不会变化的 "bdab"-"ab",最后仅仅输出-"bda"，因为每次hasFound都是3
