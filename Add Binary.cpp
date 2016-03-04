@@ -16,7 +16,7 @@ public:
     }
 };
 
-//有问题程序
+//有问题程序  //(int)(a[i]+'0') 应该是(int)(a[i]-'0')
 class Solution {
 public:
     string addBinary(string a, string b) {
@@ -41,6 +41,7 @@ public:
         return a;
     }
 };
+
 
 //最好的程序
 class Solution {
