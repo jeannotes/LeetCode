@@ -25,3 +25,4 @@ public:
     }
 };
 //1 4  2 3  这种情况没有考虑到  还有就是operator不会
+//operator 不会啊
