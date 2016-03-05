@@ -48,3 +48,7 @@ public:
     	return recursiveMaxSubArray(nums, 0, nums.size()-1);
     }
 };
+//  假设前面k个是sum，第k+1个的时候，如果sum小于0，对我后面计算是没有好处的，但是前提是之前的最大和已经保存在maxSum里面啦。
+//所以会和前面的去比较的，没事
+//注意LCS,LIS等问题
+//第二种解法还有问题
