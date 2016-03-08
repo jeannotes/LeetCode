@@ -1,4 +1,4 @@
-class Solution1 {
+class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
         vector<vector<string>>res;
@@ -23,3 +23,4 @@ public:
     }
 };
 // 好题目，还有许多不会
+// group[tem]=res.size()-1; 这个地方容易出错，因为hash表就是按照排序好的为底的
