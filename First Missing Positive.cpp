@@ -24,3 +24,14 @@ public:
     }
 };
 //bug-exist  在while那个循环那边  nums[i]>0&&nums[i]<=len 这两个条件没有看到
+/*
+if (tem>0&&tem<len){
+			
+		while (tem!=nums[tem-1]){
+			//3 1 2
+			swap(nums[i],nums[tem-1]);//2 1 3
+			tem=nums[i];//1 2 3
+		}
+	}  中间循环部分不能写成这个，可能导致转换之后，出现负数，这个时候是一直在转换的，
+
+*/
