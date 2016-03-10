@@ -10,7 +10,7 @@ public:
             //if(nums[i]<=0)  continue;
             num=nums[i];
             while(num>0&&num<nums.size()&&num!=nums[num-1]){
-                swap(nums[num-1],nums[i]);
+                swap(nums[num-1],nums[i]);//  这边不能写nums[num]!=num+1 ，因为有可能导致越界啊
                 num=nums[i];
             }//这边似乎就已经全部排列好了
         }
@@ -33,5 +33,5 @@ if (tem>0&&tem<len){
 			tem=nums[i];//1 2 3
 		}
 	}  中间循环部分不能写成这个，可能导致转换之后，出现负数，这个时候是一直在转换的，
-
+//  这边不能写nums[num]!=num+1 ，因为有可能导致越界啊
 */
