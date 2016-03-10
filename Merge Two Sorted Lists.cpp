@@ -24,3 +24,4 @@ public:
         return head;
     }
 };
+//  本次直接在if里面return 导致两者为空的情况没有考虑
