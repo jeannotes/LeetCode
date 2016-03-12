@@ -38,8 +38,11 @@ public:
         for(int i=1;i<=n;i++){
             f[0][i]=i>1&&p[i-1]=='*'&&f[0][i-2];//因为此时是空的
         }
-  
-        for(int i=1;i<=m;i++){
+  	//这里其实
+	// p[0.., j - 3, j - 2, j - 1] matches empty
+	//if p[j - 1] is '*' and p[0..j - 3] matches empty
+	//假设p[0]=* 这时候f[0][0]=true  不影响的
+	    for(int i=1;i<=m;i++){
             for(int j=1;j<=n;j++){
                 if(p[j-1]!='*'){
                     f[i][j]=f[i-1][j-1]&&(p[j-1]==s[i-1]||p[j-1]=='.');
