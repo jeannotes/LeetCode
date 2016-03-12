@@ -18,3 +18,5 @@ public:
         return true;
     }
 };
+//  for(;x/div>=10;div=div*10);//这个分号不能少  
+// 这个地方要用除，防止溢出
