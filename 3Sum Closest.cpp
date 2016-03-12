@@ -28,3 +28,9 @@ public:
     }
 };
 //好题目啊，不会
+/*
+if(sum>target)
+    right--;
+if(sum<target)
+    left++;         这个地方容易出错啊 left++;  right--;容易判别错误
+*/ 
