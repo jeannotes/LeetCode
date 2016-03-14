@@ -6,7 +6,7 @@ public:
         if(x<0)     return false;
         if(x<10)    return true;
         int div=1;
-        for(;x/div>=10;div=div*10);//这个分号不能少
+        for(;x/div>=10;div=div*10);//这个分号不能少  万一出现 100 10的情况
         
         while(x!=0){
             int left=x/div;
