@@ -1,19 +1,23 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-    	int water=0;
-    	int i=0,j=height.size()-1;
-    	while (i<j){
-    		int h=min(height[i],height[j]);
-    		water=max(water,h*(j-i));
-    		while (height[i]<=h&& i < j){
-    			i++;
-    		}
-    		while (height[j]<=h&& i < j){
-    			j--;
-    		}
-    	}
-    	return water;
+        int res=0;
+        int i=0,j=height.size()-1;
+        while(i< j){
+            int temp=(j-i)*min(height[i],height[j]);
+            if(temp>res){
+                res=temp;
+            }
+            if(height[i]>height[j]){
+                j--;
+            } else if(height[i]<height[j]){
+                i++;
+            }else{
+               i++;j--;
+            }
+        }
+        
+        return res;
     }
 };
 
@@ -21,4 +25,4 @@ public:
  //本题的意思不在于像之前的trapping rain water 一样，需要考虑位置，体积啥的，
         //他只是单纯的问我们两根线连起来和x轴有没有最大值。
 // 不太会做啊
-//  while (height[i]<=h&& i < j)  这个地方写成++i了 不能这样，因为先加1反而会
+//  左边的大，右边的往左走，左边的小，左边的往右走
