@@ -72,3 +72,4 @@ public:
 	}
 };
 //好题目
+//   vector<TreeNode*> dp(NULL);  这个地方  写成vector<TreeNode*> dp(1，NULL);就会出错
