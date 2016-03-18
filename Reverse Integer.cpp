@@ -6,7 +6,7 @@ public:
     	}
     	int res=0;
     	while (x>0){
-    		if (res>INT_MAX/10||(res>INT_MAX/10&&x>7)){
+    		if (res>INT_MAX/10||(res==INT_MAX/10&&x>7)){
     			return 0;
     		}
     		res=res*10+x%10;
@@ -17,3 +17,4 @@ public:
 };
 //有小瑕疵
 //溢出的条件  返回应该是0
+//  溢出的条件  返回应该是0  想要做到bugfree挺难啊
