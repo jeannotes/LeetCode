@@ -1,11 +1,3 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
 //还有一种递归的写法。
@@ -27,3 +19,4 @@ public:
 };
 //ListNode *tail=NULL;  空链表
 //一次通过
+//基本一次通过，突然想起，人要乐观
