@@ -24,7 +24,7 @@ public:
         }
     }
 };
-
+//
 class Solution2 {
 public:
     void connect(TreeLinkNode *root) {
@@ -47,3 +47,4 @@ public:
 //第二种方法：if (root->right&&root->next) 按照道理不写左边的root->right没事，
 //因为第二句root->left存在，那么root->right一定存在
 //但是到最底层，最左边的时候，root->next是存在的，只是当前的root->right->next不存在
+// 一定要好好练习，加油，相信自然
