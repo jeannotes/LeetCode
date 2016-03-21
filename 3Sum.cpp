@@ -41,3 +41,4 @@ public:
 //第二天早晨做，一次通过
 //  这个分支 if(sum==curSum)  里面没 往右往左走
 //  在里面定义vector<int> tem; 不然需要清空的
+// 今天终于一次acc
