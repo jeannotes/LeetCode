@@ -22,3 +22,4 @@ public:
         return res;
     }
 };
+// 没有同或运算符 d=!(a^b) 
