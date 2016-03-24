@@ -42,3 +42,34 @@ public:
     }
 };
 //好题目
+// hash表容易出错
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head){
+    	if (head==NULL){
+    		return head;
+    	}
+    	RandomListNode *l1,*l2,*newHead;
+    	for (l1=head;l1!=NULL;l1=l1->next){
+    		RandomListNode *node=new RandomListNode(l1->label);
+    		node->next=l1->next;l1->next=node;l1=l1->next;
+    	}
+    
+    	for (l1=head;l1!=NULL;l1=l1->next->next){
+    		if (l1->random){
+    			l1->next->random=l1->random->next;
+    		}
+    	}
+    	newHead=head->next;
+    	for (l1=head;l1!=NULL;l1=l1->next){
+    		l2=l1->next;
+    		l1->next=l2->next;
+    		if(l2->next){
+    			//1 2 3 4 5 6
+    			l2->next=l2->next->next;
+    		}
+    	}
+    	return newHead;
+    }
+};
+// 真是好题目啊
