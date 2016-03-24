@@ -20,3 +20,22 @@ public:
 // string tmp=s.substr(j,i-j);  这个地方是不需要i-j+1的，因为i本身就多1的。
 //dp[i]--s[0..i-1] 
 //不会做，好题目，但是自己在分析i 和 j的时候分析对了
+
+//我一次做出啊
+    bool wordBreak(string s, unordered_set<string>& wordDict) {
+    	if (s.empty()){
+    		return false;
+    	}
+    	int len=s.size();
+    	vector<bool>dp(len+1,false);//0 1234 
+    	dp[0]=true;//dp[i]--s[0..i-1]
+    	for (int i=1;i<=len;i++){
+    		for (int j=0;j<i;j++){
+    			string tmp=s.substr(j,i-j);
+    			if (wordDict.find(tmp)!=wordDict.end()&&(j==0||dp[j]==true)){
+    				dp[i]=true;
+    			}
+    		}
+    	}
+    	return dp[len];
+    }
