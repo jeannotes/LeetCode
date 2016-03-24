@@ -88,3 +88,4 @@ public:
     }
 };
 //一天内做了好多遍的
+// 基本是自己做的  --  初始化的时候vector<vector<int>>Br(len,vector<int>());  这样里面就全部是len数值啦
