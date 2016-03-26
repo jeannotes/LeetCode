@@ -18,3 +18,17 @@ public:
     //bug-free
 };
 //一次通过
+int removeDuplicates(vector<int>& nums) {
+	if (nums.empty()){
+		return 0;
+	}
+	int len=0;
+	for (int i=0;i<nums.size();i++){
+		int n=nums[i];
+		if (len<2||n>nums[len-2]){
+			nums[len++]=n;
+		}
+	}
+	return len;//1112
+}
+//膜拜啊，太厉害
