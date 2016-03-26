@@ -1,11 +1,3 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
@@ -65,3 +57,4 @@ public:
 };
 // 努力掌握第一种方法
 //不会了啊
+// 基本一次通过啊
