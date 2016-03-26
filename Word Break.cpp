@@ -39,3 +39,23 @@ public:
     	}
     	return dp[len];
     }
+
+
+//从前面的回文串的例子总结的方法
+class Solution {
+public:
+    bool wordBreak(string s, unordered_set<string>& wordDict) {
+    	int len=s.size();
+    	vector<bool>dp(len,false);//dp[i]--s[0...i-1]
+    	for (int i=0;i<len;i++){
+    		for (int j=0;j<=i;j++){
+    			string tem=s.substr(j,i-j+1);
+    			if ((j==0||dp[j-1]==true)&&wordDict.find(tem)!=wordDict.end()){
+    				dp[i]=true;break;
+    			}
+    		}
+    	}
+    	return dp[len-1];
+    }
+};
+//建议使用这个
