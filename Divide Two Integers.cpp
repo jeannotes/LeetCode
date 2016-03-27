@@ -19,3 +19,4 @@ public:
     	return sign==true? -result:result;
     }
 };
+// for (int i=0;a>=c;c=c<<1,i++){ 这边应该是c=c<<1  不是c=c<<i
