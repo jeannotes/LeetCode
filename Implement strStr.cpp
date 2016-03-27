@@ -25,3 +25,22 @@ public:
 还是有问题，if(needle[j]!=haystack[i+j])
                         break;  这个地方不能直接返回 -1 还有可能下一次呢，i+1的情况还有可能
 */
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+    	if (haystack.empty()){
+    		return needle.empty()?0:-1;
+    	}
+    	for (int i=0;;i++){
+    		for (int j=0;;j++){
+    			if (j==needle.length())
+    				return i;//1234
+    			if(i+j==haystack.size())
+    				return -1;
+    			if (haystack[i+j]!=needle[j])
+    				break;
+    		}
+    	}
+    }
+};
+//非常好的方法
