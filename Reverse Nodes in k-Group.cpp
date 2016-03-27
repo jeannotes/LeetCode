@@ -5,7 +5,7 @@ public:
         ListNode *dummy=new ListNode(0);dummy->next=head;
         ListNode *p=dummy;
         
-        while(p){
+        while(p){// 这个地方不能是p->next，因为有可能p就是null了，再p->next就没有意义呢
             p->next=reverseList(p->next,k);
             for(int i=1;p&&i<=k;i++){
                 p=p->next;//不能漏掉p这个条件
