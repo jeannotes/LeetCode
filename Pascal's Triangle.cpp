@@ -1,30 +1,19 @@
-class Solution
-{
+class Solution {
 public:
-	vector< vector< int > > generate(int numRows){
-		vector< vector <int > >triangle;
-		for (int i = 0; i < numRows; i++)
-		{
-			vector<int> v;
-			if (i==0)
-			{
-				v.push_back(1);
-			}
-			else
-			{
-				v.push_back(1);
-				for (int j = 1; j <= i-1; j++)
-				{
-					v.push_back(triangle[i-1][j]+triangle[i-1][j-1]);
-				}
-				v.push_back(1);
-			}
-			triangle.push_back(v);
-		}
-		
-		return triangle;
-	}
+    vector<vector<int>> res;
+    vector<int> tem;
+    vector<vector<int>> generate(int numRows) {
+        
+    	for (int i=0;i<numRows;i++){
+    		tem.insert(tem.begin(),1);
+    		if(i>=2){
+    		    for (int j=1;j<=tem.size()-2;j++){
+        			tem[j]=tem[j]+tem[j+1];//11--111--121--1121-1331
+        		}
+    		}
+    		res.push_back(tem);
+    	}
+    	return res;
+    }
 };
-
-//第二次编写，还是一些c++语法不太懂，基础很重要，不过，我认为这些无所谓。
-//后期我会用c重新编写。
+//在c++里面要强调if(i>=2)  Java不需要
