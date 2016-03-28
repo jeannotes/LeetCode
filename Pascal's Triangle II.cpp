@@ -1,23 +1,3 @@
-class Solution1 {
-public:
-    vector<int> getRow(int rowIndex) {
-        vector<int> result(1,1);
-        if(rowIndex==0){
-            return result;
-        }
-        
-        for(int i=1;i<=rowIndex;i++){
-            vector<int>temp=result;
-            for(int j=1;j<=i-1;j++){
-                result[j]=temp[j]+temp[j-1];
-            }
-            result.push_back(1);
-            temp.clear();
-        }
-        return result;
-    }
-};
-
 class Solution2 {
 //此版本更加简洁
 public:
@@ -36,3 +16,19 @@ public:
     }
 };
 //罗辑思维题目，没有问题
+class Solution3 {
+public:
+    vector<int> tem;
+    vector<int> getRow(int rowIndex) {
+        for (int i=0;i<=rowIndex;i++){
+    		tem.insert(tem.begin(),1);
+    		if(i>=2){
+    		    for (int j=1;j<=tem.size()-2;j++){
+        			tem[j]=tem[j]+tem[j+1];//11--111--121--1121-1331
+        		}
+    		}
+    	}
+    	return tem;
+    }
+};
+//果真网上大神很多
