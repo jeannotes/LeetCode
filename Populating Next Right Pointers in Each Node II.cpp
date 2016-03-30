@@ -36,3 +36,4 @@ public:
 //这里不需把每一层最后next指向null，因为实际上已经指向null ， 另外 ， 本程序实际上 虚拟化 root->left 指向 root->right  ，
 //并不是root->left主动指向 root->right ， 而是通过设置tail 来操作的
 //粗心大意
+//不会
