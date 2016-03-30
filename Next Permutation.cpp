@@ -37,3 +37,4 @@ public:
 while(j<nums.size()&&nums[j]>nums[i])  对应1 5 1 一定是--nums[j]>nums[i]  而不是nums[j]>=nums[i]
 等于的情况不可取
 */
+// 还是出现115 的情况了，加油
