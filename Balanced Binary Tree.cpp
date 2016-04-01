@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
@@ -32,4 +23,5 @@ public:
 };
 //树的类型的题目做的多了，不过，链表、树的题目要多做
 //还是不会
+//一次通过
 //一次通过
