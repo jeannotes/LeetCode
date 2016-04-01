@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
@@ -30,3 +21,4 @@ public:
         return res;
     }
 };
+//加油啊，看了爆裂鼓手还是很震惊的
