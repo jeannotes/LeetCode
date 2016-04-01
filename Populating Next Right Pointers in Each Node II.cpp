@@ -1,11 +1,3 @@
-/**
- * Definition for binary tree with next pointer.
- * struct TreeLinkNode {
- *  int val;
- *  TreeLinkNode *left, *right, *next;
- *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
- * };
- */
 class Solution {
 public:
     void connect(TreeLinkNode *root) {
@@ -37,4 +29,5 @@ public:
 //并不是root->left主动指向 root->right ， 而是通过设置tail 来操作的
 //粗心大意
 //不会
+//粗心大意
 //粗心大意
