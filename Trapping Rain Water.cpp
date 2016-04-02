@@ -29,3 +29,26 @@ public:
 };
 //基本一致通过，bug-free还是有问题的
 //  写成简便的形式会出错
+int trap(vector<int>& height) {
+	if (height.empty())
+		return 0;
+	int len=height.size();
+	vector<int> left(len,height[0]);
+	vector<int> rigth(len,height[len-1]);
+	int maxHeight=height[0];
+
+	for (int i=1;i<len;i++){
+		maxHeight=max(maxHeight,height[i]);
+		left[i]=maxHeight;
+	}
+	maxHeight=height[len-1];
+	for (int i=len-2;i>=0;i--){
+		maxHeight=max(maxHeight,height[i]);
+		rigth[i]=maxHeight;
+	}
+	int res=0;
+	for (int i=0;i<len;i++){
+		res+=(min(left[i],rigth[i])-height[i]);
+	}
+	return res;
+}
