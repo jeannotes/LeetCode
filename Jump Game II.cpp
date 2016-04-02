@@ -2,7 +2,7 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        if(nums.empty()||nums.size()==1)
+        if(nums.size()<=1)
             return 0;
         int curEnd=0,curBegin=0,count=0;
         while(curEnd<nums.size()){
@@ -25,3 +25,4 @@ public:
 //下一个区间的右端点就是当前区间的max(index+array[index])，以此类推，直到区间包含了终点，统计当前步数即可。
 //还是不会
 //注意开头结尾条件
+//还是不太会啊
