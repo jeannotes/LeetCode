@@ -74,3 +74,27 @@ public:
 };
 //不会
 //动态规划初始条件不会
+//不会啊
+bool isMatch(string s, string p) {
+	char *ss=&s[0],*pp=&p[0];
+	char *start=NULL,*rs=NULL;
+	while (*ss!='\0'){
+		if (*pp=='?'||*ss==*pp){
+		    ss++;pp++;continue;
+		}
+			
+		if (*pp=='*'){
+			start=++pp;
+			rs=ss;continue;
+		}
+		if (start!=NULL){
+			pp=start;
+			ss=++rs;continue;
+		}
+		return false;
+	}
+	while (*pp=='*'){
+		pp++;
+	}
+	return *pp=='\0';
+}
