@@ -23,3 +23,4 @@ public:
 //本次一次通过，bug-free
 //permuteHelper(start+1,nums,result);  这个地方不是 permuteHelper(i+1,nums,result);
 // 已经失误好多遍了
+// 123 132 213 -- 这个时候接下来 是 321 ，所以不对
