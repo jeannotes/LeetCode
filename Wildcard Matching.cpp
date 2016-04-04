@@ -99,3 +99,4 @@ bool isMatch(string s, string p) {
 	return *pp=='\0';
 }
 // 做了好多遍了，还是不会啊
+//   还是很大问题啊
