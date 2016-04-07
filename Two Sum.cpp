@@ -21,3 +21,22 @@ public:
 //不太会
 //接连做了好几遍
 //感觉脑子进水了
+
+//以下是错误的解法
+  /*  vector<int> res;
+    vector<int> twoSum(vector<int>& nums, int target) {
+    	if (nums.empty())
+    		return res;
+    	unordered_map<int,int>numbers;
+    	for (int i=0;i<nums.size();i++){
+    		numbers[nums[i]]=i;
+    	}
+    	for (int i=0;i<nums.size();i++){
+    		if (numbers.find(target-nums[i])!=numbers.end()){
+    			res.push_back(numbers[nums[i]]);
+    			res.push_back(numbers[target-nums[i]]);
+    			return res;
+    		}
+    	}
+    }*/
+//[3,2,4] 6  都能存进hash表，但是注意，当 6-3 恰好也等于3 这时候全部存0,0  所以出错 
