@@ -1,36 +1,36 @@
-class Solution {
-//https://leetcode.com/problems/reverse-nodes-in-k-group/
-public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode *dummy=new ListNode(0);dummy->next=head;
-        ListNode *p=dummy;
-        
-        while(p){// 这个地方不能是p->next，因为有可能p就是null了，再p->next就没有意义呢
-            p->next=reverseList(p->next,k);
-            for(int i=1;p&&i<=k;i++){
-                p=p->next;//不能漏掉p这个条件
-            }
-        }
-        return dummy->next;
+    	if (head==NULL||k>lengthGet(head))
+    		return head;
+    	ListNode* dummy=new ListNode(0),*p=dummy;dummy->next=head;
+    	while (p){
+    		p->next=reverse_list(p->next,k);
+    		for (int i=1;i<=k&&p;i++){
+    			p=p->next;
+    		}
+    	}
+    	return dummy->next;
     }
     
-    ListNode* reverseList(ListNode* head,int k){
-        if(k<=0)    return head;
-        ListNode* pEnd=head; 
-        while(pEnd&&k--){
-            pEnd=pEnd->next;
-        }
-        if(k>0) return head;
-        ListNode *pHead=pEnd,*p=head;
-        while(p!=pEnd){
-            ListNode *q=p->next;//有一个好处就是pHead指向空的，自动的了，不想之前需要考虑这个问题，直接从头部指向最后一个
-            p->next=pHead;
-            pHead=p;
-            p=q;//从后面往前
-        }
-        return pHead;//连续，后面不断开
-        //比如说1 2 3 4 k=2
-        //1->3  2->1
+    ListNode* reverse_list(ListNode * &head,int k){
+    	if (head==NULL||k==0||k>lengthGet(head))
+    		return head;
+    	
+    	ListNode* dummy=new ListNode(0),* fast=head;dummy->next=head;
+    	// 0 123 4  // 0 213 4 // 0 321 4 
+    	
+    	//ListNode* fast=head;
+    	while (--k){
+    		ListNode* tem1=fast->next;
+    		fast->next=fast->next->next;
+    		tem1->next=dummy->next;
+    		dummy->next=tem1;
+    	}
+    	return dummy->next;
     }
-};
-//不会，要注意“if(k>0) return head;”  这边应该是k>0  而不是 k>=0
+    
+    int lengthGet(ListNode *head){
+    	if (head==NULL)
+    		return 0;
+    	return 1+lengthGet(head->next);
+    }
+    //很明显，我的方法更好
