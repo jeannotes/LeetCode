@@ -36,3 +36,4 @@ public:
 				//删除 word1[i-1] word1[0..i-2]--word2[0..j-1]
 				// 插入 word2[j-1]  word1[0..i-1]+word2[j-1] -- word2[0..j-1]   这个时候一目了然
 */
+//为自己点赞 一下子ac啦
