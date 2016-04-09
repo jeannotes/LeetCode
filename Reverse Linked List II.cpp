@@ -1,23 +1,35 @@
 class Solution {
 public:
+    ListNode* reverse_list(ListNode * & head,int k){
+    	if (head==NULL||k==0||k>lengthGet(head))
+    		return head;
+    	
+    	ListNode* dummy=new ListNode(0),*p=head;dummy->next=head;
+    	// 0 123 4  // 0 213 4 // 0 321 4 
+    	
+    	ListNode* fast=head;
+    	while (--k){
+    		ListNode* tem1=fast->next;
+    		fast->next=fast->next->next;
+    		tem1->next=dummy->next;
+    		dummy->next=tem1;
+    	}
+    	return dummy->next;
+    }
+    
+    int lengthGet(ListNode *head){
+    	if (head==NULL)
+    		return 0;
+    	return 1+lengthGet(head->next);
+    }
+    
     ListNode* reverseBetween(ListNode* head, int m, int n) {
-        ListNode *dummy=new ListNode(0);
-        dummy->next=head;
-        
-        ListNode *slow=dummy;
-        n=n-m;//这一句话不能够放在下面循环的后面，因为m变了。
-        while(--m){
-            slow=slow->next;//在m个之前的一个
-        }
-        
-        ListNode *fast=slow->next,*tmp;
-        while(n--){
-            tmp=fast->next;
-            fast->next=fast->next->next;
-            tmp->next= slow->next;
-            slow->next=tmp;
-        }
-        return dummy->next;
+    	ListNode* dummy=new ListNode(0),*p=dummy;dummy->next=head;
+    	for (int i=1;i<m;i++){
+    		p=p->next;
+    	}
+    	p->next=reverse_list(p->next,n-m+1);
+    	return dummy->next;
     }
 };
 //好题目
