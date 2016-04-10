@@ -34,3 +34,4 @@
     	return 1+lengthGet(head->next);
     }
     //很明显，我的方法更好
+//第二天下午，又是粗心啦
