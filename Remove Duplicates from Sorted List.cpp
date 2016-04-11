@@ -16,3 +16,26 @@ public:
 };
 //加油加油，还有很多需要努力
 //一次成功
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+    	if (head == NULL||head->next==NULL)
+    		return head;
+    	ListNode* dummy = new ListNode(0),*tail=dummy;
+    	dummy->next = head;
+    	while (head&&head->next){
+    		if (head->val == head->next->val) {
+    			int tem1 = head->val;
+    			ListNode* tem2 = head->next;
+    			while (tem2&&tem2->val==tem1){
+    				tem2 = tem2->next;//1 222 3
+    			}
+    			head->next = tem2;
+    		}
+    		head = head->next;
+    	}
+    	return dummy->next;
+    }
+};
+//不太会啦
