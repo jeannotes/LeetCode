@@ -30,3 +30,24 @@ public://不是连续出现两次，而是全部相同的删除
 //链表的题目一定要加强，今年找工作啦，加油
 // while (p->next!=NULL&&p->next->val==v)  这个大循环里面一定是  p->next!=NULL 放在最前面
 //这次一次通过
+//写一个我的版本
+    ListNode* deleteDuplicates(ListNode* head) {
+    	if (head == NULL || head->next == NULL)
+    		return head;
+    	ListNode* dummy = new ListNode(0), *tail = dummy;
+    	dummy->next = head;
+    	while (tail->next&&tail->next->next) {
+    		if (tail->next->val == tail->next->next->val) {
+    			int tem1 = tail->next->val;
+    			ListNode* tem2 =tail->next->next;
+    			while (tem2&&tem2->val == tem1) {
+    				tem2 = tem2->next;//1 222 3
+    			}
+    			tail->next = tem2;
+    		}else {
+    			tail = tail->next;
+    		}
+    			
+    	}
+    	return dummy->next;
+    }
