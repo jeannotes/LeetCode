@@ -27,3 +27,20 @@ public:
 };
 //不会
 // if(start>n)  这句话没有判断
+vector<vector<int>>res; vector<int>tem;
+vector<vector<int>> combine(int n, int k) {
+	combineHelper(1, n, k, 0);
+	return res;
+}
+
+void combineHelper(int start, int n,int k,int t) {
+	if (t == k) {
+		res.push_back(tem); return;
+	}
+	for (int i = start; i <= n;i++) {
+		tem.push_back(i);
+		combineHelper(i + 1, n, k, t + 1);
+		tem.pop_back();
+	}
+}
+//我的另外一个解法
