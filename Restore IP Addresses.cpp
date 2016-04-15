@@ -41,42 +41,41 @@ public:
 //陷阱多多，比如说 if (addr.size() == 4) 这个地方不能不写
 
 //https://leetcode.com/discuss/12790/my-code-in-java  非常好的帖子
-bool isValidIp(string s) {
-    if (s.length() > 1 && s[0] == '0') {
-        return false;
+class Solution {
+public:
+    string tem; vector<string>res;
+    void restoreHelper(string &s, int pos, int index) {
+    	if (pos == 4) {
+    		string ip = s.substr(index);
+    		if (isValid(ip)) {
+    			tem += ip; res.push_back(tem);
+    		} 
+    		return;
+    	}
+    	for (int i = 1;i<4&&(s.size()-index-i>=4-pos);i++) {
+    		string ip=s.substr(index,i);
+			if (isValid(ip)) {
+				int size = tem.size();
+					tem += ip; tem += '.';
+					restoreHelper(s,pos+1,index+i);
+					tem.resize(size);
+			}
+    	}
+    }
+    
+    bool isValid(string s) {
+    	if (s.size() > 1 && s[0] == '0')
+    		return false;
+    	int num = stoi(s);
+    	return (num >= 0 && num <= 255);
+    }
+    
+    vector<string> restoreIpAddresses(string s) {
+    	if (s.size() < 4 || s.size() > 12)
+    		return res;
+    	restoreHelper(s, 1, 0);
+    	return res;
     }
 
-    int num = stoi(s);
-    return (num <= 255 && num >= 0);
-}
-
-void dfs(string s, int pos, int index, string &output, vector<string> &result) {
-    if (pos == 4) {
-        string ip = s.substr(index);
-        if (isValidIp(ip)) {
-            output.append(ip);
-            result.push_back(output);
-        }
-        return;
-    }
-
-    for (int i = 1; s.length() - index - i >= (4 - pos) && i < 4; i++) {
-        string ip = s.substr(index, i);
-        if (isValidIp(ip)) {
-            int oriSize = output.length();
-            output.append(ip).append(".");
-            dfs(s, pos + 1, index + i, output, result);
-            output.resize(oriSize);
-        }
-    }
-}
-
-vector<string> restoreIpAddresses(string s) {
-    vector<string> result;
-    if (s.length() < 4 || s.length() > 12) {
-        return result;
-    }
-    string output;
-    dfs(s, 1, 0, output, result);
-    return result;
-}
+};
+//加油
