@@ -13,23 +13,16 @@ public:
     }
 };
 //两题是类似的，都可以使用前面两种类型解决
-class Solution3 {
+class Solution {
 public:
-   int maxDepth(TreeNode* root) {
-		if (root==NULL){
-			return 0;
-		}
-		int left=getLength(root->left)+1;
-		int right=getLength(root->right)+1;
-		return max(left,right);
-	}
-	int getLength(TreeNode* root){
-		if (root==NULL){
-			return 0;
-		}
-		int left=getLength(root->left)+1;
-		int right=getLength(root->right)+1;
-		return max(left,right);
-	}
+    int maxDepth(TreeNode* root) {
+        if (root == NULL)	return 0;
+    	if (root->left == NULL)
+    		return 1 + maxDepth(root->right);
+    	if (root->right == NULL)
+    		return 1 + maxDepth(root->left);
+    	int i = maxDepth(root->left),j=maxDepth(root->right);
+    	return 1 + max(i, j);
+    }
 };
-// 不 会a
+// 这可能是最好的方法了。
