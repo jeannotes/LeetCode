@@ -33,3 +33,4 @@ public:
 		return p;
 	}
 };//对照数字，清清楚楚
+//有个地方要减1，不过accepted啦，加油
