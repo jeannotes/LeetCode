@@ -30,10 +30,9 @@ vector<vector<int>> res;
     	return res;
     }          
  
-// 这才是好题目啊
-//可惜不会啊
-//第二天早晨做，一次通过
+// 这才是好题目啊,可惜不会啊,第二天早晨做，一次通过
 //  这个分支 if(sum==curSum)  里面没 往右往左走
 //  在里面定义vector<int> tem; 不然需要清空的
 // 今天终于一次acc
 // 还是有问题啊
+// 竟然能够把 int sum=nums[i]+nums[left]+nums[right];  这句话放在外面
