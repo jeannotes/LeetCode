@@ -2,16 +2,15 @@ class Solution {
 //https://leetcode.com/problems/roman-to-integer/
 public:
     int romanToInt(string s) {
-        int res=RomsToInt(s[0]);
-        for(int i=1;i<s.length();i++){
-            if(RomsToInt(s[i-1])<RomsToInt(s[i])){
-                res+=RomsToInt(s[i])-2*RomsToInt(s[i-1]);
-                //一开始加上了一个，由于计算法则，本身也要减去一个，所以是两倍
-            }else{
-                res+=RomsToInt(s[i]);
-            }
-        }
-        return res;
+    	if (s.empty())
+    		return 0;
+    	int res = 0;
+    	for (int i = 0; i < s.size();i++) {
+    		res += RomsToInt(s[i]);
+    		if (i > 0 && RomsToInt(s[i]) > RomsToInt(s[i - 1]))
+    			res = res - 2 * RomsToInt(s[i-1]);
+    	}
+    	return res;
     }
     
     int RomsToInt(char ch){
@@ -30,4 +29,4 @@ public:
 };
 // 颇有疑问，罗马字符技术规则不了解
 // 颇有疑问
-// 注意 if(RomsToInt(s[i-1])<RomsToInt(s[i])){ 这边的等号问题  什么时候是小于等于
+// 写了一个更加简单的代码
