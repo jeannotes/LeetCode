@@ -44,3 +44,4 @@ void combineHelper(int start, int n,int k,int t) {
 	}
 }
 //我的另外一个解法
+// 没问题，只是没有能够很快解决
