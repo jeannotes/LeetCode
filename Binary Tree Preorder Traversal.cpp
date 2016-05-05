@@ -25,25 +25,23 @@ public:
 //迭代版本，可能我这个是最简单的吧
 //一大早写了一个，非常方便，直接AC，非常开心
 //BTW，这是第二个修改版本
-class Solution {
+class Solution2 {
 public:
-	vector<int> preorderTraversal(TreeNode *root){
-		stack<TreeNode*> s;
-		vector<int> result;
-		s.push(root);
-
-		while (!s.empty())
-		{
-			root=s.top();s.pop();
-			if (root==NULL)
-				continue;
-			//虽然检测栈是不是空的，但不能确定结点是否为空
-			result.push_back(root->val);
-			s.push(root->right);
-			s.push(root->left);
-		}
-		return result;
-	}
-	
+    vector<int>res;
+    vector<int> preorderTraversal(TreeNode* root) {
+    	if (root == NULL)
+    		return res;
+    	stack<TreeNode*>stk;
+    	while (root||!stk.empty()){
+    		while (root){
+    			stk.push(root); 
+    			res.push_back(root->val);
+    			root = root->left;
+    		}
+    		root = stk.top()->right; 
+    		stk.pop();
+    	}
+    	return res;
+    }
 };
 //非递归不会啊
