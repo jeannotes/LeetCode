@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
  //https://leetcode.com/problems/minimum-depth-of-binary-tree/
 class Solution1 {
 public:
@@ -57,6 +48,6 @@ public:
     }
     
 };
-//不会啊
-//就用第一个方法啊，加油
+//不会啊,就用第一个方法啊，加油
 //细枝末节的错误啊
+// 递归容易出错啊。
