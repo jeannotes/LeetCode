@@ -19,34 +19,28 @@ public:
 class Solution2 {
 public:
     int minDepth(TreeNode* root) {
-        return BFS(root);
+    	return BFS(root);
     }
     
-    int BFS(TreeNode * root){
-        if(root==NULL){
-            return 0;
-        }
-        queue<pair<TreeNode*,int> >q;
-        q.push(make_pair(root,1));
-        while(!q.empty()){
-            TreeNode *curNode=q.front().first;
-            int curStep=q.front().second;
-            q.pop();//这一层结束
-            if(curNode->left==NULL&&curNode->right==NULL){
-                return curStep;
-                //本题的意思就是只要有一层第一个出现空节点就是最小值
-            }
-            if(curNode->left!=NULL){
-                q.push(make_pair(curNode->left,curStep+1));
-            }
-            if(curNode->right!=NULL){
-                q.push(make_pair(curNode->right,curStep+1));
-            }
-            //本题的巧妙在于我每次都存入一层的节点，当然是没有空的情况下
-            //当然题目一开始就判断了，如果下一个节点的左右孩子是空的话，直接返回
-        }
+    int BFS(TreeNode* root) {
+        int curDepth =0;
+    	if (root == NULL)
+    		return 0;
+    	queue<pair<TreeNode*, int>>q;
+    	q.push(make_pair(root, 1));
+    	while (!q.empty()){
+    		TreeNode* curNode = q.front().first; 
+    		curDepth = q.front().second;
+    		q.pop();
+    		if (curNode->left == NULL&&curNode->right == NULL)
+    		    break;
+    		if (curNode->left)
+    			q.push(make_pair(curNode->left, curDepth + 1));
+    		if (curNode->right)
+    			q.push(make_pair(curNode->right, curDepth + 1));
+    	}
+    	return curDepth;
     }
-    
 };
 //不会啊,就用第一个方法啊，加油
 //细枝末节的错误啊
