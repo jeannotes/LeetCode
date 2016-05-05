@@ -1,29 +1,27 @@
 class Solution {
 public:
+    vector<vector<int>>res; 
     vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int> >res;
-        if(root==NULL)  return res;
-        queue<TreeNode*>q;
-        q.push(root);
-
-        while(!q.empty()){
-            int n=q.size();
-            vector<int>tem;
-            for(int i=0;i<n;i++){
-                TreeNode* temp=q.front();
-                tem.push_back(temp->val);
-                if(temp->left)   q.push(temp->left);
-                if(temp->right)   q.push(temp->right);
-                q.pop();
-            }
-            res.push_back(tem);
-        }
-        
-        return res;
+    	if (root == NULL)
+    		return res;
+    	queue<TreeNode*>q;
+    	q.push(root);
+    	while (!q.empty()){
+    		int size = q.size();
+    		vector<int>tem1;
+    		for (int i = 0; i < size;i++) {
+    			TreeNode* tem = q.front(); q.pop();
+    			if (tem->left)
+    				q.push(tem->left);
+    			if (tem->right)
+    				q.push(tem->right);
+    			tem1.push_back(tem->val);
+    		}
+    		res.push_back(tem1);
+    	}
+    	return res;
     }
 };
-//不能捡了西瓜丢了芝麻
-// int n=q.size(); 这句话不能少
-// int n=q.size(); 这句话不能少
+//不能捡了西瓜丢了芝麻, int n=q.size(); 这句话不能少
 // 这一遍一次通过
 //  我用的是栈，本题不能用栈，不然顺序出错哦
