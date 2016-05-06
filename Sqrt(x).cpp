@@ -25,8 +25,22 @@ public:
 		}
 	}
 }; 
-//不会
-//第二天早上练习的，不太会
-//不会
-// 有瑕疵啊，加油
+class Solution2 {
+public:
+    int mySqrt(int x) {
+
+        int p = 0, q = x;
+        while(p < q)
+        {
+            // Basically, q = (p+q)/2. Code like below has two purpose: 
+            // 1) avoid overflow.
+            // 2) handle corner case, such as x = 1, prevent divided-by-zero error for p=x/q.
+            q = max(1, p + (q - p) / 2);  
+            p = x / q;
+        }
+
+        return p > q ?  q: p; // if the loop exits because p > q, return q; otherwise, p is the answer.
+    }
+};
 // 还不错
+// 新方法更好，解决问题更加简洁，如果p=q  直接返回p  如果p>q 就说明出现(mid+1)>x/(mid+1)  这个时候返回q
