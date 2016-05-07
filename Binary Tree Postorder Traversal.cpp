@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
     	vector<int>res;
@@ -43,4 +43,28 @@ public:
         result.push_back(root->val);
     }
 };
+
+class Solution3 {
+public:
+    vector<int>res;
+    vector<int> postorderTraversal(TreeNode* root) {
+    	if (root == NULL)
+    		return res;
+    	stack<TreeNode*>stk;
+    	while (root||!stk.empty()){
+    		if (root) {
+    		    stk.push(root);
+    			res.insert(res.begin(), root->val);
+    			root = root->right;
+    		}
+    		else {
+    			root = stk.top(); 
+    			stk.pop(); 
+    			root = root->left;
+    		}
+    	}
+    	return res;
+    }
+};
 //不太会啊
+//3种方法务必都掌握
