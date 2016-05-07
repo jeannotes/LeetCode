@@ -17,23 +17,26 @@ public:
 
 class Solution2 {
 public:
+    vector<int>res;
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int>res;
-        stack<TreeNode*>st;
-        while(root!=NULL||!st.empty()){
-            while(root!=NULL){
-                st.push(root);root=root->left;
-            }
-            root=st.top();st.pop();
-            res.push_back(root->val);
-            root=root->right;
-        }
-        return res;
+    	if (root == NULL)
+    		return res;
+    	stack<TreeNode*>stk;
+    	while (root||!stk.empty()){
+    		if (root) {
+    			stk.push(root);
+    			root = root->left;
+    		}
+    		else {
+    			root = stk.top(); stk.pop();
+    			res.push_back(root->val);
+    			root = root->right;
+    		}
+    	}
+    	return res;
     }
 };
-//还有小问题
-//非递归写法没问题啦
-//纪念一下，一次通过
-//递归写法还是不会啊
-//晚上做了一遍 懵懵懂懂
-//一次通过啊
+//还有小问题，非递归写法没问题啦
+//纪念一下，一次通过，递归写法还是不会啊
+//晚上做了一遍 懵懵懂懂，一次通过啊
+//  第二种方法务必掌握
