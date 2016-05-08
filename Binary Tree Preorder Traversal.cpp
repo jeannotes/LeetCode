@@ -44,7 +44,7 @@ public:
     	return res;
     }
 };
-//非递归不会啊
-//不会啊
+//非递归不会啊，不会啊
 //https://leetcode.com/discuss/100858/preorder-inorder-postorder-iterative-solution-by-c
 //  要么就if else  不然就只能是两个while语句啦
+// 加油啊
