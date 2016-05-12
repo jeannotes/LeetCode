@@ -46,5 +46,5 @@ public:
 };
 //非递归不会啊，不会啊
 //https://leetcode.com/discuss/100858/preorder-inorder-postorder-iterative-solution-by-c
-//  要么就if else  不然就只能是两个while语句啦
-// 加油啊
+//  要么就if else  不然就只能是两个while语句啦，加油啊
+//这几个地方不断的练习能够提高非递归的技巧啊，加油
