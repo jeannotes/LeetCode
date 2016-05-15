@@ -1,32 +1,25 @@
-class Solution {
-public:
-    TreeNode* sortedListToBST(ListNode* head) {
-		if (head==NULL){
-			return NULL;
-		}
-		ListNode* p=head;
-		int len=0;
-		while (p!=NULL){
-			p=p->next;len++;
-		}
-		return buildhelper(0,len-1,head);
-	}
+TreeNode* sortedListToBST(ListNode* head) {
+	return sortedHelper(head, 0, getLength(head) - 1);
+}
 
-	TreeNode* buildhelper(int start,int end,ListNode* &head){
-		if (start>end||head==NULL){
-			return NULL;
-		}
+TreeNode* sortedHelper(ListNode* &head,int i,int j) {
+	if (i > j || head == NULL)
+		return NULL;
+	int mid = (i + j) / 2;
+	TreeNode* left = sortedHelper(head, i, mid - 1);
+	TreeNode* node = new TreeNode(head->val);
+	head = head->next;
+	TreeNode* right = sortedHelper(head, mid + 1, j);
+	node->left = left;
+	node->right = right;
+	return node;
+}
 
-		int mid=(start+end)/2;
-		TreeNode* leftNode=buildhelper(start,mid-1,head);
-		TreeNode* node=new TreeNode(head->val);
-		node->left=leftNode;
-		head=head->next;
-		TreeNode* rightNode=buildhelper(mid+1,end,head);
-		node->right=rightNode;
-		return node;
+int getLength(ListNode* head) {
+	if (head == NULL)
+		return 0;
+	return 1 + getLength(head->next);
 	}
-};
 //还是有些不太理解
 //注意引用啊，不然就会出错，
 //这里简单介绍如何解题，假设此时只有 0，两个1,0 必然指向null，head=head->next 就是刚刚的1,0 
