@@ -1,12 +1,3 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution {
 public:
 //https://leetcode.com/problems/path-sum/
@@ -41,3 +32,16 @@ public:
 };
 //对比一下，这次不是更新res。而是直接加上去。好题目
 //今天一次通过，开心
+
+bool hasPathSum(TreeNode* root, int sum) {
+	if (root == NULL)
+		return false;
+	if (root->left == NULL&&root->right == NULL&&sum == root->val)
+		return true;
+	if (hasPathSum(root->left, sum - root->val))
+		return true;
+	if (hasPathSum(root->right, sum - root->val))
+		return true;
+	return false;
+}
+//这个方法也不错哦
