@@ -38,10 +38,8 @@ bool hasPathSum(TreeNode* root, int sum) {
 		return false;
 	if (root->left == NULL&&root->right == NULL&&sum == root->val)
 		return true;
-	if (hasPathSum(root->left, sum - root->val))
-		return true;
-	if (hasPathSum(root->right, sum - root->val))
+	if (hasPathSum(root->left, sum - root->val)|| hasPathSum(root->right, sum - root->val))
 		return true;
 	return false;
 }
-//这个方法也不错哦
+//这个方法也不错哦，更加精简哦，嘿嘿
