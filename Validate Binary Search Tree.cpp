@@ -27,8 +27,36 @@ public:
         return false;
     }
 };
+
+class Solution2 {
+public:
+    bool isValidBST(TreeNode* root) {
+    	if (root == NULL)
+    		return true;
+    	if (!less(root->left, root->val) || !greater(root->right, root->val))
+    		return false;
+    	return isValidBST(root->left) && isValidBST(root->right);
+    }
+    
+    bool less(TreeNode* root,int val) {
+    	if (root == NULL)
+    		return true;
+    	if (root->val >= val)
+    		return false;
+    	return less(root->left, val) && less(root->right, val);
+    }
+    
+    bool greater(TreeNode* root,int val) {
+    	if (root == NULL)
+    		return true;
+    	if (root->val <= val)
+    		return false;
+    	return greater(root->left, val) && greater(root->right, val);
+    }
+};
+
 //一举拿下啊，哈哈
-//哈哈，基本没问题了
+//哈哈，基本没问题了，我自己的方法，竟然成功啦
 /*
     class Solution2 {
     public:
