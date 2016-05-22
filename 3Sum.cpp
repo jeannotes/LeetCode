@@ -2,7 +2,8 @@ vector<vector<int>> res;
     vector<vector<int>> threeSum(vector<int>& nums) {
     	if (nums.size()<3)
     		return res;
-    	int len=nums.size();sort(nums.begin(),nums.end());
+    	int len=nums.size();
+    	sort(nums.begin(),nums.end());
     	for (int i=0;i<len;i++){
     		if (i>0&&nums[i]==nums[i-1])
     			continue;
@@ -31,7 +32,7 @@ vector<vector<int>> res;
     }          
  
 // 这才是好题目啊,可惜不会啊,第二天早晨做，一次通过
-//  这个分支 if(sum==curSum)  里面没 往右往左走,在里面定义vector<int> tem; 不然需要清空的
-// 今天终于一次acc，还是有问题啊
+//  这个分支 if(sum==curSum)  里面没 往右往左走,在里面定义vector<int> tem; 不然需要清空的.
 // 竟然能够把 int sum=nums[i]+nums[left]+nums[right];  这句话放在外面
 //还是没有能够一次通过
+//一次AC 啊
