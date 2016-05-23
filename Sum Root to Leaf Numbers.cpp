@@ -42,6 +42,5 @@ public:
         return sumHelper(root->left, sum) + sumHelper(root->right, sum);
     }
 };
-//好题目啊
-// 不会啊
-// 还是不会啊
+//好题目啊，不会啊
+// 还是不会啊，不会
