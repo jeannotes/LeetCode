@@ -12,7 +12,7 @@ public:
     int maxPathSumHelper(TreeNode* root){
     	if (root==NULL){
     		return 0;
-    	}
+    	}//其实这里没必要继续写if (root->left==NULL&&...)  而且也不能写的，究其原因，再研究吧
     	int left=max(0,maxPathSumHelper(root->left));
     	int right=max(0,maxPathSumHelper(root->right));
     
