@@ -12,7 +12,8 @@ public:
     int maxPathSumHelper(TreeNode* root){
     	if (root==NULL){
     		return 0;
-    	}//其实这里没必要继续写if (root->left==NULL&&...)  而且也不能写的，究其原因，再研究吧
+    	}//其实这里没必要继续写if (root->left==NULL&&...)  
+    	// 因为此时 假如返回的是root->val（也就是本节点） 其实是最大值啊 
     	int left=max(0,maxPathSumHelper(root->left));
     	int right=max(0,maxPathSumHelper(root->right));
     
@@ -29,4 +30,25 @@ public:
 // 要自信的嘛，小伙子
 //  这里不能写成int maxPathSumHelper(TreeNode* root,int sum) 
 //而 int sum应该是全局变量，如果写成局部变量，每次都要和左边节点的值比较
-//而如果是全局变量，就是每次更新sum值，
+//而如果是全局变量，就是每次更新sum值，  所以看solution2
+class Solution {
+public:
+    int res = INT_MIN;
+    int maxPathSum(TreeNode* root) {
+    	maxHelper(root);
+    	return res;
+    }
+    
+    int maxHelper(TreeNode* root) {
+    	if (root == NULL)
+    		return 0;
+    	if (root->left == NULL&&root->right == NULL) {
+    		res = max(res, root->val);
+    		return root->val;
+    	}
+    	int left = max(0, maxHelper(root->left));
+    	int right = max(maxHelper(root->right), 0);
+    	res = max(res, left + right + root->val);
+    	return root->val + max(left, right);
+    }
+};
