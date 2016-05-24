@@ -18,7 +18,8 @@ public:
         }
         if(root->left!=NULL){
             dfs(root->left,10*num+root->left->val);
-        }
+        }//  这不不能直接  dfs(root->left,10*num+root->left->val); 的原因就是 root->left可能为空，那么
+        //root->left->val可能没有意义
         if(root->right!=NULL){
             dfs(root->right,10*num+root->right->val);
         }
