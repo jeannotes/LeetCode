@@ -1,8 +1,7 @@
-class Solution1 {
+class Solution {
 public:
     int sum=0;
     int sumNumbers(TreeNode* root) {
-        int result=0;
         if(root==NULL){
             return 0;
         }
@@ -10,7 +9,10 @@ public:
         return sum;
     }
     
-    int dfs(TreeNode *root,int num){
+    void dfs(TreeNode *root,int num){
+        if(root==NULL){
+            return ;
+        }
         if(root->left==NULL&&root->right==NULL){
             sum+=num;//这个时候是总和
         }
@@ -23,24 +25,5 @@ public:
         
     }
 };
-
-class Solution2 {
-public:
-    int sumNumbers(TreeNode *root) {
-        if (root == NULL) return 0;
-        return sumHelper(root, 0);
-    }
-    
-    int sumHelper(TreeNode *root, int sum) {//这里sum代表还没有到达之前从顶端到这里的sum值
-        if (root == NULL) return 0;
-        
-        sum = sum * 10 + root->val;
-        if (root->left == NULL && root->right == NULL) {
-            return sum;
-        }
-        
-        return sumHelper(root->left, sum) + sumHelper(root->right, sum);
-    }
-};
-//好题目啊，不会啊
-// 还是不会啊，不会
+//好题目啊，本题似乎是找不到能够返回的，其实，对于那种返回的值传递，不太能够理解啊。
+// 用这个dfs void类型的，能够更好的理解。
