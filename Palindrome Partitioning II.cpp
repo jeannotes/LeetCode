@@ -15,5 +15,4 @@ int minCut(string s) {
 	return cut[len-1];
 }
 // (i-j<2||dp[j+1][i-1]==true)   i-j<2要写在前面的
-//还有他的代码真好
-// 不会啊
+//还有他的代码真好,不会啊，真的是好题目啊
