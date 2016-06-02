@@ -26,3 +26,4 @@ public:
 };
 //代码更加简洁
 // 在定义 字符串数组那边还有问题啊
+//  string table[]={"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"}; c++似乎不允许直接定义啊
