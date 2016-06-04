@@ -40,4 +40,7 @@ public:
 // 要抽时间学习STL基本知识  
 //不会啊
 // operator 里面不需要使用 &
-// 一些格式问题，优先队列格式不会，要熟练啊
+/*
+priority_queue<ListNode *,vector<ListNode *>,Comp>pq;   ----  bool operator()(const ListNode i1, const ListNode *i2)
+  这里面一定要统一 ，因为优先队列就是按照指针来的
+*/
