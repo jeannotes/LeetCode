@@ -4,7 +4,7 @@ public:
         if(needle.length()<1)
             return 0;
         int len1=haystack.length(),len2=needle.length();
-        for(int i=0;i<=len1-len2;i++){
+        for(int i=0;i<=len1-len2;i++){  //  这边不能写i<=haystack.length()-needle.length()  不知道为什么啊
             if(haystack[i]==needle[0]){
                 int j=0;
                 for(;j<len2;j++){
@@ -25,24 +25,3 @@ public:
 还是有问题，if(needle[j]!=haystack[i+j])
                         break;  这个地方不能直接返回 -1 还有可能下一次呢，i+1的情况还有可能
 */
-    int strStr(string haystack, string needle) {
-        if (haystack.empty()){
-        		return needle.empty()?0:-1;
-        	}
-    	int len1=haystack.size(),len2=needle.size();
-    	for (int i=0;;i++){
-    		for (int j=0;;j++){
-    			if (j==len2){
-    				return i;
-    			}
-    			if (i>len1-len2){
-    				return -1;//1234 
-    			}
-    			if (haystack[i+j]!=needle[j]){
-    				break;
-    			}
-    		}
-    	}
-    }
-//非常好的方法
-// 不会啊
