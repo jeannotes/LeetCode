@@ -86,4 +86,4 @@ public:
 //1 1 5 1 1 1 1
 //找一个特殊例子
 // 如果是 nums[mid]<nums[right]  nums[mid]>nums[right] right--
-// 还是不会啊
+// 最怕在折叠点不能够确定是比左边大，还是比右边的小的啊
