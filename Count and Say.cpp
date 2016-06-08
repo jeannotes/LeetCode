@@ -82,5 +82,28 @@ public:
         return res;
     }
 };
-//这一遍做出来了
-//这一遍做出来了
+//  自己写了好几个版本的
+string countAndSay(int n) {
+	if (n == 1)
+		return "1";
+	if (n == 2)
+		return "11";
+	string prev = countAndSay(n - 1);
+	int count = 0;
+	char c = prev[0];
+	string res;
+	for (int i = 0; i < prev.size();i++) {
+		if (prev[i] == c) {
+			count++;
+		}
+		else {
+			res += '0' + count;
+			res += c;
+			c = prev[i];
+			count = 1;
+		}
+	}
+	res += '0' + count;
+	res += c;
+	return res;
+}
