@@ -38,43 +38,36 @@ public:
 
 
 //迭代的版本
-class Solution {
-public:
+vector<int>res;
+vector<int> searchRange(vector<int>& nums, int target) {
+	int i = searchLeft(nums, target);
+	int j = searchRight(nums, target);
+	res.push_back(i);
+	res.push_back(j);
+	return res;
+}
 
-    vector<int> searchRange(vector<int>& nums, int target) {
-        vector<int> res(2,-1);
-    	if (nums.empty()||target<nums[0]||target>nums[nums.size()-1]){
-    		return res;
-    	}
-    	int i=searchLow(nums,target);
-    	int j=searchHigh(nums,target);
-    	if (i<=j){//123 
-    		res[0]=i;res[1]=j;
-    	}
-    	return res;
-    }
-    
-    int searchLow(vector<int>& nums, int target){
-    	int i=0,j=nums.size()-1;
-    	while (i<=j){
-    		int mid=(i+j)/2;
-    		if (nums[mid]>=target){
-    			j=mid-1;
-    		}else
-    			i=mid+1;//1223
-    	}
-    	return i;
-    }
-    
-    int searchHigh(vector<int>& nums, int target){
-    	int i=0,j=nums.size()-1;
-    	while (i<=j){
-    		int mid=(i+j)/2;
-    		if (nums[mid]<=target){
-    			i=mid+1;
-    		}else
-    			j=mid-1;//123
-    	}
-    	return j;
-    }
-};
+int searchLeft(vector<int>& nums, int target) {
+	int i = 0, j = nums.size() - 1;
+	while (i<=j){
+		int mid = (i + j) / 2;
+		if (nums[mid] < target)
+			i = mid + 1;//11
+		else
+			j = mid - 1;
+	}
+	return nums[i] == target ? i : -1;
+}
+
+int searchRight(vector<int>& nums, int target) {
+	int i = 0, j = nums.size() - 1;
+	while (i <= j) {
+		int mid = (i + j) / 2;
+		if (nums[mid] > target)
+			j = mid - 1;//11
+		else
+			i = mid + 1;
+	}
+	return nums[j] == target ? j : -1;
+}
+// 这个版本更好
