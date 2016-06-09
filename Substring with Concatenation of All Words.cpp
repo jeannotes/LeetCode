@@ -49,46 +49,40 @@ public:
     
 };
 
-class Solution {
-public:
-    vector<int> findSubstring(string s, vector<string>& words) {
-        
-        
-        int wordSize=words[0].length();
-        int totalWords=words.size();
-        int totalLen=wordSize*totalWords;
-        vector<int>res;
-        if(s.length()<totalLen)
-            return res;
-        if(words.empty())
-            return res;
-        unordered_map<string,int>wordCount;
-        for(int i=0;i<totalWords;i++){
-            wordCount[words[i]]++;
-        }
-        int len1=s.length(),len2=totalLen;
-        for(int i=0;i<=len1-len2;i++){
-            if(check(i,s,words,wordSize,totalWords,totalLen,wordCount))
-                res.push_back(i);
-        }
-        return res;
-    }
-    
-    bool check(int start,string& s,vector<string>& words,int wordSize,int totalWords,int totalLen
-                ,unordered_map<string,int>wordCount){
-            if(s.length()-start<totalLen)
-                return false;
-            unordered_map<string,int>wordFound;
-            for(int i=0;i<totalWords;i++){
-                string tem=s.substr(start+i*wordSize,wordSize);
-                if(wordCount[tem]==0)
-                    return false;
-                wordFound[tem]++;
-                if(wordFound[tem]>wordCount[tem])
-                    return false;
-            }
-            return true;
-        }
-};
-// 其实思路已经有了，只是自己没有努力做下去，晚上一次通过啊
-// 一开始的判断条件没有写对啊
+vector<int>res;
+vector<int> findSubstring(string s, vector<string>& words) {
+	if (s.empty() || words.empty())
+		return res;
+	int wordCount = words.size(),
+		wordSize = words[0].size(),
+		totalSize = wordCount*wordSize;
+	if (s.size() < totalSize)
+		return res;
+	unordered_map<string, int>wordExist;
+	for (int i = 0; i < wordCount; i++) {
+		wordExist[words[i]]++;
+	}
+
+	for (int i = 0; i <=s.size()-totalSize;i++) {
+		if (check(s, words, i, wordExist, wordCount, wordSize))
+			res.push_back(i);
+	}
+	return res;
+}
+
+bool check(string s, vector<string>& words, int start, unordered_map<string, int>wordExist,
+	int wordCount,int wordSize) {
+	if (s.size() - start < wordCount*wordSize)
+		return false;
+	unordered_map<string, int>wordFound;
+	for (int i = 0; i < wordCount;i++) {
+		string tem = s.substr(start + i*wordSize, wordSize);
+		if (wordExist[tem] == 0)
+			return false;
+		wordFound[tem]++;
+		if (wordFound[tem]>wordExist[tem])
+			return false;
+	}
+	return true;
+}
+// 还可以
