@@ -24,3 +24,4 @@ public:
 //permuteHelper(start+1,nums,result);  这个地方不是 permuteHelper(i+1,nums,result);
 // 已经失误好多遍了
 // 123 132 213 -- 这个时候接下来 是 321 ，所以不对
+// 因为变化位置了，所以i就不是在原来位置上，只能够start+1啊
