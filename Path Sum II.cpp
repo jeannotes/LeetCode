@@ -1,22 +1,21 @@
 class Solution {
 public:
-    vector<vector<int>>res;
     vector<int>tem;
+    vector<vector<int>>res;
     vector<vector<int>> pathSum(TreeNode* root, int sum) {
-    	pathHelper(root, sum);
+    	pathSumHelper(root, sum);
     	return res;
     }
     
-    void pathHelper(TreeNode* root,int sum) {
+    void pathSumHelper(TreeNode* root, int sum) {
     	if (root == NULL)
     		return;
     	tem.push_back(root->val);
-    	if (root->left == NULL&&root->right== NULL&&sum == root->val)
-    		res.push_back(tem);//这个地方不能够加return //0 1 1 sum=1 加上return 返回 01 011
-    	else {
-    		pathHelper(root->left,sum-root->val);
-    		pathHelper(root->right, sum - root->val);
+    	if (root->left == NULL&&root->right == NULL&&root->val == sum) {
+    		res.push_back(tem);
     	}
+    	pathSumHelper(root->left, sum - root->val);
+    	pathSumHelper(root->right, sum - root->val);
     	tem.pop_back();
     }
 };
