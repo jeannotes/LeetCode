@@ -43,3 +43,4 @@ bool hasPathSum(TreeNode* root, int sum) {
 	return false;
 }
 // 这个方法其实是第一种的变形
+// 会了一点点
