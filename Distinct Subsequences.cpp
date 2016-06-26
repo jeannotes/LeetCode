@@ -43,4 +43,4 @@ public:
 // https://leetcode.com/discuss/2143/any-better-solution-that-takes-less-than-space-while-in-time
 // 不是很理解，只是可以这样想，从i到j无论怎样，可以删除当前的第i-1个，
 //因此一定会加上dp[i-1][j]，然后就是第i个是不是等于第j个
-// 只能说 背下来吧，把这道题目背下来
+// 这道题目似乎用递归的方法更加能够理解啊
