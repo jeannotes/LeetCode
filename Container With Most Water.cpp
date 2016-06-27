@@ -52,3 +52,4 @@ left = 0, right = n-1
 */
 //https://leetcode.com/discuss/41527/simple-and-fast-c-c-with-explanation  
 // 这个解释还是比较靠谱啊  
+// 还是不是很懂啊
