@@ -74,3 +74,34 @@ public:
 };
 // 好题目，做了好几遍
 // 在最后把两个分开还是有问题啊 
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+    	if (head == NULL)
+    		return head;
+    	RandomListNode *p = head;//123
+    	while (p!=NULL){
+    		RandomListNode *dummy = new RandomListNode(p->label);
+    		dummy->next = p->next;
+    		p->next = dummy;
+    		p = dummy->next;
+    	}
+    	p = head;
+    	while (p!=NULL){
+    		if (p->random) {
+    			p->next->random = p->random->next;
+    		}
+    		p = p->next->next;
+    	}
+    	RandomListNode *newHead = head->next;
+    	p = head;
+    	while (p){//112233
+    		RandomListNode* tem = p->next;p->next = tem->next;
+    		if (tem->next)
+    			tem->next = tem->next->next;
+    		p = p->next;
+    	}
+    	return newHead;
+    }
+};
+//还是要为自己鼓掌啊，本来一开始都不想做的，还是咬紧牙关，做下去了
