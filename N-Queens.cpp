@@ -36,5 +36,4 @@ public://http://bangbingsyb.blogspot.sg/2014/11/leetcode-n-queens-i-ii.html
     }
 };
 //不会啊,还是不会啊,还是不会啊
-// 这次终于一次通过
-//还是不会啊
+// 还是不会的
