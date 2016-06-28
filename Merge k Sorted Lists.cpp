@@ -44,3 +44,4 @@ public:
 priority_queue<ListNode *,vector<ListNode *>,Comp>pq;   ----  bool operator()(const ListNode i1, const ListNode *i2)
   这里面一定要统一 ，因为优先队列就是按照指针来的
 */
+// 接口的问题最大啊
