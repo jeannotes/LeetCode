@@ -25,3 +25,32 @@ int getLength(ListNode* head) {
 //以此解题,记住是引用  head每次都在后移的，每一个循环都在后移
 //  不会啊
 //  类似于中序遍历一样，不会了
+class Solution {
+public:
+
+    TreeNode *sortedListToBST(ListNode *head) {
+        return build(head, NULL);
+    }
+
+    TreeNode* build(ListNode* start, ListNode* end) {
+        if(start == end) {
+            return NULL;
+        }
+
+        ListNode* fast = start;
+        ListNode* slow = start;
+
+        while(fast != end && fast->next != end) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        TreeNode* node = new TreeNode(slow->val);
+        node->left = build(start, slow);
+        node->right = build(slow->next, end);
+
+        return node;
+    }
+};
+
+//好方法啊
