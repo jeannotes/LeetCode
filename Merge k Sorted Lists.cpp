@@ -38,7 +38,7 @@ public:
     }
 };
 // 要抽时间学习STL基本知识  
-//不会啊
+//不会啊，堆排序吧
 // operator 里面不需要使用 &， 再次强调一下，operator 里面不需要使用 &
 /*
 priority_queue<ListNode *,vector<ListNode *>,Comp>pq;   ----  bool operator()(const ListNode i1, const ListNode *i2)
