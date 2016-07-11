@@ -32,4 +32,4 @@ void flatten(TreeNode* root) {
 		root = root->right;
 	}
 }
-// 还是不会啊
+// 还是不会啊，第二种会一点，还是没有写出来
