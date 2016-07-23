@@ -52,3 +52,28 @@ public://不是连续出现两次，而是全部相同的删除
     	return dummy->next;
     }
 //  一次通过咯，加油加油啊，没有一次AC啊，晚上删除了一个句子，AC了，还没有一次通过 
+
+ListNode* deleteDuplicates(ListNode* head) {
+	if (head == NULL || head->next == NULL)
+		return head;
+	ListNode *dummy = new ListNode(0), *p = head, *q = dummy;
+	dummy->next = head;
+
+	while (p&&p->next){
+		if (p->val == p->next->val) {
+			int val = p->val;
+			ListNode *tmp = p->next;
+			while (tmp&&tmp->val==val){
+				tmp = tmp->next;
+			}
+			q->next = tmp;
+			p = tmp;
+		}
+		else {
+			q->next = p;
+			q = q->next;
+			p = p->next;//112344
+		}
+	}
+	return dummy->next;
+}//这个是我自己写的版本，做了好几遍了
