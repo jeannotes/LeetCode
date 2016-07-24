@@ -57,6 +57,7 @@ public:
 
 class Solution2 {
 //说明：分成两个区间之后，还得考虑下target是不是在左边还是在右边    
+// 允许重复元素，则上一题中如果{A[m]>=A[l]},那么{[l,m]}为递增序列的假设就不能成立了，比如{[1,3,1,1,1]}。
 public:
     bool search(vector<int>& nums, int target) {//还是没有能够理解啊
         if(nums.empty())
@@ -87,3 +88,5 @@ public:
 //找一个特殊例子
 // 如果是 nums[mid]<nums[right]  nums[mid]>nums[right] right--
 // 最怕在折叠点不能够确定是比左边大，还是比右边的小的啊
+//允许重复元素，则上一题中如果{A[m]>=A[l]},那么{[l,m]}为递增序列的假设就不能成立了，比如{[1,3,1,1,1]}。 
+// 还是得，每次都要google
