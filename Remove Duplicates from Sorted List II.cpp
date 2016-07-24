@@ -76,4 +76,4 @@ ListNode* deleteDuplicates(ListNode* head) {
 		}
 	}
 	return dummy->next;
-}//这个是我自己写的版本，做了好几遍了
+}// 这道题目已经练习好多遍了，加油，
