@@ -10,7 +10,7 @@ public:
     
     	if (n<0){
     	    if(n==INT_MIN)
-    	    	return 1.0/(myPow(x,INT_MAX)*x);
+    	    	return 1.0/(myPow(x,INT_MAX)*x);// 写成-n了，这边出错误
     	    else    
     	        return myPow(1.0/x,-n);
     	}
