@@ -53,3 +53,4 @@ public:
 // 难 注意两种情况 1. 到最后一行，而且j最后一个 2 . j已经成为最后一个,老问题啊，不会做，容易出错
 // 还是啊，j<len 这种情况总是没有考虑到，不会了
 //  while(j<len&&words[j].length()+rowlen<=maxWidth){  j<len 一定要放在最前面啊
+//j<len&& 就这个地方还是没能理解
