@@ -64,3 +64,4 @@ public:
         if(target<0)
             return;  */ 
 //还是在回溯那边，有关位置顺序的地方出错啊，以后记住，谁在前面，先考虑谁啊
+//  第一种方法更容易理解，其实这个时候还是要练习一下前面那题哦 https://leetcode.com/problems/permutations-ii/
