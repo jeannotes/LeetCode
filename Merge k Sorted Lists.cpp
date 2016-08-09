@@ -44,4 +44,5 @@ public:
 priority_queue<ListNode *,vector<ListNode *>,Comp>pq;   ----  bool operator()(const ListNode i1, const ListNode *i2)
   这里面一定要统一 ，因为优先队列就是按照指针来的
 */
-// 还可以啊
+// priority_queue<ListNode *,vector<ListNode *>,Comp>pq;
+//  优先队列里面就已经是指针了，所以operator里面也必须是指针
