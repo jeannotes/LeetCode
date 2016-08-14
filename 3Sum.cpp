@@ -9,7 +9,7 @@ vector<vector<int>> res;
     			continue;
     		int left=i+1,right=len-1;
     		
-    		while(left<right){// 注意这里不能写等于号，不然会导致相同的数字。
+    		while(left<right){// 注意这里不能写等于号，不然会导致相同的数字。 DDD
     		    int sum=nums[i]+nums[left]+nums[right];
     		    if (sum==0){
         			vector<int>tem1;tem1.push_back(nums[i]);
