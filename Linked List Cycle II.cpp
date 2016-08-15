@@ -10,7 +10,7 @@
 class Solution {
 public:
     //https://leetcode.com/problems/linked-list-cycle/
-    //http://m.blog.csdn.net/blog/hwb1992/23551105
+    //  http://www.cnblogs.com/hiddenfox/p/3408931.html
     ListNode *detectCycle(ListNode *head) {
         ListNode *slow=head,*fast=head;
 		if (head==NULL||head->next==NULL){
