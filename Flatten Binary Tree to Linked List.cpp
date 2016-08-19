@@ -23,7 +23,7 @@ void flatten(TreeNode* root) {
 			while (pre->right){
 				pre = pre->right;
 			}
-			pre->right = root->right;
+			pre->right = root->right;// 这个地方不能加  pre->left = NULL; 因为有可能导致最右边的节点本来有指向的，突然没了
 			//Use current node's left subtree to replace its right subtree(original right 
             //subtree is already linked by current node's prenode
 			root->right = root->left;
@@ -32,4 +32,4 @@ void flatten(TreeNode* root) {
 		root = root->right;
 	}
 }
-// 还是不会啊，第二种会一点，还是没有写出来
+// 还是不会啊，第二种会一点，还是没有写出来，两个都不会啊
