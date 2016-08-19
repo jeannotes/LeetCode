@@ -43,5 +43,5 @@ public:
 // https://leetcode.com/discuss/2143/any-better-solution-that-takes-less-than-space-while-in-time
 // 容易出错，加油
 // 这道题目似乎用递归的方法更加能够理解啊
-//再说一下，用递归的方法容易理解啊
+//再说一下，用递归的方法容易理解啊,还是不会啊，递归是个好方法
 //http://www.cnblogs.com/TenosDoIt/p/3440022.html
