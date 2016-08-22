@@ -33,14 +33,9 @@ public:
     }
 };
 //比之前好多了
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
+/*
+if (root == NULL)
+    		return;  忘记这句话了
  */
 class Solution {
 public:
@@ -76,4 +71,4 @@ public:
 //   vector<TreeNode*> dp(NULL);  这个地方  写成vector<TreeNode*> dp(1，NULL);就会出错
 //来总结一下 ：第一个方法是这样，vector<TreeNode*> dp(1，NULL);最后返回 “[[]]”，因为中间是一个null
 //而第二个方法是 : 如果写成return vector<TreeNode*> (NULL);这个没有大小，后面left[i]反而没有意义了
-//动态规划一次通过，递归不会，略有问题,做了好几次了，还是不会，今天还行。
+// 递归不会啊
