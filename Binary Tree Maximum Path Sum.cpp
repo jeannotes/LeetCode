@@ -30,7 +30,7 @@ public:
 // 多多少少比以前理解许多了啊
 //  这里不能写成int maxPathSumHelper(TreeNode* root,int sum) 
 //而 int sum应该是全局变量，如果写成局部变量，每次都要和左边节点的值比较
-//而如果是全局变量，就是每次更新sum值，  所以看solution2  还是不会的
+//而如果是全局变量，就是每次更新sum值，  所以看solution2  还是不会的，会了一丢丢
 class Solution2 {
 public:
     int res = INT_MIN;
