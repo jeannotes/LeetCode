@@ -85,4 +85,4 @@ bool check(string s, vector<string>& words, int start, unordered_map<string, int
 	}
 	return true;
 }
-// 还可以，不会啊，加油，明天华为笔试了
+// 还可以，不会啊，加油，明天华为笔试了,还行 现在熟悉了
