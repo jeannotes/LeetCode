@@ -36,4 +36,4 @@ public://http://bangbingsyb.blogspot.sg/2014/11/leetcode-n-queens-i-ii.html
     }
 };
 //不会啊,还是不会啊,还是不会啊，中午做了一下，还可以啊
-// 基本可以，小错误啊，今天早上再联系
+// 基本可以，小错误啊，今天早上再联系，还是可以的，会写了
