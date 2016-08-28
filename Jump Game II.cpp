@@ -5,7 +5,7 @@ public:
         if(nums.size()<=1)
             return 0;
         int curEnd=0,curBegin=0,count=0;
-        while(curEnd<nums.size()){
+        while(curEnd<nums.size()-1){// 这边是-1更好，如果到最后了 没必要走下去了
             int last=curEnd;
             for(int i=curBegin;i<=curEnd;i++){
                 last=max(i+nums[i],last);
