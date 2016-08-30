@@ -29,7 +29,7 @@ public:
             tail->next=new ListNode(flag);
         }
         l1=temp->next;//因为tail一直在后移，最后输出tail就出错，相反
-        //temp一直在第一位
+        //temp一直在第一位  还行啊
         delete temp;
         return l1;
     }
