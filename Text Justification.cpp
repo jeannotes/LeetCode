@@ -51,6 +51,4 @@ public:
 //  (maxWidth-charaLen)/(j-i-1)  这个地方是要减1的，因为最后一个字符不能算   1 2 3  只能算两个的，这样才是meanSpace的
 //j<len&&leftSpace>0  这个地方非常容易出错
 // 难 注意两种情况 1. 到最后一行，而且j最后一个 2 . j已经成为最后一个,老问题啊，不会做，容易出错
-// 还是啊，j<len 这种情况总是没有考虑到，不会了
-//  while(j<len&&words[j].length()+rowlen<=maxWidth){  j<len 一定要放在最前面啊
-//j<len&& 就这个地方还是没能理解，还是有小毛病啊，小毛病，加油啊
+// j<len&&leftSpace>0  这一次还是这边没有注意啊
