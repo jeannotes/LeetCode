@@ -43,7 +43,7 @@ public:
 };
 
 
-//最好的程序  待会儿看一下
+//最好的程序  待会儿看一下可以啊
 class Solution {
 public:
     string addBinary(string a, string b) {
