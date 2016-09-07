@@ -20,7 +20,7 @@ public:
                     if(sum>target)
                         right--;
                     if(sum<target)
-                        left++;// 这部分不能放在 上面if的循环里面  DDD
+                        left++;// 这部分不能放在 上面if的循环里面  DDD  还行啊
                 }
             }
         }
