@@ -5,7 +5,7 @@ public:
         sort(nums.begin(),nums.end());
         int res=INT_MAX,result=target;
         for(int i=0;i<=nums.size()-3;i++){//每次都是缺一个，缺两个的错误
-            //本质上与3sum相同
+            //本质上与3sum相同，后
             if(i>0&&nums[i]==nums[i-1]) continue;
             int left=i+1,right=nums.size()-1;
             while(left<right){
