@@ -16,31 +16,7 @@ public:
     }
 };
 
-//有问题程序  //(int)(a[i]+'0') 应该是(int)(a[i]-'0')
-class Solution {
-public:
-    string addBinary(string a, string b) {
-        if(a.length()<b.length())
-            return addBinary(b,a);
-        int i=a.length()-1,j=b.length()-1;
-        int flag=0;
-        while(i>=0&&j>=0){
-            int tem=(int)(a[i]+'0')+(int)(b[j]+'0')+flag;
-            flag=tem/2;
-            a[i]=char(tem%2+'0');
-            i--;j--;
-        }
-        while(i>=0){
-            int tem=int(a[i]+'0')+flag;
-            flag=tem/2;
-            a[i]=char(tem%2+'0');
-            i--;
-        }
-        if(flag )
-            a.insert(a.begin(),'1');
-        return a;
-    }
-};
+
 
 
 //最好的程序  待会儿看一下可以啊
