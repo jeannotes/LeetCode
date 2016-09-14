@@ -42,6 +42,6 @@ bool hasPathSum(TreeNode* root, int sum) {
 		return true;
 	return false;
 }
-// 这个方法其实是第一种的变形，会啦啊，嘿嘿
+// 这个方法其实是第一种的变形，会啦啊，嘿嘿，还行啊
 // 会了一点点，玩了几天实在是心情还不错啊
 // 感觉不错的哦，没问题啊，一下子AC
