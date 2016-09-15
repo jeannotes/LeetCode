@@ -10,7 +10,7 @@ public:
     		} 
     		return;
     	}
-    	for (int i = 1;i<4&&(s.size()-index-i>=4-pos);i++) {
+    	for (int i = 1;i<4&&(s.size()-index-i>=4-pos);i++) {//  没有减去i啊
     		string ip=s.substr(index,i);
 			if (isValid(ip)) {
 				int size = tem.size();
