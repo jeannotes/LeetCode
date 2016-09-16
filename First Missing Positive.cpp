@@ -12,7 +12,7 @@ public:
             while(num>0&&num<nums.size()&&num!=nums[num-1]){
                 swap(nums[num-1],nums[i]);//  这边不能写nums[num]!=num+1 ，因为有可能导致越界啊
                 num=nums[i];
-            }//这边似乎就已经全部排列好了
+            }//这边似乎就已经全部排列好了  可以 可以啊， 加油 加油啊 
         }
         //转换结束
         for(int i=0;i<nums.size();i++){
