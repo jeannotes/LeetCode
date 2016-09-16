@@ -24,7 +24,7 @@ private:
     TreeNode *n1=NULL,*n2=NULL,*prev=NULL;
 };
 
-//中序遍历，此时是有序的
+//中序遍历，此时是有序的， 还行  就是 就是容易 就是容易粗心 
 class Solution2 {
 public:
     TreeNode*n1=NULL,*n2=NULL,*prev=NULL;
