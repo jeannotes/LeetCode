@@ -59,6 +59,6 @@ public:
     
 };
 //bug-exist  bool solve函数最后的 return false 还是忘记写了
-// 还是不会啊
+// 还是不会啊,well some kind of good
 //还是不会，有太多的小错误了，还是不会啊，每次都要看答案，加油啊，还是蛮不错的
 //  if(index>80)    return true;  //标准的回溯判断  我在这边竟然写了return false
