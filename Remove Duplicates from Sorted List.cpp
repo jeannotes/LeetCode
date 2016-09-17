@@ -15,7 +15,7 @@ public:
 	}
 };
 //加油加油，还有很多需要努力
-//一次成功
+//一次成功,well we all believe that the first method is better
 
 class Solution {
 public:
