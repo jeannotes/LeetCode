@@ -25,4 +25,4 @@ public:
 };
 //http://blog.csdn.net/u013027996/article/details/17126977
 //https://discuss.leetcode.com/topic/18146/my-ac-java-solution-with-explanation/2
-//  这是好题目这是好题目啊  
+//  这是好题目这是好题目啊,still kind of difficult
