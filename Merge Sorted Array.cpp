@@ -17,4 +17,4 @@ public://https://leetcode.com/problems/merge-sorted-array/
 };
 //基本一次通过，竟然没有做出来
 // 一次通过哈
-//我写的是非空 ！nums1.empty()，出错啦
+//我写的是非空 ！nums1.empty()，出错啦,good
