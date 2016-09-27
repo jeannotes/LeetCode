@@ -16,7 +16,7 @@ public:
 
 class Solution2 {
 public:
-    int maxSubArray(vector<int>& nums) {
+    int maxSubArray(vector<int>& nums) {// some differences
     	return maxSubHelper(nums,0,nums.size()-1);
     }
     
