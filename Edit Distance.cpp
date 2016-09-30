@@ -8,7 +8,7 @@ public:
         //res[i][j]--s1[0...i-1]--s2[0...j-1]
         //初始化
         for(int i=1;i<=m;i++)
-            res[i][0]=i;//
+            res[i][0]=i;//好题目的，一下子做出来
         
         for(int i=1;i<=n;i++)
             res[0][i]=i;
