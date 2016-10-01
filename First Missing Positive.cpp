@@ -39,3 +39,20 @@ if (tem>0&&tem<len){
 //  时间长点，不过能够做出来
 //  忘记怎么做了，至于中间那部分，我倒是做出来了
 // 竟然一下子做出来了，一下子成功啊，还是不会啊
+int firstMissingPositive(vector<int>& nums) {
+	if (nums.empty())
+		return 1;
+	int len = nums.size();
+	for (int i = 0; i < nums.size();i++) {
+		int tem = nums[i];
+		while (tem>0&&tem<len&&nums[i]!=i+1){
+			// 3 2 1   3
+			swap(nums[i], nums[tem - 1]);tem = nums[i];
+		}
+	}
+	for (int i = 0; i < nums.size();i++) {
+		if (nums[i] != i + 1)
+			return i + 1;
+	}
+	return nums.size() + 1;
+}// for this situation,when it come to [1,1] ,it was a disaster
