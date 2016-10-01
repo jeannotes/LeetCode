@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/merge-k-sorted-lists/
-//最小堆 最大堆
+//最小堆 最大堆 sounds good
 class Solution {
 private:
     class Comp{
