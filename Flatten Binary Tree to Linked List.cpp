@@ -32,4 +32,4 @@ void flatten(TreeNode* root) {
 		root = root->right;
 	}
 }
-// 还是不会啊，第二种会一点，还是不会啊，相反 是第一个会了点啊
+// 还是不会啊，第二种会一点，还是不会啊，相反 是第一个会了点啊,with the recursion way,I still cannot solve it
