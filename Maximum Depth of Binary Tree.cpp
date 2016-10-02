@@ -13,16 +13,14 @@ public:
     }
 };
 //两题是类似的，都可以使用前面两种类型解决
-class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-        if (root == NULL)	return 0;
-    	if (root->left == NULL)
-    		return 1 + maxDepth(root->right);
-    	if (root->right == NULL)
-    		return 1 + maxDepth(root->left);
-    	int i = maxDepth(root->left),j=maxDepth(root->right);
-    	return 1 + max(i, j);
-    }
-};
+int maxDepth(TreeNode* root) {
+	   if (root == NULL)
+		     return 0;
+	   if (root->left == NULL)
+		     return 1 + maxDepth(root->right);
+	   if (root->right == NULL)
+		     return 1 + maxDepth(root->left);
+	      int left = maxDepth(root->left), right = maxDepth(root->right);
+	   return 1 + max(left, right);
+}
 // 感觉还不错的
