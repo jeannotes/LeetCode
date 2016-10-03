@@ -1,7 +1,7 @@
 class Solution {
 public:
 //斐波那契数列，下一个数，要么之前一位的，要么之前两位的。
-    int climbStairs(int n) {	//123
+    int climbStairs(int n) {	//123 一次AC
     	vector<int>res(n+1,1);
     	for (int i=2;i<=n;i++){
     		res[i]=res[i-1]+res[i-2];
