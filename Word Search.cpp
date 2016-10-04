@@ -53,4 +53,4 @@ bool exist(vector<vector<char> > &board, string word) {
         if(findWord(board, visited, row, col+1, word, index+1)) return true;
         visited[row][col] = false;
         return false;
-    }//号代码啊 haixing ganjue 
+    }//号代码啊 haixing ganjue ，恩恩，暂时没有想到用visited做
