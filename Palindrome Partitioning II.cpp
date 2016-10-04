@@ -1,6 +1,6 @@
 int minCut(string s) {
 	int len=s.size();
-	vector<int>cut(len,0);//  count[i]=从0到i的最小剪切数
+	vector<int>cut(len,0);//  count[i]=从0到i的最小剪切数 well i did make it,but i certainly miss something
 	vector<vector<bool>>dp(len,vector<bool>(len,false));
 	for (int i=0;i<len;i++){
 		//123
