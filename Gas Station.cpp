@@ -1,4 +1,4 @@
-//本题的集中解法本质上都一样。
+//本题的集中解法本质上都一样。 good
 //https://leetcode.com/problems/gas-station/
 class Solution1 {
 public:
