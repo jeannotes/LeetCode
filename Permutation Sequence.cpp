@@ -21,7 +21,7 @@ public:
             //把从tmp开始的数，从后面往前面移动
             for(int j=tmp+1;j<n;j++)
                 nums[j-1]=nums[j];//至此 nums数组重新生成,I understand it now thoroughly!
-            k=k%s[i-2];
+            k=k%s[i-2];// 这一句竟然没写啊
         }
         return ret;
     }
