@@ -66,6 +66,6 @@ public:
     	return res;
     }
 };
-//还是不太好啊
+//还是不太好啊，pretty good
 //  n,last 那边总是出错啊，root=n1->right
 // 还是在n那边容易出错啊，加油， 只是三种方法都不会了，今天再做一遍
