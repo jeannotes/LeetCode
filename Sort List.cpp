@@ -46,7 +46,7 @@ public:
 		}else{
 			p->next=rh;
 		}
-		//p现在到了后面，当然也有可能最后面
+		//p现在到了后面，当然也有可能最后面  没想到一个链表也能递归啊
 		p=temp->next;
 		temp->next=NULL;//让temp指向null
 		delete temp;
