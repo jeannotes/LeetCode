@@ -1,5 +1,6 @@
 class Solution {
 public:
+	//微软的笔试 实在无力
     int maxProfit(vector<int>& prices) {
         //贪心法，只要后面一天比前面一天价格高，就卖。然后再买。
         //最简单的算法
