@@ -30,7 +30,7 @@ public:
                     tmp.push_back(' ');leftSpace--;//这次被我写成 k<len，那就一定出错了
                     //那么这之间是不需要增加空格,因为全部为1，已经算进去了
                 }
-            }//接下来是最后一个单词
+            }//接下来是最后一个单词，最后一个单词要独立完成
             
             tmp+=words[j-1];
             if(leftSpace>0)     addSpace(tmp,leftSpace);
