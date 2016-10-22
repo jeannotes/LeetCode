@@ -76,4 +76,5 @@ int main(){
 	char *tokens[]={"3","4","+"};
 	cout<<sizeof(tokens[0])<<endl;
 }
+// c就是没有c++方便的，所以不想去翱捷啊
 
