@@ -43,3 +43,17 @@ public:
 //[3,2,4] 6  都能存进hash表，但是注意，d 当 6-3 恰好也等于3 这时候全部存0,0  所以出错 
 //容易出错啊，小错误
 // 加油，今天写出来了,almost ater 100 days to wrote leetcode
+
+//python
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        lookup={}
+        for count,elem in enumerate(nums):
+            if target-elem in lookup:
+                return [lookup[target-elem],count]
+            lookup[elem]=count;
