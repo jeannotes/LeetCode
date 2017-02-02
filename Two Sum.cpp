@@ -41,7 +41,7 @@ public:
     	}
     }*/
 //[3,2,4] 6  都能存进hash表，但是注意，d 当 6-3 恰好也等于3 这时候全部存0,0  所以出错 
-//容易出错啊，小错误
+//容易出错啊，小错误 用python了，一遍遍试
 // 加油，今天写出来了,almost ater 100 days to wrote leetcode
 
 //python
