@@ -22,3 +22,18 @@ public:
     //当然这里面涉及一个+1和-1的问题，虽然保存last=m[s[i]];但是实际上需要一个+1再-1的计算
 };
 //1
+
+class Solution(object):
+    def lengthOfLongestSubstring(self,s):
+        longest,start,visited=0,0,[False for _ in xrange(256)]
+
+        for i,char in enumerate(s):
+            if visited[ord(char)]:
+                while char != s[start]:
+                    visited[ord(s[start])]=False
+                    start+=1
+                start+=1
+            else:
+                visited[ord(char)]=True
+            longest=max(longest,i-start+1)
+        return longest
