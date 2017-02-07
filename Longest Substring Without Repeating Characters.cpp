@@ -21,8 +21,7 @@ public:
     //而且这个有一个好处就是，在没有出现重复字符之前，它能够自动更新。
     //当然这里面涉及一个+1和-1的问题，虽然保存last=m[s[i]];但是实际上需要一个+1再-1的计算
 };
-//1
-
+//1 python的版本慢慢来的
 class Solution(object):
     def lengthOfLongestSubstring(self,s):
         longest,start,visited=0,0,[False for _ in xrange(256)]
