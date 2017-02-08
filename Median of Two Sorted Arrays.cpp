@@ -35,7 +35,7 @@ public:
         return nums1[ia-1];
     }
 };
-// 好久没有做这题了
+// 好久没有做这题了  怒做python
 class Solution:
     def getKth(self,A,B,k):
         m, n = len(A), len(B)
