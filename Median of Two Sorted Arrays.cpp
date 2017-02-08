@@ -43,7 +43,7 @@ class Solution:
             return self.getKth(B, A, k)
         if m == 0:
             return B[k - 1]
-        if k == 1:
+        if k == 1:## 这个地方忘记了
             return min(A[0], B[0])
         pa=min(k/2,m)
         pb=k-pa
