@@ -43,7 +43,7 @@ public:
 //容易出错啊，小错误 用python了，一遍遍试
 // 加油，今天写出来了,almost ater 100 days to wrote leetcode
 
-//python
+//python 自己写了一遍 还行
 class Solution(object):
     def twoSum(self, nums, target):
         """
