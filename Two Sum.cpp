@@ -43,6 +43,65 @@ public:
 //容易出错啊，小错误 用python了，一遍遍试
 // 加油，今天写出来了,almost ater 100 days to wrote leetcode
 
+typedef struct HashNode{
+	int val;
+	int key;
+	struct HashNode *next;
+}HashNode;
+
+int hash(int val, int n){
+	int idx = (val % n);
+	return (idx > 0) ? (idx) : (-idx);
+}
+
+int *twoSum(int numbers[], int n, int target){
+	static int ret[2] = {0};
+	HashNode **hashtable = (HashNode **)calloc(n, sizeof(HashNode *));
+	HashNode *p, *tail;
+	int i, idx;
+
+	for(i = 0;i < n; i++){
+		idx = hash(numbers[i], n);
+		p = hashtable[idx];
+		tail = NULL;
+
+		HashNode *new_node = (HashNode *)calloc(1,sizeof(HashNode));
+		new_node->val = numbers[i];
+		new_node->key = i;
+		new_node->next = NULL;
+
+		while(p){
+			tail = p;
+			p = p->next;
+		}
+
+		if(tail)
+			tail->next = new_node;
+		else
+			hashtable[idx]= new_node;
+	}
+
+	for(i = 0; i < n ; i++){
+		int diff =target - numbers[i];
+		idx = hash(diff, n);
+		p = hashtable[idx];
+		while(p){
+			if(p->val == diff && p->key != i){
+				ret[0] = p->key;
+				ret[1] = i;
+				if(ret[0] > ret[1]){
+					ret[0] = ret[0] ^ ret[1];
+					ret[1] = ret[0] ^ ret[1];
+					ret[0] = ret[0] ^ ret[1];
+				}
+				return ret;
+			}
+			p = p->next;
+		}
+	}
+	return ret;
+}
+
 //python 自己写了一遍 还行
 class Solution(object):
     def twoSum(self, nums, target):
