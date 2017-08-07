@@ -101,7 +101,7 @@ int *twoSum(int numbers[], int n, int target){
 	}
 	return ret;
 }
-// seem much better
+// seem much better, and write python code
 //python 自己写了一遍 还行
 class Solution(object):
     def twoSum(self, nums, target):
