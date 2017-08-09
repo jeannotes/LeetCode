@@ -68,3 +68,40 @@ if __name__ == '__main__':
     b,b.next,b.next.next = ListNode(5),ListNode(6),ListNode(4)
     result = Solution().addTwoNumbers(a,b)
     print "{0}->{1}->{2}".format(result.x,result.next.x,result.next.next.x)
+
+// c language        
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode *l2) {
+	struct ListNode *p1 = l1, *p2 = l2;
+	int flag = 0;
+	struct ListNode *dummy = (struct ListNode *)calloc(1, sizeof(struct ListNode)), *p = dummy;
+	while (1) {
+		if (p1 && p2) {
+			flag += p1->val + p2->val;
+			p1 = p1->next;
+			p2 = p2->next;
+		}
+		else if(p1 && !p2) {
+			flag += p1->val;
+			p1 = p1->next;
+		}
+		else if (p2 && !p1) {
+			flag += p2->val;
+			p2 = p2->next;
+		}else
+			break;
+		struct ListNode *temp = (struct ListNode *)calloc(1, sizeof(struct ListNode));
+		temp->val = flag % 10;
+		p->next = temp;
+		p = p->next;
+		flag = flag / 10;
+		
+	}
+	if (flag){
+		struct ListNode *temp = (struct ListNode *)calloc(1, sizeof(struct ListNode));
+		temp->val = flag;
+		p->next = temp;
+		p = p->next;
+	}
+	p->next = NULL;
+	return dummy->next;
+}
