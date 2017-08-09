@@ -115,3 +115,4 @@ class Solution(object):
             if target-elem in lookup:
                 return [lookup[target-elem],count]
             lookup[elem]=count;
+// python c language
