@@ -37,31 +37,33 @@ public:
 //1 继续练习
 
 //python
-class ListNode(object):
-    def __init__(self,x):
-        self.x=x
-        self.next=None
-
 class Solution(object):
-    def addTwoNumbers(self,l1,l2):
-        dummy=ListNode(0);
-        current,carry = dummy,0
+	def addTwoNumbers(self, l1, l2):
+		dummy = ListNode(0)
+		p, flag = dummy, 0
 
-        while l1 or l2 :
-            val = carry
-            if l1 :
-                val+=l1.x
-                l1=l1.next
-            if l2 :
-                val +=l2.x
-                l2=l2.next
-            carry,val = val/10 , val%10
-            current.next= ListNode(val)
-            current=current.next
+		while 1:
+			if(l1 and l2):
+				flag += l1.val + l2.val
+				l1 = l1.next
+				l2 = l2.next
+			elif(l1 and (not l2)):
+				flag += l1.val
+				l1 = l1.next
+			elif(l2 and (not l1)):
+				flag += l2.val
+				l2 = l2.next
+			else :
+				break
+			temp = ListNode(flag % 10)
+			flag = flag / 10;
+			p.next = temp
+			p = p.next
+		if flag:
+			temp = ListNode(flag % 10)
+			p.next = temp
+		return dummy.next
 
-        if carry :
-            current.next = ListNode(carry)
-        return  dummy.next
 
 if __name__ == '__main__':
     a,a.next,a.next.next = ListNode(2),ListNode(4),ListNode(3)
