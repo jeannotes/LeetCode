@@ -1,4 +1,4 @@
-class Solution {// better method
+class Solution {// better method, great answer
 public:
     string longestPalindrome(string s) {
         if (s.empty()) return "";
