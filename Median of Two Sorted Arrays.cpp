@@ -28,7 +28,7 @@ double findKthElement(vector<int> &nums1, vector<int> &nums2, int k)
         return nums2[k - 1];
     if (nums2.empty())
         return nums1[k - 1];
-    if (k == 1)
+    if (k == 1)// this really matters, mainly time issue
         return min(nums1[0], nums2[0]);
     int ia = min(k / 2, nums1.size());
     int ib = k - ia;
