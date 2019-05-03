@@ -6,6 +6,7 @@ public:
         string res;
         for (int i = 0; i < s.size(); ++i) {
             for (int j = 0; j <= i; ++j) {
+                // i - j < 2 应该在前,不然数组越界
                 dp[j][i] = (s[i] == s[j] && (i - j < 2 || dp[j + 1][i - 1]));
                 if (dp[j][i] && len < i - j + 1) {
                     len = i - j + 1; 
