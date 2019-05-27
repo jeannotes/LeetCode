@@ -19,7 +19,7 @@ public:
 };
 //在之前有一个题目使用自下而上的解法
 //http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-i.html
-//这只是第一种想法，还有一种待会写。
+//这只是第一种想法，还有一种待会写。这题目其实一开始在考虑究竟是j的变化范围是什么样子的，但是等真正实现了，就知道怎么做了
 
 
 
