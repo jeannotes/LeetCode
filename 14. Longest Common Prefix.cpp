@@ -1,5 +1,4 @@
 class Solution {
-//https://leetcode.com/problems/longest-common-prefix/
 public:
     string longestCommonPrefix(vector<string>& strs) {
         if(strs.empty())    return "";
@@ -12,4 +11,4 @@ public:
         return strs[0];
     }
 };
-//归根到底是我不熟悉啊
+// easy, 但是最好在一开始sort一下strs，按照每个string的大小来排序
