@@ -17,7 +17,7 @@ public:
                         start+=i-tem+1;//他的意思是找最长的一段括号，如果中间有一对间隔的，再隔了一个，自然start=0
                         count=max(count,start);
                     }else{
-                        count=max(count,i-res.top());
+                        count=max(count,i-res.top());// hard part
                     }
                 }
             }
