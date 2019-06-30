@@ -2,21 +2,16 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        if(nums.size()<=1)
-            return 0;
-        int curEnd=0,curBegin=0,count=0;
-        while(curEnd<nums.size()-1){// 这边是-1更好，如果到最后了 没必要走下去了
-            int last=curEnd;
-            for(int i=curBegin;i<=curEnd;i++){
-                last=max(i+nums[i],last);
-                if(last>=nums.size()-1)
-                    return count+1;
+        int curmax = 0, jump = 0, i=0, n=nums.size()-1;
+        while(curmax<n){
+            int lastmax = curmax;
+            for(;i<=lastmax;i++){
+                curmax=max(curmax,i+nums[i]);
             }
-            
-            count++;
-            curBegin=curEnd+1;curEnd=last;
+            if(curmax == lastmax) return -1;
+            jump++;
         }
-        return count;
+        return jump;
     }
 };
 //比较典型的贪心。维护一个区间，区间表示第i步所能到达的索引范围。
