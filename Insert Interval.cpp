@@ -1,31 +1,41 @@
+//与 56. Merge Intervals 相同的做法   
 class Solution {
 public:
-//与 56. Merge Intervals 相同的做法   
-    class Compare{
-    public:
-        bool operator()(const Interval&i1,const Interval&i2){
-            return i1.start<i2.start;
-        }
-    };
-    vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {
-        vector<Interval>res;
-        if(intervals.empty()){
-            res.push_back(newInterval);
+    static bool comparator( vector<int>& a, vector<int>& b ){
+        return a[0] < b[0];
+    }
+    
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> res;
+        if( intervals.empty() )  return res; 
+        
+        if( intervals.size() == 1 )  {
+            res.push_back( intervals[0]);
             return res;
         }
         
-        Compare cmp;
-        intervals.push_back(newInterval);
-        sort(intervals.begin(),intervals.end(),cmp);
-        res.push_back(intervals[0]);
+        sort( intervals.begin(), intervals.end(), comparator );
         
-        for(int i=1;i<=intervals.size()-1;i++){
-            if(intervals[i].start<=res.back().end)
-                res.back().end=max(intervals[i].end,res.back().end);
-            else
-                res.push_back(intervals[i]);
+        //Push the first interval into the result
+        res.push_back( intervals[0] );
+        int i = 1;
+        while( i < intervals.size() ){
+            vector<int>& last = res.back();
+            //Check for overlapping boundaries in the intervals and merge them suitably
+            if( last[1] < intervals[i][0] ) {
+                res.push_back( intervals[i] );
+            }else            {
+                last[1] = max( last[1], intervals[i][1] );
+            }
+            i++;
         }
+        
         return res;
+    }    
+    
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        intervals.push_back(newInterval);
+        return merge(intervals);
     }
 };
 //上面一题不会，这一题也不会
