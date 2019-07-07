@@ -1,37 +1,28 @@
 class Solution {
     //http://www.cnblogs.com/easonliu/p/3696135.html
 public:
-    /*
+    class Solution {
+public:
     bool isScramble(string s1, string s2) {
-        if(s1.size()!=s2.size()||s1.size()==0||s2.size()==0)
-            return false;
-        if(s1==s2)
-            return true;
-        
+        if(s1==s2) return true;
+        if(s1.size()!=s2.size()) return false;
         string ss1=s1,ss2=s2;
         sort(ss1.begin(),ss1.end());
         sort(ss2.begin(),ss2.end());
-        
-        if(ss1!=ss2)
-            return false;
-        
-        //s1[0..j]  s1[j+1...n]
-        //s2[0..j]  s2[j+1...n]
-        //s2刚刚是从前面分成两半前面是j个，现在从后面往前分，后面是j个
-        //isScramble(s1[0..j],s2[0..j])&&isScramble(s1[j+1...n],s2[j+1...n])
-        //isScramble(s1[0..j],s2[j+1...n])&&isScramble(s1[j+1...n],s2[0..j])
-        for(int i=1;i<s1.size();i++){
-            if( isScramble(s1.substr(0,i),s2.substr(0,i))  && 
-                isScramble(s1.substr(i,s1.size()-i),s2.substr(i,s1.size()-i))    )
-                return true;
-            if( isScramble(s1.substr(0,i), s2.substr(s2.size()-i,i))  && 
-                isScramble(s1.substr(i, s1.size()-i), s2.substr(0, s2.size()-i))    )
-                return true;
+        if(ss1!=ss2) return false;
+        int len = s1.size();
+        for(int i=1; i<len;i++){
+            string s1_l = s1.substr(0,i),s1_r=s1.substr(i);
+            string s2_l = s2.substr(0,i), s2_r = s2.substr(i);
+            if(isScramble(s1_l, s2_l)&&isScramble(s1_r, s2_r)) return true;
+            string s2_e_l = s2.substr(0,len-i), s2_e_r = s2.substr(len-i,i);
+            if(isScramble(s1_l, s2_e_r)&&isScramble(s1_r, s2_e_l)) return true;
         }
         return false;
-    }*/
+    }
+};
     
-    bool isScramble(string s1, string s2){
+    bool isScramble2(string s1, string s2){
         //dp[k][i][j]  -->   s1[i..i+k-1]与s2[i..i+k-1] 
         //initialization 
         //dp[1][i][j]  -->   (s1[i]==s2[j])?true:false
