@@ -14,7 +14,7 @@ public:
             return;
         
         for(int i=start;i<nums.size();i++){
-            if(i>start&&nums[i]==nums[i-1])
+            if(i>start&&nums[i]==nums[i-1])// attention
                 continue;
             tem.push_back(nums[i]);
             res.push_back(tem);
