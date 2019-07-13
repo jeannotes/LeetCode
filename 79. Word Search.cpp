@@ -27,6 +27,20 @@ public:
         
         return result;
     }
+    bool existHelper2(vector<vector<char>>& board, string word, int i, int j, int k){
+        if(k==word.size()) return true;
+        int height = board.size(), width = board[0].size();
+        if(i<0 || i>=height || j<0|| j>=width) return false;
+        if(board[i][j]!=word[k]) return false;
+        
+        board[i][j] = '#';
+        if(existHelper(board,word,i-1,j,k+1) ||
+          existHelper(board,word,i+1,j,k+1) ||
+          existHelper(board,word,i,j-1,k+1)||
+          existHelper(board,word,i,j+1,k+1)) return true;
+        board[i][j] = word[k];
+        return false;
+    }
 };
 //可以啊，基本一次通过，下去买包子
 // 还可以啊，还是不会了啊
