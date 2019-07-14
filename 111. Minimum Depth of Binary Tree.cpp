@@ -43,4 +43,24 @@ public:
     }
 };
 //不会啊,就用第一个方法啊，加油,/细枝末节的错误啊,递归容易出错啊，递归没问题啊，非递归不会了
-// 递归基本没问题了
+class Solution {
+public:
+    int res = 2000;
+    int minDepth(TreeNode* root) {
+        searchMinPath(root, 0);
+        return res;
+    }
+    void searchMinPath(TreeNode *root, int cur){
+        if(!root) {
+            res =0;
+            return;
+        }
+        cur++;
+        if(!root->left && !root->right){
+            res = min(res, cur);
+            return;
+        }
+        if(root->left) searchMinPath( root->left, cur);
+        if(root->right) searchMinPath( root->right, cur);
+    }
+};
