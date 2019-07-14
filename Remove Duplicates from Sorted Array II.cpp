@@ -31,4 +31,4 @@ int removeDuplicates(vector<int>& nums) {
 	}
 	return len;//1112
 }
-//膜拜啊，太厉害
+//膜拜啊，太厉害,really great
