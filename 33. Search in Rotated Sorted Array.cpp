@@ -28,5 +28,4 @@ public:
     }
 };
 // bug-exist .. if(nums[mid]>=nums[i]) 等于号不能没有
-//基本一次通过，加油
-//通过啦
+// attention to "nums[i]<=target"
