@@ -1,6 +1,11 @@
+// 之前理解有误，单从字面理解，可以想为，s中字符删减多少次变成t中的字符
+//但写代码的时候还是不能够按照这种方法来理解，只是由给的列子来看，还是使用删减法来理解最好不过
+//还是有问题
+class Solution {
+public:
     int numDistinct(string s, string t) {
             	int len1=s.size(),len2=t.size();
-    	vector<vector<long long>>dp(len1+1,vector<long long>(len2+1,0));
+    	vector<vector<uint64_t>>dp(len1+1, vector<uint64_t>(len2+1,0));
         dp[0][0]=1;
     	for (int i=1;i<=len1;i++){
             dp[i][0]=1;
@@ -12,24 +17,6 @@
     		}
     	}
     	return dp[len1][len2];
-    }
-// 之前理解有误，单从字面理解，可以想为，s中字符删减多少次变成t中的字符
-//但写代码的时候还是不能够按照这种方法来理解，只是由给的列子来看，还是使用删减法来理解最好不过
-//还是有问题
-class Solution2 {
-public:
-    int numDistinct(string s, string t) {
-    	int m = s.size(), n = t.size();
-    	vector<vector<int>>path(m + 1, vector<int>(n + 1,0));
-    	for (int i = 0; i <= m;i++) {
-    		path[i][0] = 1;
-    	}
-    	for (int i = 1; i <= m;i++) {
-    		for (int j = 1; j <= n;j++) {
-    			path[i][j] = path[i - 1][j] + (s[i - 1] == t[j - 1] ? path[i - 1][j - 1] : 0);
-    		}
-    	}
-    	return path[m][n];
     }
 };
 // https://leetcode.com/discuss/2143/any-better-solution-that-takes-less-than-space-while-in-time
