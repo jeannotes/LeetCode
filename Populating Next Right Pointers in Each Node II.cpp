@@ -1,12 +1,12 @@
 class Solution {
 public:
-    void connect(TreeLinkNode *root) {
-        TreeLinkNode *dummy=new TreeLinkNode(0);
+    Node* connect(Node* root) {
+        Node *dummy=new Node(0), *dummy2=root;
         
-        if(root==NULL)  return;
+        if(root==NULL)  return root;
         
         while(root!=NULL){
-            TreeLinkNode *tail=dummy;
+            Node *tail=dummy;
             while(root!=NULL){
                 if(root->left){
                     tail->next=root->left;
@@ -22,6 +22,7 @@ public:
             dummy->next=NULL;//如果没有这句话，那么dummy只是上面那一层的
         }
         delete dummy;
+        return dummy2;
     }
 };
 //由于有next，所以可以使得dummy作为每一层的开头，策略类似于刚刚的，从左到右
