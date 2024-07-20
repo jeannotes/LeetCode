@@ -33,14 +33,16 @@ public:
 //对比一下，这次不是更新res。而是直接加上去。好题目
 //今天一次通过，开心
 
-bool hasPathSum(TreeNode* root, int sum) {
-	if (root == NULL)
-		return false;
-	if (root->left == NULL&&root->right == NULL&&sum == root->val)
-		return true;
-	if (hasPathSum(root->left, sum - root->val)|| hasPathSum(root->right, sum - root->val))
-		return true;
-	return false;
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if (root==NULL) return false;
+        if (root->left==NULL && root->right==NULL && root->val==targetSum)
+            return true;
+        return hasPathSum(root->left, targetSum-root->val) ||
+        hasPathSum(root->right, targetSum-root->val);
+    }
+};
 }
 // 这个方法其实是第一种的变形，会啦啊，嘿嘿，还行啊
 // 会了一点点，玩了几天实在是心情还不错啊
