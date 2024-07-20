@@ -1,20 +1,20 @@
-class Solution {// better method, great answer
+class Solution {
 public:
-    string longestPalindrome(string s) {
-        if (s.empty()) return "";
-        int dp[s.size()][s.size()] = {0},  len = 0;
+    string longestPalindrome(string s) { 
+        if(s.size()<=1) return s; 
+        vector<vector<int>>dp(s.size(), vector<int>(s.size(), 0)); 
+        int len=0;
         string res;
-        for (int i = 0; i < s.size(); ++i) {
-            for (int j = 0; j <= i; ++j) {
-                // i - j < 2 应该在前,不然数组越界------没懂这意思
-                dp[j][i] = (s[i] == s[j] && (i - j < 2 || dp[j + 1][i - 1]));
-                if (dp[j][i] && len < i - j + 1) {
-                    len = i - j + 1; 
+        for (int i=0;i <s.size();i++){
+            for (int j=0;j<=i;j++){
+                dp[j][i]=(s[j]==s[i]) && (i-j<=1 || dp[j+1][i-1]);
+                if(dp[j][i] && i-j+1>len){
+                    len=i-j+1;
                     res = s.substr(j, len);
                 }
-            } 
+            }
         } 
-         return res;
+        return res;
     }
 };
 //在之前有一个题目使用自下而上的解法
