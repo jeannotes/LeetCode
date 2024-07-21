@@ -1,17 +1,18 @@
-    //https://segmentfault.com/a/1190000002651263
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        int curmax = 0, jump = 0, i=0, n=nums.size()-1;
-        while(curmax<n){
-            int lastmax = curmax;
-            for(;i<=lastmax;i++){
-                curmax=max(curmax,i+nums[i]);
+        if(nums.size()<=1) return 0;
+        int curmax=0, end=0, ans=0;
+
+        for(int i=0;i<nums.size()-1;i++){
+            curmax = max(curmax, nums[i]+i);
+            if(i==end){
+                end=curmax;
+                ans++;
             }
-            if(curmax == lastmax) return -1;
-            jump++;
         }
-        return jump;
+        return ans;
+
     }
 };
 //比较典型的贪心。维护一个区间，区间表示第i步所能到达的索引范围。
