@@ -1,18 +1,15 @@
-class Solution1 {
+class Solution {
 public:
-//第一种解法：hash表
     int singleNumber(vector<int>& nums) {
-        unordered_map<int,int> hash;
-        int len=nums.size();
-        
-        for(int i=0;i<len;i++){
-            hash[nums[i]]++;
+        unordered_map<int, int> u_map;
+        for(int i=0; i<nums.size(); i++){
+            if(u_map.find(nums[i]) == u_map.end()) u_map[nums[i]]=1;
+            else u_map[nums[i]]=u_map[nums[i]]+1;
         }
-        for(int i=0;i<len;i++){
-            if(hash[nums[i]]!=3){
-                return nums[i];
-            }
+        for(int i=0; i<nums.size(); i++){
+            if(u_map[nums[i]] != 1) u_map.erase(nums[i]);
         }
+        return u_map.begin()->first;
     }
 };
 
