@@ -1,6 +1,13 @@
 class Solution {
 public:
-	int ladderLength(string start, string end, unordered_set<string> &dict) {
+    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+        unordered_set<string> u_set(wordList.begin(), wordList.end());
+        int res = ladderLengthHelper(beginWord, endWord, u_set);
+        return res;
+    }
+
+    int ladderLengthHelper(string start, string end, unordered_set<string> &dict) {
+        if (dict.find(end) == dict.end()) return 0;
 		queue<pair<string,int> >q;
 		unordered_set<string> visited;
 		
