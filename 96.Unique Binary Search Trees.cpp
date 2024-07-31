@@ -7,14 +7,15 @@ public:
         //f(n)--代表左半边有几个数
         //f(1)=f(0)*f(0)   f(2)=f(0)*f(1)+f(1)*f(0)
         //f(3)=f(0)*f(2)+f(1)*f(2)+f(2)*f(0)
-        vector<int> sum(n+1,0);//这个地方如果不初始化为0，那么后面相加，就会出现不是想要的数字
-        sum[0]=1;
-        for(int i=1;i<=n;i++){
-            for(int j=0;j<i;j++){
-                sum[i]+=sum[j]*sum[i-1-j];
-            }
+        if(n==1) return 1;
+        vector<int>dp(n+1, 0);
+        dp[0]=1;
+        dp[1]=1;
+        for(int i=2; i<=n; i++){
+            for(int j=0; j<i; j++)
+                dp[i] += dp[j]*dp[i-j-1];
         }
-        return sum[n];
+        return dp[n];
     }
 };
 //初始化一定要赋值
