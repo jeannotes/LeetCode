@@ -1,24 +1,22 @@
 class Solution {
 public:
-    int sum=INT_MIN;
+    int res=INT_MIN;
     int maxPathSum(TreeNode* root) {
-    	if (root==NULL){
-    		return 0;
-    	}
-    	maxPathSumHelper(root);
-    	return sum;
+        if(!root) return 0;
+        maxPathSumHelper(root, root->val);
+        return res;
     }
-    
-    int maxPathSumHelper(TreeNode* root){
-    	if (root==NULL){
-    		return 0;
-    	}//其实这里没必要继续写if (root->left==NULL&&...)  
-    	// 因为此时 假如返回的是root->val（也就是本节点） 其实是最大值啊 
-    	int left=max(0,maxPathSumHelper(root->left));
-    	int right=max(0,maxPathSumHelper(root->right));
-    
-    	sum=max(sum,left+right+root->val);
-    	return  root->val+max(left,right);
+
+    int maxPathSumHelper(TreeNode* root, int val) {
+        if(!root) return 0;
+        if(!root->left && !root->right){ 
+            res = max(res,  root->val);
+            return root->val;
+        }
+        int left = max(0, maxPathSumHelper(root->left, val));
+        int right = max(0, maxPathSumHelper(root->right, val));
+        res = max(res, left+right+root->val);
+        return root->val + max(left, right);
     }
 };
         //首先tem的功能就是左边加上节点加上右节点，更新整体的res值。ss 
