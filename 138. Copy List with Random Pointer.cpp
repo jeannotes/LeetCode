@@ -22,3 +22,23 @@ public:
         return map[head];
     }
 };
+Node* copyRandomList(Node* head) {
+        if(!head) return head;
+        Node *head2 = new Node(0), *dummy = head2;
+        unordered_map<Node*, Node*>map;
+        for(Node *tt = head; tt!=NULL; tt=tt->next, dummy=dummy->next){
+            dummy->next = new Node(tt->val);
+            map[tt]=dummy->next; 
+        }
+        dummy=head2;
+        for(Node *tt = head; tt!=NULL; tt=tt->next, dummy=dummy->next){
+            if(tt->random){
+                Node * tmp = map[tt->random];
+                dummy->next->random = tmp;
+                
+            } else{
+                dummy->next->random = NULL;
+            }
+        }
+        return head2->next;
+    }
