@@ -1,0 +1,47 @@
+// https://leetcode.cn/problems/clone-graph/solutions/370663/ke-long-tu-by-leetcode-solution
+// dfs
+class Solution {
+public:
+    unordered_map<Node*,Node*> map;
+    Node* cloneGraph(Node* node) {
+        if(!node) return NULL;
+        if(map.find(node)!=map.end()) return map[node];
+
+        map[node] = new Node(node->val);
+
+        for(int i=0; i<node->neighbors.size(); i++){
+            map[node]->neighbors.push_back(cloneGraph(node->neighbors[i])  );
+        }
+        return map[node];
+    }
+};
+
+// bfs
+class Solution {
+public:
+    
+    Node* cloneGraph(Node* node) {
+        if(!node) return NULL;
+        unordered_map<Node*,Node*> visited;
+
+        queue<Node*>Q;
+        Q.push(node);
+        visited[node]=new Node(node->val);
+
+        while(!Q.empty()){
+            Node *n = Q.front();
+            Q.pop();
+            for(int i=0; i<n->neighbors.size(); i++){
+                Node *neighbor = n->neighbors[i];
+                if(visited.find(neighbor)==visited.end()){
+                    Q.push(neighbor);
+                    visited[neighbor]=new Node(neighbor->val);
+                }
+                visited[n]->neighbors.push_back( visited[neighbor] );
+                    
+            }
+        }
+
+        return visited[node];
+    }
+};
