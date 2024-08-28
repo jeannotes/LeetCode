@@ -4,20 +4,25 @@
 // 不能理解为删减多少次，这样 dp[i][0]=1; 无法解释，就是出现次数 解释比较好
 class Solution {
 public:
+    static const int MOD= 1e9+7;
     int numDistinct(string s, string t) {
-            	int len1=s.size(),len2=t.size();
-    	vector<vector<uint64_t>>dp(len1+1, vector<uint64_t>(len2+1,0));
+        int n=s.size(), m=t.size();
+
+        vector<vector<int>>dp(n+1, vector<int>(m+1, 0));
+
         dp[0][0]=1;
-    	for (int i=1;i<=len1;i++){
-            dp[i][0]=1;
-    		for (int j=1;j<=len2;j++){
-    			if (s[i-1]==t[j-1]){
-    				dp[i][j]=dp[i-1][j-1]+dp[i-1][j];
-    			}else
-    				dp[i][j]=dp[i-1][j];
-    		}
-    	}
-    	return dp[len1][len2];
+        for(int i=1; i<=n; i++) dp[i][0]=1;
+        for(int j=1; j<=m; j++) dp[0][j]=0;
+
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=m; j++){
+                if(s[i-1]==t[j-1])
+                    dp[i][j]=(dp[i-1][j-1]+dp[i-1][j])%MOD;
+                else
+                    dp[i][j]=(dp[i-1][j])%MOD;
+            }
+        }
+        return dp[n][m];
     }
 };
 // https://leetcode.com/discuss/2143/any-better-solution-that-takes-less-than-space-while-in-time
