@@ -34,6 +34,23 @@ public:
     }
 };
 
-//竟然不会啦
-//还是会有很大问题啊，怎么这题不会呢
-//没有问题
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        if(triangle.size()==1) return triangle[0][0];
+        int n=triangle.size();
+        vector<vector<int>> dp(triangle);
+        for(int i=1; i<triangle.size(); i++){
+            // first
+            dp[i][0] += dp[i-1][0] ;
+            // middle part
+            for(int j=1; j<i; j++){
+                dp[i][j] += min(dp[i-1][j-1], dp[i-1][j]) ;
+            }
+            // last
+            dp[i][i] += dp[i-1][i-1] ; 
+        }
+        
+        return *min_element(dp[n-1].begin(), dp[n-1].end());
+    }
+};
