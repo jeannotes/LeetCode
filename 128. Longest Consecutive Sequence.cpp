@@ -44,3 +44,24 @@ public:
         return res;
     }
 };
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> u_set(nums.begin(), nums.end());
+
+        int res = 0;
+        for(unordered_set<int>::iterator it=u_set.begin();
+            it!=u_set.end();
+            it++ ){
+                int cur = *it;
+                if(!u_set.count(cur-1)){
+                    int x = cur+1, ans=1;
+                    while(u_set.count(x)){
+                        x++;ans++;
+                    }
+                    res = max(res, ans);
+                }
+            }
+        return res;
+    }
+};
