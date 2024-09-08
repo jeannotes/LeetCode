@@ -1,17 +1,12 @@
  //本质上方法一样，只是通过实践竟然不同
 
-class Solution2 {
-public:
-    int count=1;
-    int maxDepth(TreeNode* root) {
-        if(root==NULL){
-            return 0;
-        }
-        //int left=maxDepth(root->left);
-        //int right=maxDepth(root->right);
-        return max(maxDepth(root->left)+1,maxDepth(root->right)+1);
-    }
-};
+int maxDepth(TreeNode* root) {
+    if(!root) return 0;
+    if(!root->left) return 1+maxDepth(root->right);
+    if(!root->right) return 1+maxDepth(root->left);
+
+    return 1+std::max(maxDepth(root->left), maxDepth(root->right));
+}
 class Solution {
 public:
     int res = 0;
