@@ -1,17 +1,11 @@
  //https://leetcode.com/problems/minimum-depth-of-binary-tree/
-class Solution1 {
-public:
-    int minDepth(TreeNode* root) {
-    	if (root == NULL)
-    		return 0;
-    	if (root->left == NULL)
-    		return 1+minDepth(root->right);
-    	if (root->right == NULL)
-    		return 1+minDepth(root->left);
-    	int i = minDepth(root->left), j = minDepth(root->right);
-    	return 1 + min(i, j);
-    }
-};
+int minDepth(TreeNode* root) {
+    if(!root) return 0;
+    if(!root->left) return 1+minDepth(root->right);
+    if(!root->right) return 1+minDepth(root->left);
+
+    return 1+std::min(minDepth(root->left), minDepth(root->right));
+}
 //本题要注意的是，不能写成左子树空，就返回0，这时候就要加1，早返回右边的数值，详见代码
 //这里很重要
 // 还是不会啊， 非常大题目 well this is really good
