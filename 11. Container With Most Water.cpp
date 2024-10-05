@@ -49,6 +49,7 @@ left = 0, right = n-1
 (3) a[left] = a[right], left++, right--
 终止条件：left>-right
 
+20241005 两边往中间走，万一中间的某一个区间没有遇到怎么办？  答案：不可能，因为一定是左边++，右边--，所以一定遇到
 
 */
 // wait for LX to edit
