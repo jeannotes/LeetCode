@@ -27,3 +27,29 @@ public:
 //注意体会两种特殊情况 "()()" "(())"
 //出错根源在于"(())"  在res出栈后，如果不是空的，start+=i-tem+1; 这样会多加2
 // 不会了啊，稍微会了一丢丢
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int res=0, res_temp=0;
+        if(s.size()<=1) return res;
+
+        stack<int> st;
+        for(int i=0; i<s.size(); i++){
+            if(s[i]=='(') st.push(i);
+            else{
+                if(st.empty()) res_temp=0;
+                else{
+                    int prev=st.top();st.pop();
+                    if(st.empty()){
+                        res_temp += (i-prev+1); 
+                        res=max(res, res_temp);
+                    }else{
+                        res = max(res, i-st.top());
+                    }
+                    
+                }
+            }
+        }
+        return res;
+    }
+};
